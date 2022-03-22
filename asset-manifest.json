@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FrontendInterviewQuestions/static/css/main.11a89578.css",
+    "main.js": "/FrontendInterviewQuestions/static/js/main.9015587e.js",
+    "static/js/830.d311711d.chunk.js": "/FrontendInterviewQuestions/static/js/830.d311711d.chunk.js",
+    "index.html": "/FrontendInterviewQuestions/index.html",
+    "main.11a89578.css.map": "/FrontendInterviewQuestions/static/css/main.11a89578.css.map",
+    "main.9015587e.js.map": "/FrontendInterviewQuestions/static/js/main.9015587e.js.map",
+    "830.d311711d.chunk.js.map": "/FrontendInterviewQuestions/static/js/830.d311711d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11a89578.css",
+    "static/js/main.9015587e.js"
+  ]
+}
