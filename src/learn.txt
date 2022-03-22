@@ -1,0 +1,26 @@
+psuedo-class >> hover,link,visited
+CDN:A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
+ Ex: cloudfare
+hoisting
+event loop
+event delegation
+currying
+event bubbling
+event capturing
+closures
+debouncing
+
+map vs forech>>> foreach does not return any value whereas map return new array
+--compose>> compose take function and evaluate function where one fn out become input of other fn (right to left)
+const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)
+
+--pipe >> evaluate from left to right
+const pipe = (...fns)=>val=>fns.reduce((prev,fn)=>fn(prev),val)
+
+Promise: The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+--async/await
+--babel
+--ecma
+--webpack
+--npm
+--package.json
