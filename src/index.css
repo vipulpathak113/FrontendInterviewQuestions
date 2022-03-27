@@ -1,66 +1,79 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.bar-container{
+.bar-container {
   width: 200px;
   height: 30px;
   margin: 40px;
   background-color: grey;
 }
 
-.bar{
+.bar {
   height: 100%;
   background-color: green;
   width: 0%;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: center;
   background-color: darkkhaki;
 }
 
-.question-box{
+.question-box {
   padding: 10px;
-    margin: 10px;
-    border: 1px solid black;
-    max-height: 100%;
+  margin: 10px;
+  border: 1px solid black;
+  max-height: 100%;
 }
 
-.question{
-display: flex;
-}
-
-.answer{
+.question {
   display: flex;
 }
 
-.question-text{
+.answer {
+  display: flex;
+}
+
+.question-text {
   margin-right: 10px;
   font-size: larger;
   width: 100px;
+  font-weight: bold;
+  color: crimson;
 }
 
-.actual-question{
+.answer-text {
+  margin: 5px 0px 5px 0px;
+  font-size: larger;
+  color: #006400;
+  font-weight: bold;
+}
+
+.actual-question {
   font-size: larger;
 }
 
-.example{
-  color:blue
+.actual-answer{
+  font-size: larger;
+  margin-left: 20px;
 }
 
-.output{
-  color:orangered
+.example {
+  color: blue;
 }
 
+.output {
+  color: orangered;
+}
