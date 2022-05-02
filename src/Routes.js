@@ -3,12 +3,27 @@ import { Route, Switch, withRouter } from "react-router-dom";
 
 
 const Home = React.lazy(() => import("./components/home"));
+const Debouncing = React.lazy(() => import("./components/debouncing"));
+const InfiniteScroll = React.lazy(() => import("./components/infiniteScroll"));
+const ProgressBar = React.lazy(() => import("./components/progressBar"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
     {
       component: Home,
       path: "/FrontendInterviewQuestions",
+    },
+    {
+      component: Debouncing,
+      path: "/debouncing",
+    },
+    {
+      component: InfiniteScroll,
+      path: "/infiniteScroll",
+    },
+    {
+      component: ProgressBar,
+      path: "/progressbar",
     },
   ];
 

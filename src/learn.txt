@@ -47,7 +47,14 @@ async: download scripts in background > but executes immediately
 - if there are more than 1 scripts then any script can load first i.e order is not maintained
 -async is ignore if script tag does not have src attribute
 
-eslint????
+eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
+
+ESLint displays warning or error message when
+We use a variable without declaring it
+We re-declare the variable
+We try to change constant value
+We add un-necessary parenthesis
+When we use wrong syntax
 
 security attacks on frontend
 
@@ -136,3 +143,31 @@ fetchApi(){
 
 -- When an action is dispatched it goes to thunk, thunk sees what action creator has returned , if an object is returned it passes it to store directly, if a function is returned then passes dispatch as a parameter and calls that function
 
+ALGORITHM:
+MERGE SORT: Divide n conquer ALGORITHM
+- find mid
+- divide input into two parts first 0 to mid(left) and second mid+1 to length(right)
+- sort both and merge again
+- repeat process 
+> mergeSort(left)
+> mergeSort(right)
+> merge (left,right,orginalArr)>> check at i index for left and j index for right which is smaller and fill at k index of orginal
+
+--rest vs spread operator
+--shallow vs deep copy
+--pure component
+--arrow vs normal function
+--es6 features
+--div vs span
+-- css posistion\
+-- boxsizing
+-- doctype
+-- semantic tags
+-- getBoundingClientRect
+--CSR VS SSR
+-- optimization ques
+-- micro frontend architecture
+-- renderToString
+-- reactdom.hydrate
+-- proressive hydration
+-- Oauth 2.0
