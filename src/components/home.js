@@ -11,6 +11,7 @@ function home() {
         <Link to={"/progressbar"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Progress Bar</Link>
         <Link to={"/debouncing"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Debouncing and throtlling</Link>
         <Link to={"/infiniteScroll"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Infinite Scroll</Link>
+        <Link to={"/tictactoe"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Tic Tac Toe </Link>
         </div>
         </div>
       </div>
@@ -92,7 +93,7 @@ function home() {
             <ol>
               <li>
                 Promise.all() : It takes array of promises as an input and
-                promise will reolve if all the input promises are resolved, if
+                promise will resolve if all the input promises are resolved, if
                 one fails it rejects the promise
               </li>
               <li>

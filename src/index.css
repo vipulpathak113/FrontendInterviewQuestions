@@ -82,3 +82,22 @@ code {
 .output {
   color: orangered;
 }
+
+/* tic tac toe */
+
+#div1, #div4, #div7{
+  clear: left;
+  border-left-width: 0px !important;
+}
+
+#div1, #div2, #div3{
+  border-top-width: 0px !important;
+}
+
+#div3, #div6, #div9{
+  border-right-width: 0px !important;
+}
+
+#div7, #div8, #div9{
+  border-bottom-width: 0px !important;
+}

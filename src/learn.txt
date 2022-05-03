@@ -9,6 +9,7 @@ event bubbling
 event capturing
 closures
 debouncing
+throttling
 higher order functions
 
 map vs forech>>> foreach does not return any value whereas map return new array
@@ -25,20 +26,20 @@ Promise: The Promise object represents the eventual completion (or failure) of a
 --ecma: ECMAScript is the standard that JavaScript programming language uses. ECMAScript provides the specification on how JavaScript programming language should work.
 
 JavaScript ES6 (also known as ECMAScript 2015 or ECMAScript 6) is the newer version of JavaScript that was introduced in 2015.
-
+----------------------------------------------------------------------------------------
 --babel --- It is a transpiler which is used to convert ES6+ code to backward comaptible version of js so that it can be used with current and old browser environment
 transform syntax (let a ="xyz")
 polyfills to support functionality (like includes)
-
+-----------------------------------------------------------------------------------------
 --webpack:  Its a Module bundler which is use to bundle all modules in single file>
  Its main function is to create dependency graph so that it can be injected in proper order
-
+-----------------------------------------------------------------------------------------------
 --package.json> dependecies and ^ ,~ version
 ^ :  backwards-compatible new functionality also old functionality operational,bug fix
 Ex: if dependency is 3.4.2 it supports for 3.*.*(means on npm install if 3.5.0 is available then it will update it not 4.0.0)
 ~ :  bug fix
 Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
-
+----------------------------------------------------------------------------------------------------------
 --defer vs async:
 defer: download scripts in background> but executes once dom is loaded(but before DOMContentLoaded event), 
 -if there are more than 1 scripts then execution order is maintained
@@ -46,7 +47,7 @@ defer: download scripts in background> but executes once dom is loaded(but befor
 async: download scripts in background > but executes immediately 
 - if there are more than 1 scripts then any script can load first i.e order is not maintained
 -async is ignore if script tag does not have src attribute
-
+---------------------------------------------------------------------------
 eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
 ESLint displays warning or error message when
@@ -57,9 +58,20 @@ We add un-necessary parenthesis
 When we use wrong syntax
 
 security attacks on frontend
+-----------------------------------------------------------------------------------------------
+npm vs npx:
+NPM-
+>node package manager
+>Manages package/ cant run the package directly
+>run installed packages via scripts in package.json
+>takes space as it install package locally or globally
 
-npm vs npx
-
+NPX:
+>node package execute
+>execute package directly
+>can run package without installation remotely / also mentioned in package.json
+> save space as it is not installed globally or locally it directly runs it
+-------------------------------------------------------------------------------------------
 code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
 Using dynamic import we can do code splitting . Ex: import { add } from './math';
 
@@ -67,21 +79,21 @@ React.lazy takes a function that must call a dynamic import(). This must return 
 Ex: const Home = React.lazy(() => import("./components/home"));
 We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
 Ex: <Suspense fallback="Loader"><Home></>
-
+----------------------------------------------------------
 controlled vs uncontrolled form input:
 uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
 ex: <input type="text" ref = {this.input}/>
 controlled :  input field where value is provided by prop and its update on every onchange. so Ui and data are in sync
 ex: <input type="text" value={this.state.name} onchange={this.changeName}/>
 
-
+-------------------------------------------------------------------------------------------
 >>The lifecycle of an HTML page has three important events:
 --DOMContentLoaded –(it waits for scripts before them to load except async ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
 --load – not only HTML is loaded, but also all the external resources: images, styles etc.
 --unload – the user leaves the page
 --onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.
 If we cancel the event, the browser may ask the visitor if they are sure.
-
+--------------------------------------------------------------------------------------------------
 >>There are cases when we are not sure whether the document is ready or not. We’d like our function to execute when the DOM is loaded, be it now or later.
 
 The document.readyState property tells us about the current loading state.
@@ -95,7 +107,7 @@ There are 3 possible values:
 -onload >> check if element with src attribute is loaded
 -onerror >> check if element with src attribute is has some error on loading 
 
-
+---------------------------------------------------------------------
 >>What is Browserslist?
 Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
 usage: By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles,
@@ -104,7 +116,7 @@ not dead: Exclude browsers without official support in the last 24 months
 not ie <= 11: Exclude IE 11 and older versions
 not op_mini all: Exclude Opera Mini
 
-
+--------------------------------------------------------------------------------------
 >> REDUX
 ACTIONS:
 -- They are plan JS objects
@@ -142,7 +154,7 @@ fetchApi(){
 }
 
 -- When an action is dispatched it goes to thunk, thunk sees what action creator has returned , if an object is returned it passes it to store directly, if a function is returned then passes dispatch as a parameter and calls that function
-
+-------------------------------------------------------------------------------
 ALGORITHM:
 MERGE SORT: Divide n conquer ALGORITHM
 - find mid
@@ -153,13 +165,50 @@ MERGE SORT: Divide n conquer ALGORITHM
 > mergeSort(right)
 > merge (left,right,orginalArr)>> check at i index for left and j index for right which is smaller and fill at k index of orginal
 
---rest vs spread operator
+--rest vs spread operator:
+SPREAD: Takes iterable and spread it (ex: var abc = [1,2,3]>>[...abc]>[1,2,3])
+REST: function call if we do not know no. of arguments(ex: func(...args))
+
+-------------------------------------------------------------------------
 --shallow vs deep copy
+SHALLOW COPY: 
+-- for array> spread operator, Array.from,slice do shallow copy, for object> Object.assign, spread operator 
+Same memory is allocated to copied>> It copies non primitive containing primitives values
+ex:
+let person = {
+    "name":"vipul",
+    "address":{
+        "city":"gkp",
+    }
+}
+
+let copied = Object.assign({},person);
+copied.name = "test";
+copied.address.city="noida"
+>> now in person object, name is not changed but address will be changed
+
+DEEP COPY:
+-- Json.parse,JSON.stringfy do deep copy
+Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
+ex:
+let person = {
+    "name":"vipul",
+    "address":{
+        "city":"gkp",
+    }
+}
+
+let copied = JSON.parse(JSON.stringfy(person));
+copied.name = "test";
+copied.address.city="noida"
+>> now in person object, nothing will be changed
+-----------------------------------------------------------------
+
 --pure component
 --arrow vs normal function
 --es6 features
 --div vs span
--- css posistion\
+-- css posistion
 -- boxsizing
 -- doctype
 -- semantic tags
