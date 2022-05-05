@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/FrontendInterviewQuestions/static/css/main.b9de0b6b.css",
-    "main.js": "/FrontendInterviewQuestions/static/js/main.c6ab11df.js",
-    "static/js/981.42b7087a.chunk.js": "/FrontendInterviewQuestions/static/js/981.42b7087a.chunk.js",
+    "main.css": "/FrontendInterviewQuestions/static/css/main.0a0baf34.css",
+    "main.js": "/FrontendInterviewQuestions/static/js/main.7aedcfc3.js",
+    "static/js/906.7f174933.chunk.js": "/FrontendInterviewQuestions/static/js/906.7f174933.chunk.js",
     "static/js/310.d358b163.chunk.js": "/FrontendInterviewQuestions/static/js/310.d358b163.chunk.js",
     "static/js/678.ffb2caa0.chunk.js": "/FrontendInterviewQuestions/static/js/678.ffb2caa0.chunk.js",
     "static/js/451.64634b11.chunk.js": "/FrontendInterviewQuestions/static/js/451.64634b11.chunk.js",
     "static/js/740.32aa9769.chunk.js": "/FrontendInterviewQuestions/static/js/740.32aa9769.chunk.js",
+    "static/js/276.928450d6.chunk.js": "/FrontendInterviewQuestions/static/js/276.928450d6.chunk.js",
     "index.html": "/FrontendInterviewQuestions/index.html",
-    "main.b9de0b6b.css.map": "/FrontendInterviewQuestions/static/css/main.b9de0b6b.css.map",
-    "main.c6ab11df.js.map": "/FrontendInterviewQuestions/static/js/main.c6ab11df.js.map",
-    "981.42b7087a.chunk.js.map": "/FrontendInterviewQuestions/static/js/981.42b7087a.chunk.js.map",
+    "main.0a0baf34.css.map": "/FrontendInterviewQuestions/static/css/main.0a0baf34.css.map",
+    "main.7aedcfc3.js.map": "/FrontendInterviewQuestions/static/js/main.7aedcfc3.js.map",
+    "906.7f174933.chunk.js.map": "/FrontendInterviewQuestions/static/js/906.7f174933.chunk.js.map",
     "310.d358b163.chunk.js.map": "/FrontendInterviewQuestions/static/js/310.d358b163.chunk.js.map",
     "678.ffb2caa0.chunk.js.map": "/FrontendInterviewQuestions/static/js/678.ffb2caa0.chunk.js.map",
     "451.64634b11.chunk.js.map": "/FrontendInterviewQuestions/static/js/451.64634b11.chunk.js.map",
-    "740.32aa9769.chunk.js.map": "/FrontendInterviewQuestions/static/js/740.32aa9769.chunk.js.map"
+    "740.32aa9769.chunk.js.map": "/FrontendInterviewQuestions/static/js/740.32aa9769.chunk.js.map",
+    "276.928450d6.chunk.js.map": "/FrontendInterviewQuestions/static/js/276.928450d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9de0b6b.css",
-    "static/js/main.c6ab11df.js"
+    "static/css/main.0a0baf34.css",
+    "static/js/main.7aedcfc3.js"
   ]
 }
