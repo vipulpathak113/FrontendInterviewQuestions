@@ -205,15 +205,53 @@ copied.address.city="noida"
 -----------------------------------------------------------------
 
 --pure component
---arrow vs normal function
---es6 features
---div vs span
+It implements componentshouldUpdate with shallow props and state.
+If prev state and props are not changed then component will not re-render
+
+---------------------------------------------------------------------------------------------------------
+
+-- document.getelementbyid vs ref>> Anyone can be used
+----------------------------------------------------------------------------------------------------------
+-- component lifecycle>(in order which they are called)
+MOUNTING: When new instance created or inserted in DOM
+constructor
+static getDerivedStateFromProps>>if initial state depends on props, cannot use this inside it, return null or object updating state, called on every rerender
+render 
+componentDidMount
+
+UPDATING: When state and props are updated
+static getDerivedStateFromProps,
+shouldComponentUpdate(nextState,nextProps)>> tells if component should rerender or not,
+render
+getSnapshotsbeforeupdate
+componentDidUpdate
+
+UNMOUNTING: when component is removed from DOM
+> componentwillunmount
+
+ERROR: when there is error in component
+> static getDerivedStateFromError> show fallback UI in case of error>> return state
+ componentDidCatch>> logs error information
+-------------------------------------------------------
+React fragment: It let us group children elements without adding any extra node in DOM >> Ex: <><h1></h1></>
+
+--------------------------------------------------
+ErrorBoundry> 
+-- handle error in constructor,render,lifecycle
+   Handle error in production build not on local
+   Do not handle error in event handler
+   static getDerivedStateFromError or componentDidCatch is used to get error state
+
+-- different type of dependecies package.json
+-- arrow vs normal function
+-- es6 features
+-- div vs span
 -- css posistion
 -- boxsizing
 -- doctype
 -- semantic tags
 -- getBoundingClientRect
---CSR VS SSR
+-- CSR VS SSR
 -- optimization ques
 -- micro frontend architecture
 -- renderToString

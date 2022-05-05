@@ -101,3 +101,40 @@ code {
 #div7, #div8, #div9{
   border-bottom-width: 0px !important;
 }
+
+
+table {
+  margin:1em auto;
+  table-layout: fixed;
+  border: 1;
+  width: 550px;
+}
+td {
+  height:30px;
+  width: 10px!important;;
+  border:1px solid;
+  text-align:center;
+}
+td:first-child {
+  border-left:solid;
+}
+td:nth-child(3n) {
+  border-right:solid ;
+}
+tr:first-child {
+  border-top:solid;
+}
+tr:nth-child(3n) td {
+  border-bottom:solid ;
+}
+
+td input
+{
+  width: 100%;
+    box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  text-align: center;
+}
