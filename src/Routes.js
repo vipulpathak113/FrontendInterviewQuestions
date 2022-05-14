@@ -8,6 +8,8 @@ const InfiniteScroll = React.lazy(() => import("./components/infiniteScroll"));
 const ProgressBar = React.lazy(() => import("./components/progressBar"));
 const Tictactoe = React.lazy(() => import("./components/tictactoe"));
 const SodukuSolver = React.lazy(() => import("./components/sodukuSolve"));
+const ForEachPollyfill = React.lazy(() => import("./components/forEachPollyfill"));
+
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -34,6 +36,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: SodukuSolver,
       path: "/sodukuSolver",
+    },
+    {
+      component: ForEachPollyfill,
+      path: "/forEachPollyfill",
     },
   ];
 

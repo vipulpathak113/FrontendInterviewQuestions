@@ -57,7 +57,6 @@ We try to change constant value
 We add un-necessary parenthesis
 When we use wrong syntax
 
-security attacks on frontend
 -----------------------------------------------------------------------------------------------
 npm vs npx:
 NPM-
@@ -242,10 +241,145 @@ ErrorBoundry>
    Do not handle error in event handler
    static getDerivedStateFromError or componentDidCatch is used to get error state
 
+-------------------------------------------------------------------------------------
+
+useCallback-> It is a hook which return memoized version of function that changes if one of the dependency chnages (It caches whole function)
+useMemo - It caches the result from the function >> if dependency does not changes it will not change
+
+-----------------------------------------------------------------------------------------------------------
+Cookies- 
+>stores info max 4KB
+>can be deleted by setting expiry date(document.cookie="name=vipul;expires="+new Date().toString())[accept only UTC date]// max-age can be used which uses time in seconds
+>can be send to server on every http request
+>use Secure for sending cookes over https(document.cookie="name=vipul;Secure")
+>use HttpOnly when you do not want client to update the cookie (document.cookie="name=vipul;HttpOnly")
+>path="/" make cookie accessible to provided path only
+-----------------------------------------------------------------------------------------------
+Prototypal inheritance
+>In JavaScript, objects have a special hidden property [[Prototype]] 
+that is either null or references another object. That object is called “a prototype”.
+>When we read a property from object, and it’s missing, JavaScript automatically takes it from the prototype.
+>there can be only one _proto
+> we can read proto but cannot update 
+
+---------------------------------------------------------------
+Enumerable: 
+>An enumerable property in JavaScript means that a property can be viewed if it is iterated using the for…in loop or Object.keys() method. 
+All the properties which are created by simple assignment or property initializer are enumerable by default.
+Ex:
+const student = {
+    registration: '12342',
+    name: 'Sandeep',
+    age: 27,
+};
+  
+// This sets the enumerable attribute
+// of marks property to false 
+  
+Object.defineProperty(student, 'marks', {
+    value: 98,
+    configurable: true,
+    writable: false,
+    enumerable: false,
+});
+
+console.log(student.propertyIsEnumerable('marks')); returns false;
+
+for (const key in student){
+    console.log(key)
+} // registration name age>>>>>>>. marks will not be displayed as enumerable is set to false
+
+----------------------------------------------------------------
+
+A polyfill is a browser fallback, made in JavaScript, 
+that allows functionality you expect to work in modern browsers to work in older browsers
+----------------------------------------------------------------------------------------
+
 -- different type of dependecies package.json
+dependencies: All of the dependencies your project uses (the external code that the project relies on) are listed here
+devDependencies : Packages which are only needed during development, and aren't needed in production.
+peer dependecies: peerDependencies are for plugins, libraries that require a "host" library to perform their function, but may have been written at a time before the latest version of the host was released.
+---------------------------------------------------------------------------------------------------
+
+THIS:
+value of this always depends on how it is called;
+
+ex:
+
+let obj = {
+    functionA(){
+        console.log(this);
+    }
+
+     functionB(){
+        functionC(){
+            console.log(this)
+        }
+        return functionC();
+    }
+}
+
+>> obj.functionA()------- will give ans as obj object as it is called by obj itself;
+let test = obj.functionA;
+>> test(); --------- will global object as it is called directly
+>> obj.functionB(); --------- will global object as it is called directly (line 318)
+
+If we create object using new keyword then it always points to that object;
+ex:
+function funcA(){
+    return this;
+}
+
+var myfun = new funcA();
+console.log(myfun) // returns function funcA(){}
+------------------------------------------------------------------------------------------
 -- arrow vs normal function
+
+>Arrow function are not hoisted;
+>this is binded by previously value of this:
+ex:
+const obj = {
+    someMethod: () => {
+        return this;
+    }
+}
+
+let test = obj.someMethod;
+console.log(test()) // points to global (as this means window object)
+console.log(obj) // points to global(as this means window object)
+
+------------------------------------------------------------------------------------------
 -- es6 features
+
+1) Let & Const
+2) Arrow function
+3) Template liteteral
+4) Default parameter
+5) Object literal
+6) Rest & spread operators
+7) Destructing Assignment
++) Class, Module, Promises, Iterators e.t.c
+
+----------------------------------------------------------------------------------------------
+
 -- div vs span
+
+>> div is a block element and always starts in a new line
+>> span is a inline element and always appears in same line
+
+---------------------------------------------------------------------------------------------
+
+INLINE VS BLOCK vs INLINE-BLOCK:
+-- Inline cannot have margin padding height and will always be in same line 
+ex: a, apan, img
+
+--Block can have margin padding top
+ex: div, p, h1, section
+
+-- Inline BLOCK can have margin padding height and will always be in same line 
+
+-- thunk vs saga
+-- dom vs virtual dom
 -- css posistion
 -- boxsizing
 -- doctype
@@ -256,5 +390,6 @@ ErrorBoundry>
 -- micro frontend architecture
 -- renderToString
 -- reactdom.hydrate
--- proressive hydration
+-- progressive hydration
 -- Oauth 2.0
+--security attacks on frontend
