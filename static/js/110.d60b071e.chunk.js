@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkjs=self.webpackChunkjs||[]).push([[110],{245:function(o,t,n){n.r(t);n(791);var r=n(184);t.default=function(){return Array.prototype.CustomforEach=function(o,t){if("function"!==typeof o)throw new TypeError(o+" is not a function");var n=this;t=t||this;for(var r=0;r<n.length;)o(t,n[r],r,n),r++},[2,3,4,5].CustomforEach((function(o){console.log(o)})),(0,r.jsx)("div",{})}}}]);
+//# sourceMappingURL=110.d60b071e.chunk.js.map
