@@ -4,13 +4,18 @@ CDN:A content delivery network (CDN) is a group of geographically distributed se
 hoisting
 event loop
 event delegation
-currying
 event bubbling
 event capturing
 closures
 debouncing
 throttling
 higher order functions
+
+Currying:
+Currying is a function that takes one argument at a time and returns a new function expecting the next argument. 
+It is a conversion of functions from callable as f(a,b,c)into callable as f(a)(b)(c).
+
+-------------------------------------------------------------------------------------------------------
 
 map vs forech>>> foreach does not return any value whereas map return new array
 --compose>> compose take function and evaluate function where one fn out become input of other fn (right to left)
@@ -373,13 +378,49 @@ INLINE VS BLOCK vs INLINE-BLOCK:
 -- Inline cannot have margin padding height and will always be in same line 
 ex: a, apan, img
 
---Block can have margin padding top
+--Block can have margin padding top and will always be in next line
 ex: div, p, h1, section
 
 -- Inline BLOCK can have margin padding height and will always be in same line 
 
+------------------------------------------------------------------------------------------------
+
 -- thunk vs saga
--- dom vs virtual dom
+
+thunk:                              
+1.Less boilerplate code.                                                        
+2.Easy to understand as compared to redux-saga    
+3.Action creators may hold too much async logic          
+4.uses callbacks which may lead to situations like‘callback hell’ in some cases.
+
+Saga:
+1.More boilerplate code
+2.Difficult to understand as there are multiple concepts to learn like generator  
+3.Action creators stay pure
+4.Saga works like a separate thread or a background process that is solely 
+responsible for making your side effects or API calls unlike redux-thunk
+------------------------------------------------------------------------------------------
+-- dom vs virtual dom vs shadow dom
+DOM:
+-DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated.
+-It is object-based representation of the HTML elements. 
+-The browser converts the code into a tree-like structure that is made into javascript and compiled by the HTML and CSS compilers.
+
+Virtual DOM:
+
+-Virtual DOM, in simple terms, is nothing but the complete and full representation of an actual DOM.
+-Since any changes to the DOM causes the page to re-render more often than not, Virtual DOM primarily attempts to avoid any unnecessary and expensive changes to the DOM.
+-This is achieved by grouping changes and doing a single re-render instead of several small ones.
+-A copy of the DOM is saved in the memory and is used to compare any changes being done anywhere in the DOM, it’s compared to find differences. Thus, only those parts of the application are re-rendered which are updated instead of re-rendering the entire DOM.
+-VueJS and ReactJS both use Virtual DOM.
+
+Shadow DOM:
+
+-Shadow DOM, on the other hand, relates mostly to the concept of encapsulation. It is a tool that allows developers to overcome DOM encapsulation.
+-It refers to the browser’s potential to add a subtree of DOM elements into the rendering of a document, but not into the DOM tree of the main document.
+-Thus, it isolates the DOM and ensures that the DOM of a component is a separate element that won’t appear in a global DOM.
+ex: this.attachShadow({mode: 'open'}); -- open means you can manipulate shadow dom
+
 -- css posistion
 -- boxsizing
 -- doctype
@@ -392,4 +433,35 @@ ex: div, p, h1, section
 -- reactdom.hydrate
 -- progressive hydration
 -- Oauth 2.0
---security attacks on frontend
+
+---------------------------------------------------------------------------------------------------------------------
+
+--security attacks on frontend:
+> Clickjacking: 
+Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to 
+trick a user into clicking on a button or link on another page when they were intending to click on the top level page. 
+Prevention:
+>>X-Frame-Options HTTP header with value same origin
+>>"Content-Security-Policy", "frame-ancestors 'self';"
+
+>Cross Site Scripting (XSS):
+XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user
+Prevention:
+To prevent this attack in pure JS, let’s write a custom function that looks out for special characters such as “<” , “>” and “&” 
+String.prototype.escape = function() {
+    var tagsToReplace = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return this.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
+>Cross Site Request Forgery (CSRF):
+Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. 
+With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing.
+Prevention:
+Random Tokens
+Same site in cookies

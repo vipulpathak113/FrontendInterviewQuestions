@@ -9,7 +9,7 @@ const ProgressBar = React.lazy(() => import("./components/progressBar"));
 const Tictactoe = React.lazy(() => import("./components/tictactoe"));
 const SodukuSolver = React.lazy(() => import("./components/sodukuSolve"));
 const ForEachPollyfill = React.lazy(() => import("./components/forEachPollyfill"));
-
+const HOCImp = React.lazy(() => import("./components/HOC/HOCExample"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -41,6 +41,11 @@ const Routes = withRouter(({ location }) => {
       component: ForEachPollyfill,
       path: "/forEachPollyfill",
     },
+ {
+      component: HOCImp,
+      path: "/hoc",
+    },
+    
   ];
 
   return (
