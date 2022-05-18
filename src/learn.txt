@@ -376,7 +376,7 @@ console.log(obj) // points to global(as this means window object)
 
 INLINE VS BLOCK vs INLINE-BLOCK:
 -- Inline cannot have margin padding height and will always be in same line 
-ex: a, apan, img
+ex: a, span, img
 
 --Block can have margin padding top and will always be in next line
 ex: div, p, h1, section
@@ -421,10 +421,28 @@ Shadow DOM:
 -Thus, it isolates the DOM and ensures that the DOM of a component is a separate element that won’t appear in a global DOM.
 ex: this.attachShadow({mode: 'open'}); -- open means you can manipulate shadow dom
 
--- css posistion
--- boxsizing
--- doctype
--- semantic tags
+-- css position:
+
+STATIC (default): normal flow>> cannot change top bottom left right;
+RELATIVE: remove from normal document flow >> almost same as static but can change top bottom left right , 
+change top bottom left right respect to original position
+ABSOLUTE :  remove from normal document flow >> by default if we give top bottom left right it will be as per body, 
+if parent position is set to relative then absolute then top bottom left right it will be as per the parent
+FIXED: remove from normal document flow >>by default if we give top bottom left right it will be as per body
+if we scroll then also its postion is fixed
+STICKY: almost same as relative but if we scroll it and as per top bottom left right it becomes fixed
+
+---------------------------------------------------------------------------------------------------------
+pixel: fixed width as given
+% : relative to parent 
+vh/vw: relative to screen present
+rem : relative to root font size
+em: relative to parent font size
+------------------------------------------------------------------------------
+-- boxsizing: (default: content-box)
+>>Include padding and border in the element's total width and height
+------------------------------------------------------------------------------
+
 -- getBoundingClientRect
 -- CSR VS SSR
 -- optimization ques
@@ -435,6 +453,17 @@ ex: this.attachShadow({mode: 'open'}); -- open means you can manipulate shadow d
 -- Oauth 2.0
 
 ---------------------------------------------------------------------------------------------------------------------
+-- webAPI 
+ APIs that are built into the browser and provide native features that can also be used in a web app.
+
+---------------------------------------------------------------------------------------------------------------------
+-- doctype:
+The <!DOCTYPE html> (syntax for HTML5) declaration is used to inform a website visitor's browser that the document being rendered is an HTML document
+
+--------------------------------------------------------------------------------------------------------------------
+Semantic tags:
+Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation.
+Ex: <p><body>
 
 --security attacks on frontend:
 > Clickjacking: 

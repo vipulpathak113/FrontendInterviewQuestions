@@ -14,7 +14,7 @@ function home() {
       <h1 className="header">FrontEnd Interview Questions</h1>
       <div className="question-box">
         <div className="question">
-          <div className="question-text">Question : </div>
+          <div className="question-text" style={{backgroundColor:"var(--primary-color)"}}>Question : </div>
           <div className="actual-question">What are Pseudo-classes?</div>
         </div>
           <div className="answer-text">Answer :- </div>
