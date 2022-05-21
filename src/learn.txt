@@ -1,21 +1,80 @@
 psuedo-class >> hover,link,visited
+-----------------------------------------------------------------------------------------------------------------------------------------
 CDN:A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
  Ex: cloudfare
-hoisting
-event loop
-event delegation
-event bubbling
-event capturing
-closures
-debouncing
-throttling
-higher order functions
+-----------------------------------------------------------------------------------------------------------------------------------
+Hoisting:
+JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
 
+Hoisting allows functions to be safely used in code before they are declared.
+>function is hoisted with whole body
+>var is hoisted with undefined value
+>let and const are hoisted but in a different way >> The variable is said to be in a "temporal dead zone" (TDZ) from the start of the block until the declaration has completed. 
+>Function expressions and class expressions are not hoisted.
+
+--------------------------------------------------------------------------------------------------------------------------
+Event loop:
+An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
+callbackque--setTimeOut
+jobQueue -- promise thenables --> executes before callback queue
+
+>>Event loop checks b/w callstack and queue , if callstack is empty and queue has elements then it pop from queue and push in callstack
+--------------------------------------------------------------------------------------------------------------------
+Event delegation:
+The idea is that if we have a lot of elements handled in a similar way, 
+then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
+-------------------------------------------------------------------------------------------------------------------
+Event bubbling (by default on event handler) :
+>When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+>event.stopPropagation() stops the move upwards, but on the current element all other handlers will run.
+To stop the bubbling and prevent handlers on the current element from running,
+there’s a method event.stopImmediatePropagation(). After it no other handlers exec
+
+-------------------------------------------------------------------------------------------------------------------------
+Event capturing :
+Opposite of bubbling.
+Can be enabled by elem.addEventListener(..., {capture: true})
+
+------------------------------------------------------------------------------------------------------------------------
+Closures:
+>A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). 
+In other words, a closure gives you access to an outer function's scope from an inner function
+
+Ex:
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5);
+console.log(add5(2));  // 7
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Debouncing:
+Debounce function limits the execution of a function call and waits for a certain amount of time before running it again.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Throttling:
+Throttling is a technique in which, no matter how many times the user fires the event, 
+the attached function will be executed only once in a given time interval.
+----------------------------------------------------------------------------------------------------------
 Currying:
 Currying is a function that takes one argument at a time and returns a new function expecting the next argument. 
 It is a conversion of functions from callable as f(a,b,c)into callable as f(a)(b)(c).
 
 -------------------------------------------------------------------------------------------------------
+
+First Class functions:
+Functions are treated as values – that you can assign a function into a variable, pass it around etc.
+
+---------------------------------------------------------------------------------------------------------
+
+Higher Order functions:
+Functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
+
+---------------------------------------------------------------------------------------------------------------------------
 
 map vs forech>>> foreach does not return any value whereas map return new array
 --compose>> compose take function and evaluate function where one fn out become input of other fn (right to left)
@@ -53,6 +112,13 @@ async: download scripts in background > but executes immediately
 - if there are more than 1 scripts then any script can load first i.e order is not maintained
 -async is ignore if script tag does not have src attribute
 ---------------------------------------------------------------------------
+
+preload – load content that's required for the intial render
+prefetch - load content that may be needed to render the next page
+preconnect - establish a server connection without loading a specific resource yet
+
+---------------------------------------------------------------------------------------------------------------------------------
+
 eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
 ESLint displays warning or error message when
@@ -176,7 +242,8 @@ REST: function call if we do not know no. of arguments(ex: func(...args))
 -------------------------------------------------------------------------
 --shallow vs deep copy
 SHALLOW COPY: 
--- for array> spread operator, Array.from,slice do shallow copy, for object> Object.assign, spread operator 
+-- for array> spread operator, Array.from,slice do shallow copy
+-- for object> Object.assign, spread operator 
 Same memory is allocated to copied>> It copies non primitive containing primitives values
 ex:
 let person = {
@@ -248,8 +315,12 @@ ErrorBoundry>
 
 -------------------------------------------------------------------------------------
 
-useCallback-> It is a hook which return memoized version of function that changes if one of the dependency chnages (It caches whole function)
+useCallback-> It is a hook which return memoized version of function that changes if one of the dependency chnages (It caches whole function)[refrential inequality]
 useMemo - It caches the result from the function >> if dependency does not changes it will not change
+Common use cases of useMemo:
+1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
+2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed,
+ you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
 
 -----------------------------------------------------------------------------------------------------------
 Cookies- 
@@ -440,17 +511,142 @@ rem : relative to root font size
 em: relative to parent font size
 ------------------------------------------------------------------------------
 -- boxsizing: (default: content-box)
+>border-box
 >>Include padding and border in the element's total width and height
 ------------------------------------------------------------------------------
 
--- getBoundingClientRect
+ DOM MANIPULATION:
+.append() >> append element as well as string
+.appendChild() >> append only element
+.innerText >> only display text visible in UI
+.textContent >> display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
+
+--add data-test1-test2 attribute in element then we can get it by element.dataset.test1Test2 (it removes "data-" part and convert rest to camelCase)
+
+------------------------------------------------------------
+useRef: persist value b/w renders, do not render on value change and also can be used with dom manipulation
+
+-----------------------------------------------------------------------------------------------------------
+
+ResizeObserver:
+It reacts to changes in size of any of the observed elements, independent of what caused the change. 
+It provides access to the new size of the observed elements too.
+
+Ex: 
+var element = document.getelementbyid("test);
+var ro = new ResizeObserver(entries => { 
+    for (let entry of entries) {
+    const cr = entry.contentRect;
+    console.log('Element:', entry.target);
+    console.log(`Element size: ${cr.width}px x ${cr.height}px`);
+    console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
+  }
+});
+ro.observe(element);
+
+------------------------------------------------------------------------------------------------------
+
+Intersection observer:
+An Intersection Observer is a browser API that provides a way to observe the visibility and position of a DOM element relative to the containing root element or view
+
+Ex: 
+var element = document.getelementbyid("test);
+var ro = new ResizeObserver(entries => { 
+    for (let entry of entries) {
+    const cr =  entry.isIntersecting; // this tells that element is visible or not
+    console.log('Element:', entry.target);
+  }
+});
+ro.observe(element);
+
+Usage:
+>Lazy loading
+>Infinite Scrolling
+>visibility
+
+-----------------------------------------------------
+
+MutationObserver
+The MutationObserver interface provides the ability to watch for changes being made to the DOM tree.
+
+>Observe childlist
+>Observe attibutes
+>Observes text inside element
+>Can observe more element by setting subtree=1
+--------------------------------------------------------------------------------------------------------------------------------
+
+useState vs useReducer:
+useState uses useReducer underhood...so we can use useReducer inplace of useState any time;
+
+>>useReducer takes reducer fn and initial state and returns new state and dispatch 
+ex: const [state,dispatch] = useReducer(reducerFn,initialState)
+
+and reducerFn takes current state and action and return new state
+
+-------------------------------------------------------------------------------------------------------
+
+Pure Functions:
+> For the same input return same output
+> It depends only on input and not any external value;
+> input should be immutable
+> It cannot change any external value
+
 -- CSR VS SSR
+
+Client side rendering -- user requests a website -> server sends HTML file with JavaScript link  -> Browser downloads HTML ->
+Browser downloads CSS and JavaScript -> Browser executes framework / library -> browser loads the website.
+
+Server side rendering -- user requests a website -> server sends ready HTML files -> Browser renders HTML but it's not interactive
+Browser downloads JS -> Browser  executes JS -> Website is fully interactive.
+
+Pros and Cons of SSR
+
++ Enables pages to load faster which improves user experience.
++ Improved SEO
++ Ideal for sites which serves only static content
++ Less / no JS dependency
++ Optimal when user has slow internet connection
+
+- Bottlenecking is one of the disadvantages of SSR. When the server has a lot of visitors or the site is large, it can create substantial slowdowns while the page gets rendered.
+- reloads entire page upon every single navigation
+- Server costs will be high to provide higher performance
+- HTML is downloaded everytime user visits new page
+
+Pros and Cons of CSR
+
++ Renders faster after initial page load
++ Places lesser load on server
++ Rich site interaction
++ Offers quick navigation in the website
+
+- Slower initial page load
+- hinders SEO if it's not properly implemented
+- Relies on external libraries and framework
+
+Pre Rendering
+There are two forms of pre-rendering: Static Generation and Server-side Rendering. 
+The difference is in when it generates the HTML for a page.
+Static Generation is the pre-rendering method that generates the HTML at build time(stores at CDN). The pre-rendered HTML is then reused on each request.
+Server-side Rendering is the pre-rendering method that generates the HTML on each request.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
 -- optimization ques
 -- micro frontend architecture
 -- renderToString
 -- reactdom.hydrate
 -- progressive hydration
 -- Oauth 2.0
+-- all hooks
+
+---------------------------------------------------------------------------------------------------------------------------
+-- getBoundingClientRect:
+The getBoundingClientRect() method returns the size of an element and its position relative to the viewport. 
+It returns left, top, right, bottom, x, y, width, height.
+
+-------------------------------------------------------------------------------------------------------------
+-- forwardRef:
+React forwardRef is a method that allows parent components pass down (i.e., “forward”) refs to their children
 
 ---------------------------------------------------------------------------------------------------------------------
 -- webAPI 
@@ -494,3 +690,99 @@ With a little help of social engineering (such as sending a link via email or ch
 Prevention:
 Random Tokens
 Same site in cookies
+
+---------------------------------------------------------------------------------------------------------------------------
+Portals
+Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+ReactDOM.createPortal(child, container)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Generators
+Regular functions return only one, single value (or nothing).
+
+>Generators can return (“yield”) multiple values, one after another, on-demand. 
+They work great with iterables, allowing to create data streams with ease.
+
+Ex:
+function* generateSequence() {
+  yield 1;
+  yield 2;
+  return 3;
+}
+
+// "generator function" creates "generator object"
+let generator = generateSequence();
+console.log(generator.next()) // // {value: 1, done: false}
+console.log(generator.next()) // // {value: 2, done: false}
+console.log(generator.next()) // // {value: 3, done: false}
+console.log(generator.next()) // // {value: undefined, done: true}
+
+----------------------------------------------------------------------------------------------------
+PropTypes:
+PropTypes are a mechanism to ensure that components use the correct data type and pass the right data,
+and that components use the right type of props, and that receiving components receive the right type of props.
+
+Ex:
+classOrFunctionName.propTypes = {
+  name: PropTypes.string
+};
+
+-----------------------------------------------------------------------------------------------------
+Synthetic Event:
+>The synthetic event is a cross-browser wrapper of the browser's native event.
+
+Handling events with react have some syntactic differences from handling events on DOM. These are:
+1.React events are named as camelCase instead of lowercase.
+2.With JSX, a function is passed as the event handler instead of a string. 
+
+Event declaration in plain HTML:
+
+<button onclick="showMessage()">  
+       Hello JavaTpoint  
+</button>  
+
+
+Event declaration in React:
+
+<button onClick={showMessage}>  
+      Hello JavaTpoint  
+</button>
+
+3. In react, we cannot return false to prevent the default behavior. 
+We must call preventDefault event explicitly to prevent the default behavior.
+
+------------------------------------------------------------------------------------------------------------------------
+CSS:
+If one element have different attributes and have different values for them they work as:
+
+inline> id> class> tag
+
+ex:
+
+<div id="id", class="class" style="color:black"> Hi</div>
+
+0 1 0 0 >> order of specificity
+#id{
+    color: red
+}
+
+0 0 1 0 >> order of specificity
+.class{
+    color: green
+}
+
+0 0 0 1 >> order of specificity
+div{
+    color: blue
+}
+
+-for inline it is 1 0 0 0 >> order of specificity
+
+-if we do h1.header then 0 0 1 1 >> order of specificity
+
+>then Hi will be displayed in black color bcz of specificity of CSS
+
+>but if we use !important with any property then it will override all properties
+

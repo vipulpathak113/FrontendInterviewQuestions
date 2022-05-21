@@ -10,6 +10,7 @@ function SidebarComponents(props) {
         <Link to={"/tictactoe"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Tic Tac Toe </Link>
         <Link to={"/sodukuSolver"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Soduku Solver </Link>
         <Link to={"/hoc"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Higher Order Components </Link>
+        <Link to={"/playground"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Playground </Link>
         </div>
     );
 }
