@@ -294,8 +294,8 @@ UPDATING: When state and props are updated
 static getDerivedStateFromProps,
 shouldComponentUpdate(nextState,nextProps)>> tells if component should rerender or not,
 render
-getSnapshotsbeforeupdate
-componentDidUpdate
+getSnapshotBeforeUpdate(prevProps, prevState)>>It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
+componentDidUpdate(prevProps, prevState, snapshot)>> it receive snapshot from above method
 
 UNMOUNTING: when component is removed from DOM
 > componentwillunmount
@@ -367,8 +367,7 @@ for (const key in student){
 
 ----------------------------------------------------------------
 
-A polyfill is a browser fallback, made in JavaScript, 
-that allows functionality you expect to work in modern browsers to work in older browsers
+A polyfill is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers
 ----------------------------------------------------------------------------------------
 
 -- different type of dependecies package.json
@@ -398,7 +397,7 @@ let obj = {
 >> obj.functionA()------- will give ans as obj object as it is called by obj itself;
 let test = obj.functionA;
 >> test(); --------- will global object as it is called directly
->> obj.functionB(); --------- will global object as it is called directly (line 318)
+>> obj.functionB(); --------- will global object as it is called directly (line 393)
 
 If we create object using new keyword then it always points to that object;
 ex:
@@ -429,11 +428,11 @@ console.log(obj) // points to global(as this means window object)
 
 1) Let & Const
 2) Arrow function
-3) Template liteteral
-4) Default parameter
-5) Object literal
+3) Template liteteral > `My name is ${firstName} ${lastName}`
+4) Default parameter > function(height = 100, width = 50)
+5) Object literal 
 6) Rest & spread operators
-7) Destructing Assignment
+7) Destructing Assignment > let {name, age} = person;
 +) Class, Module, Promises, Iterators e.t.c
 
 ----------------------------------------------------------------------------------------------
@@ -471,6 +470,7 @@ Saga:
 4.Saga works like a separate thread or a background process that is solely 
 responsible for making your side effects or API calls unlike redux-thunk
 ------------------------------------------------------------------------------------------
+
 -- dom vs virtual dom vs shadow dom
 DOM:
 -DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated.
@@ -491,6 +491,8 @@ Shadow DOM:
 -It refers to the browser’s potential to add a subtree of DOM elements into the rendering of a document, but not into the DOM tree of the main document.
 -Thus, it isolates the DOM and ensures that the DOM of a component is a separate element that won’t appear in a global DOM.
 ex: this.attachShadow({mode: 'open'}); -- open means you can manipulate shadow dom
+
+element.shadowRoot
 
 -- css position:
 
@@ -785,4 +787,41 @@ div{
 >then Hi will be displayed in black color bcz of specificity of CSS
 
 >but if we use !important with any property then it will override all properties
+
+---------------------------------------------------------------------------------------------
+
+Why reducers are pure function?
+>Redux takes a given state (object) and passes it to each reducer in a loop. 
+And it expects a brand new object from the reducer if there are any changes. 
+And it also expects to get the old object back if there are no changes.
+
+>Redux simply checks whether the old object is the same as the new object by comparing the memory locations of the two objects. 
+So if you mutate the old object’s property inside a reducer, the “new state” and the “old state” will both point to the same object.
+Hence Redux thinks nothing has changed! So this won’t work.
+
+---------------------------------------------------------------------------------------------------
+
+Weakest set and weakest map:
+
+Normally js can store object as a key but only one time.
+ex:
+let a ={}
+let b = {num:2}
+
+let c = {}
+c[a] = "a";
+c[b] = "b";
+
+so console.log(c) // will print only b obj...it remembers only last obj.
+
+So Map was introduced to store multiple object as a key
+
+let mapval = new Map();
+mapval.set(a);
+mapval.set(b)
+
+But in this the object set as key are not garbage collected so we use weakmap;
+
+>Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
+
 

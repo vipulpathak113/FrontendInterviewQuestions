@@ -140,3 +140,32 @@ td input
   outline: none;
   text-align: center;
 }
+
+div[data-tooltip]::after{
+  content: attr(data-tooltip);
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: scale(0);
+  border: 1px solid black;
+  background-color: grey;
+  color:white;
+  border-radius: 5px;
+  transition: ease-out 150ms;
+}
+
+div[data-tooltip]:hover::after{
+  bottom: 100%;
+  transform: scale(1);
+}
+
+#o-list{
+  counter-reset: o-list;
+  list-style: none;
+}
+
+#o-list li::before{
+counter-increment: o-list;
+content: counter(o-list) '.';
+}
