@@ -117,6 +117,7 @@ preload – load content that's required for the intial render
 prefetch - load content that may be needed to render the next page
 preconnect - establish a server connection without loading a specific resource yet
 
+More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
 ---------------------------------------------------------------------------------------------------------------------------------
 
 eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
@@ -153,8 +154,15 @@ Ex: <Suspense fallback="Loader"><Home></>
 controlled vs uncontrolled form input:
 uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
 ex: <input type="text" ref = {this.input}/>
-controlled :  input field where value is provided by prop and its update on every onchange. so Ui and data are in sync
+controlled : In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
 ex: <input type="text" value={this.state.name} onchange={this.changeName}/>
+
+Why they are required?
+Unlike other MVC frameworks, React inclines more towards a View Library. That’s why React is more flexible as well as opinionated and provides both a model-view approach with controlled components and an only view approach using uncontrolled components. While other frameworks like Angular or VueJs provide only Model-View two-way binding approach to the same use case, React provides two distinctively flexible solutions. It depends on the use cases about how and where one would use any of those.
+
+Which one to use when?
+- For large app where all inputs are shared across app> controlled
+- For small app where no more runtime changes are required> uncontrolled 
 
 -------------------------------------------------------------------------------------------
 >>The lifecycle of an HTML page has three important events:
@@ -278,6 +286,9 @@ copied.address.city="noida"
 --pure component
 It implements componentshouldUpdate with shallow props and state.
 If prev state and props are not changed then component will not re-render
+
+
+Reference: https://blog.logrocket.com/what-are-react-pure-functional-components/#:~:text=A%20React%20component%20is%20considered,are%20treated%20as%20pure%20components.
 
 ---------------------------------------------------------------------------------------------------------
 
@@ -522,6 +533,9 @@ em: relative to parent font size
 .appendChild() >> append only element
 .innerText >> only display text visible in UI
 .textContent >> display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
+
+Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
+
 
 --add data-test1-test2 attribute in element then we can get it by element.dataset.test1Test2 (it removes "data-" part and convert rest to camelCase)
 
