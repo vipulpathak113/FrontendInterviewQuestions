@@ -837,5 +837,35 @@ mapval.set(b)
 But in this the object set as key are not garbage collected so we use weakmap;
 
 >Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
+-----------------------------------------------------------------
+Rendering concept:
+https://prateeksurana.me/blog/future-of-rendering-in-react/
 
+------------------------------------------------------------------
+-Feature detection is trying to verify if a feature exists. For example, if the user’s browser supports the geolocation APIs.
+EX: if(navigator.geolocation){}
+Feature inference is if A exists we can assume B will exist too.
+Ex: If navigator.geolocation exists then assume it is a modern browser or it has local storage
+UA String is the string that helps you identify which browser is used by the user.
+Ex: navigator.userAgent
 
+-----------------------------------------------------------------------
+Attribute vs property:
+Attribute:
+- It is for html
+- Ex: <input id="test"/> // here id is an attribute
+- Not case sensitive
+- on changing attribute, property changes
+- it only have string values 
+
+Property:
+- It is for DOM
+- Ex: input.id // here id is property
+- case sensitive
+- on changing property, attribute does not changes
+- it can have string, object,etc like in input.style
+
+data- attribute is changed into dataset property
+Ex: <input data-test/> is changed to dataset.Test
+
+---------------------------------
