@@ -868,4 +868,50 @@ Property:
 data- attribute is changed into dataset property
 Ex: <input data-test/> is changed to dataset.Test
 
----------------------------------
+-------------------------------------------------------------------------
+Core Web Vitals:
+
+>Loading performance – It shows how fast content appears on the screen.
+>Responsiveness – It shows how fast a page responds to user input.
+>Visual stability – It relates to whether the content on a page moves around on the screen while loading.
+
+LCP(Largest contentful Paint): Time to load largest element on Above the fold content of the page.
+> Largest means in terms of element size not file size
+> It works per page
+> Good if time < 2.5s
+
+Fix: 
+> Use CDN
+> try not to use slideshow and large images
+> try to load font with font-display: swap
+> use defer/async for scripts
+> html,js,css minify
+> preloading resources
+
+Time to First Byte (TTFB):
+>Time when user make an http request and recieve first data byte from server.
+
+Time to Interactive (TTI):
+> Measure of the time when page starts loading to page become interactive
+
+First Input Delay (FID):
+>It is a measure of time when user interact with application and browser process that event
+Ex: link click, button click etc
+> good if time is <100ms
+
+Cumulative Layout Shift (CLS):
+> It measure the layout such that if user is going to click on something and page layout changes
+> good if value is < 0.1
+Fix:
+> Fix assets dimensions
+> do not inject dynamic js
+> add new element below the fold
+
+--------------------------------------------------------------------------------------------
+Reflow vs Repaint:
+Reflow
+>The Reflow happens when the changes made to the elements affects the layout of a portion of the page or the whole page.
+>The Reflow of an element will cause the subsequent reflow of all the child and ancestor elements in the DOM.
+
+Repaint:
+the process where the browser starts giving the right appearance to the elements that were placed in the Rendered Tree such as background colours or font-sizes.
