@@ -76,7 +76,7 @@ Functions that work on other functions, meaning that they take one or more funct
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-map vs forech>>> foreach does not return any value whereas map return new array
+map vs foreach>>> foreach does not return any value whereas map return new array
 --compose>> compose take function and evaluate function where one fn out become input of other fn (right to left)
 const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)
 
@@ -915,3 +915,6 @@ Reflow
 
 Repaint:
 the process where the browser starts giving the right appearance to the elements that were placed in the Rendered Tree such as background colours or font-sizes.
+-----------------------------------------------------------
+Web Accessibility:
+https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
