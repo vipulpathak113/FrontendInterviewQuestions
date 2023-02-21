@@ -13,6 +13,7 @@ const HOCImp = React.lazy(() => import("./components/HOC/HOCExample"));
 const Playground = React.lazy(() => import("./components/playground"));
 const Section = React.lazy(() => import("./components/Section"));
 const Timer = React.lazy(() => import("./components/timer"));
+const ErrorBoundry = React.lazy(() => import("./components/ErrorComponent"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -59,6 +60,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Timer,
       path: "/timer",
+    },
+    {
+      component: ErrorBoundry,
+      path: "/errorBoundry",
     },
     
   ];
