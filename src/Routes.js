@@ -15,7 +15,7 @@ const Section = React.lazy(() => import("./components/Section"));
 const Timer = React.lazy(() => import("./components/timer"));
 const ErrorBoundry = React.lazy(() => import("./components/ErrorComponent"));
 const ContextApi = React.lazy(() => import("./components/ContextApi"));
-
+const CustomHookUse = React.lazy(() => import("./components/CustomHookUse"));
 
 
 const Routes = withRouter(({ location }) => {
@@ -71,6 +71,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: ContextApi,
       path: "/contextApi",
+    },
+    {
+      component: CustomHookUse,
+      path: "/customHookUse",
     },
   ];
 
