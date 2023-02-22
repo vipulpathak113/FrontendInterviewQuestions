@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+//Error boundary catches javascript error.
+
 export default class ErrorBoundry extends Component {
   constructor(props) {
     super(props);

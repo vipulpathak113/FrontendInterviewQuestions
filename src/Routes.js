@@ -14,6 +14,9 @@ const Playground = React.lazy(() => import("./components/playground"));
 const Section = React.lazy(() => import("./components/Section"));
 const Timer = React.lazy(() => import("./components/timer"));
 const ErrorBoundry = React.lazy(() => import("./components/ErrorComponent"));
+const ContextApi = React.lazy(() => import("./components/ContextApi"));
+
+
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -65,7 +68,10 @@ const Routes = withRouter(({ location }) => {
       component: ErrorBoundry,
       path: "/errorBoundry",
     },
-    
+    {
+      component: ContextApi,
+      path: "/contextApi",
+    },
   ];
 
   return (

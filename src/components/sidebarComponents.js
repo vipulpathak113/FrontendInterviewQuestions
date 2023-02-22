@@ -13,7 +13,7 @@ function SidebarComponents(props) {
         <Link to={"/playground"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Playground </Link>
         <Link to={"/timer"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Timer </Link>
         <Link to={"/errorBoundary"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Error Boundary </Link>
-
+        <Link to={"/contextApi"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> ContextApi </Link>
         </div>
     );
 }
