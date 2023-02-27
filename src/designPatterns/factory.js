@@ -1,6 +1,8 @@
 //Instead of exposing the concrete logic of creating objects, we encapsulate the logic in a function,
 // which can then be considered as a factory. 
 
+// It is a creational Pattern
+
 let UserFactory = function (role) {
     function SuperAdmin() {
       this.name = "superAdmin",
