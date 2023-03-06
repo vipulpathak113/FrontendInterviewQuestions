@@ -918,3 +918,27 @@ the process where the browser starts giving the right appearance to the elements
 -----------------------------------------------------------
 Web Accessibility:
 https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
+
+---------------------------------------------------------------------------------------------------
+React Fiber:
+React Fiber is the new reconciliation algorithm in React 16.
+You’ve most likely heard of the virtualDOM from React 15. It’s the old reconciler algorithm (also known as the Stack Reconciler) because it uses stack internally(synchronous).
+
+The main goals of the Fiber reconciler are incremental rendering, better or smoother rendering of UI animations and gestures, and responsiveness of the user interactions.
+The reconciler also allows you to divide the work into multiple chunks and divide the rendering work over multiple frames.
+It also adds the ability to define the priority for each unit of work and pause, reuse, and abort the work. 
+
+A fiber(lowercase ‘f’) is a simple JavaScript object. It represents the React element or a node of the DOM tree.
+It’s a unit of work. In comparison, Fiber is the React Fiber reconciler.
+
+React Fiber divides the update into units of works. It can assign the priority to each unit of work, and has the ability to pause, reuse, or abort the unit of work if not needed.
+React Fiber divides the work into multiple units of work, which is fiber.
+
+It generates two tree one is the current tree that is rendered on the UI currently and second is the work in progress tree on which work is done with begin work function.
+
+Fiber uses requestAnimationFrame for higher priority updates and requestIdleCallback for lower priority updates.
+So, while scheduling a work, Fiber checks the priority of the current update and the deadline.
+
+It happens in two phases:
+1. Render phase where reconciliation process happens and nothing is render to UI yet.
+2. Commit phase where after all work is completed it renders on the UI
