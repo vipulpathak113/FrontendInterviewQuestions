@@ -284,7 +284,7 @@ copied.address.city="noida"
 -----------------------------------------------------------------
 
 --pure component
-It implements componentshouldUpdate with shallow props and state.
+It implements shouldComponentUpdate with shallow props and state.
 If prev state and props are not changed then component will not re-render
 
 

@@ -1,70 +1,929 @@
-# Getting Started with Create React App
+# **Frontend Interview Questions**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- psuedo-class >> hover,link,visited
 
-## Available Scripts
+- **CDN:** A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
+ Ex: cloudfare
 
-In the project directory, you can run:
+- **Hoisting:**
+JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
 
-### `npm start`
+    Hoisting allows functions to be safely used in code before they are declared.
+    - function is hoisted with whole body
+    - var is hoisted with undefined value
+    - let and const are hoisted but in a different way >> The variable is said to be in a "temporal dead zone" (TDZ) from the start of the block until the declaration has completed. 
+    - Function expressions and class expressions are not hoisted.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Event loop**:
+An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
+callbackque--setTimeOut
+jobQueue -- promise thenables --> executes before callback queue
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Event loop checks b/w callstack and queue , if callstack is empty and queue has elements then it pop from queue and push in callstack
 
-### `npm test`
+- **Event delegation**:
+The idea is that if we have a lot of elements handled in a similar way, 
+then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Event bubbling** (by default on event handler) :
+When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+    - **event.stopPropagation()** stops the move upwards, but on the current element all other handlers will run.
+    - **stopImmediatePropagation()** To stop the bubbling and prevent handlers on the current element from running,. After it no other handlers exec
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Event capturing** :
+Opposite of bubbling.
+Can be enabled by elem.addEventListener(..., {capture: true})
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Closures**: A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). 
+ In other words, a closure gives you access to an outer function's scope from an inner function
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```js
+    function makeAdder(x) {
+    return function(y) {
+        return x + y;
+    };
+    }
 
-### `npm run eject`
+    var add5 = makeAdder(5);
+    console.log(add5(2));  // 7
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Debouncing**: Debounce function limits the execution of a function call and waits for a certain amount of time before running it again.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Throttling**: Throttling is a technique in which, no matter how many times the user fires the event, 
+the attached function will be executed only once in a given time interval.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Currying**: Currying is a function that takes one argument at a time and returns a new function expecting the next argument. 
+It is a conversion of functions from callable as f(a,b,c)into callable as f(a)(b)(c).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **First Class functions**: Functions are treated as values – that you can assign a function into a variable, pass it around etc.
 
-## Learn More
+- **Higher Order functions**: Functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **map vs foreach** : foreach does not return any value whereas map return new array
+- **compose** : compose take function and evaluate function where one fn out become input of other fn (right to left)
+const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **pipe** : evaluate from left to right
+const pipe = (...fns)=>val=>fns.reduce((prev,fn)=>fn(prev),val)
 
-### Code Splitting
+- **Promise**: The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **async/await** : makes promise code cleaner
 
-### Analyzing the Bundle Size
+- **ECMA** : ECMAScript is the standard that JavaScript programming language uses. ECMAScript provides the specification on how JavaScript programming language should work.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  JavaScript ES6 (also known as ECMAScript 2015 or ECMAScript 6) is the newer version of JavaScript that was introduced in 2015.
 
-### Making a Progressive Web App
+- **Babel** : It is a transpiler which is used to convert ES6+ code to backward comaptible version of js so that it can be used with current and old browser environment.
+It transforms syntax (let a ="xyz") and
+polyfills to support functionality (like includes)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Webpack**:  Its a Module bundler which is use to bundle all modules in single file>
+ Its main function is to create dependency graph so that it can be injected in proper order
 
-### Advanced Configuration
+- Package.json : dependecies and ^ ,~ version
+^ :  backwards-compatible new functionality also old functionality operational,bug fix
+Ex: if dependency is 3.4.2 it supports for 3.*.*(means on npm install if 3.5.0 is available then it will update it not 4.0.0)
+~ :  bug fix
+Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
+----------------------------------------------------------------------------------------------------------
+--defer vs async:
+defer: download scripts in background> but executes once dom is loaded(but before DOMContentLoaded event), 
+-if there are more than 1 scripts then execution order is maintained
+-defer is ignore if script tag does not have src attribute
+async: download scripts in background > but executes immediately 
+- if there are more than 1 scripts then any script can load first i.e order is not maintained
+-async is ignore if script tag does not have src attribute
+---------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+preload – load content that's required for the intial render
+prefetch - load content that may be needed to render the next page
+preconnect - establish a server connection without loading a specific resource yet
 
-### Deployment
+More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
+---------------------------------------------------------------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
-### `npm run build` fails to minify
+ESLint displays warning or error message when
+We use a variable without declaring it
+We re-declare the variable
+We try to change constant value
+We add un-necessary parenthesis
+When we use wrong syntax
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-----------------------------------------------------------------------------------------------
+npm vs npx:
+NPM-
+>node package manager
+>Manages package/ cant run the package directly
+>run installed packages via scripts in package.json
+>takes space as it install package locally or globally
+
+NPX:
+>node package execute
+>execute package directly
+>can run package without installation remotely / also mentioned in package.json
+> save space as it is not installed globally or locally it directly runs it
+-------------------------------------------------------------------------------------------
+code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
+Using dynamic import we can do code splitting . Ex: import { add } from './math';
+
+React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
+Ex: const Home = React.lazy(() => import("./components/home"));
+We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
+Ex: <Suspense fallback="Loader"><Home></>
+----------------------------------------------------------
+controlled vs uncontrolled form input:
+uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
+ex: <input type="text" ref = {this.input}/>
+controlled : In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
+ex: <input type="text" value={this.state.name} onchange={this.changeName}/>
+
+Why they are required?
+Unlike other MVC frameworks, React inclines more towards a View Library. That’s why React is more flexible as well as opinionated and provides both a model-view approach with controlled components and an only view approach using uncontrolled components. While other frameworks like Angular or VueJs provide only Model-View two-way binding approach to the same use case, React provides two distinctively flexible solutions. It depends on the use cases about how and where one would use any of those.
+
+Which one to use when?
+- For large app where all inputs are shared across app> controlled
+- For small app where no more runtime changes are required> uncontrolled 
+
+-------------------------------------------------------------------------------------------
+>>The lifecycle of an HTML page has three important events:
+--DOMContentLoaded –(it waits for scripts before them to load except async ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
+--load – not only HTML is loaded, but also all the external resources: images, styles etc.
+--unload – the user leaves the page
+--onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.
+If we cancel the event, the browser may ask the visitor if they are sure.
+--------------------------------------------------------------------------------------------------
+>>There are cases when we are not sure whether the document is ready or not. We’d like our function to execute when the DOM is loaded, be it now or later.
+
+The document.readyState property tells us about the current loading state.
+
+There are 3 possible values:
+
+"loading" – the document is loading.
+"interactive" – the document was fully read.
+"complete" – the document was fully read and all resources (like images) are loaded too.
+
+-onload >> check if element with src attribute is loaded
+-onerror >> check if element with src attribute is has some error on loading 
+
+---------------------------------------------------------------------
+>>What is Browserslist?
+Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
+usage: By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles,
+ex: 0.2%: All browsers that have at least 0,2% of global market share
+not dead: Exclude browsers without official support in the last 24 months
+not ie <= 11: Exclude IE 11 and older versions
+not op_mini all: Exclude Opera Mini
+
+--------------------------------------------------------------------------------------
+>> REDUX
+ACTIONS:
+-- They are plan JS objects
+-- They are synchronous
+-- Actions tells store that there is a change (Pass packet of information to store)
+
+Ex: {type:"ADD_CHANGE",payload:data}
+
+REDUCER:
+-- Reducer are pure JavaScript functions
+-- Reducer takes current state and action as input and return new state and then store updates the new state
+-- Reducers are responsible for particular state in the store
+-- All reducers are called when an action is dispatched
+
+STORE:
+Provider take store as props and its main function is to provide store to all components
+
+REDUX-THUNK:
+Thunk are functions which are used to delay a functionality
+-- to make action asynchronous we wrap it by thunk function
+Ex: Before thunk action creator looks like:
+
+fetchApi(){
+    return {type:"ADD_CHANGE",payload:data}
+}
+
+After thunk:
+fetchApi(){
+
+    return(dispatch)=>{
+
+    dispatch({type:"ADD_CHANGE",payload:data})
+    }
+
+}
+
+-- When an action is dispatched it goes to thunk, thunk sees what action creator has returned , if an object is returned it passes it to store directly, if a function is returned then passes dispatch as a parameter and calls that function
+-------------------------------------------------------------------------------
+ALGORITHM:
+MERGE SORT: Divide n conquer ALGORITHM
+- find mid
+- divide input into two parts first 0 to mid(left) and second mid+1 to length(right)
+- sort both and merge again
+- repeat process 
+> mergeSort(left)
+> mergeSort(right)
+> merge (left,right,orginalArr)>> check at i index for left and j index for right which is smaller and fill at k index of orginal
+
+--rest vs spread operator:
+SPREAD: Takes iterable and spread it (ex: var abc = [1,2,3]>>[...abc]>[1,2,3])
+REST: function call if we do not know no. of arguments(ex: func(...args))
+
+-------------------------------------------------------------------------
+--shallow vs deep copy
+SHALLOW COPY: 
+-- for array> spread operator, Array.from,slice do shallow copy
+-- for object> Object.assign, spread operator 
+Same memory is allocated to copied>> It copies non primitive containing primitives values
+ex:
+let person = {
+    "name":"vipul",
+    "address":{
+        "city":"gkp",
+    }
+}
+
+let copied = Object.assign({},person);
+copied.name = "test";
+copied.address.city="noida"
+>> now in person object, name is not changed but address will be changed
+
+DEEP COPY:
+-- Json.parse,JSON.stringfy do deep copy
+Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
+ex:
+let person = {
+    "name":"vipul",
+    "address":{
+        "city":"gkp",
+    }
+}
+
+let copied = JSON.parse(JSON.stringfy(person));
+copied.name = "test";
+copied.address.city="noida"
+>> now in person object, nothing will be changed
+-----------------------------------------------------------------
+
+--pure component
+It implements shouldComponentUpdate with shallow props and state.
+If prev state and props are not changed then component will not re-render
+
+
+Reference: https://blog.logrocket.com/what-are-react-pure-functional-components/#:~:text=A%20React%20component%20is%20considered,are%20treated%20as%20pure%20components.
+
+---------------------------------------------------------------------------------------------------------
+
+-- document.getelementbyid vs ref>> Anyone can be used
+----------------------------------------------------------------------------------------------------------
+-- component lifecycle>(in order which they are called)
+MOUNTING: When new instance created or inserted in DOM
+constructor
+static getDerivedStateFromProps>>if initial state depends on props, cannot use this inside it, return null or object updating state, called on every rerender
+render 
+componentDidMount
+
+UPDATING: When state and props are updated
+static getDerivedStateFromProps,
+shouldComponentUpdate(nextState,nextProps)>> tells if component should rerender or not,
+render
+getSnapshotBeforeUpdate(prevProps, prevState)>>It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
+componentDidUpdate(prevProps, prevState, snapshot)>> it receive snapshot from above method
+
+UNMOUNTING: when component is removed from DOM
+> componentwillunmount
+
+ERROR: when there is error in component
+> static getDerivedStateFromError> show fallback UI in case of error>> return state
+ componentDidCatch>> logs error information
+-------------------------------------------------------
+React fragment: It let us group children elements without adding any extra node in DOM >> Ex: <><h1></h1></>
+
+--------------------------------------------------
+ErrorBoundry> 
+-- handle error in constructor,render,lifecycle
+   Handle error in production build not on local
+   Do not handle error in event handler
+   static getDerivedStateFromError or componentDidCatch is used to get error state
+
+-------------------------------------------------------------------------------------
+
+useCallback-> It is a hook which return memoized version of function that changes if one of the dependency chnages (It caches whole function)[refrential inequality]
+useMemo - It caches the result from the function >> if dependency does not changes it will not change
+Common use cases of useMemo:
+1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
+2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed,
+ you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
+
+-----------------------------------------------------------------------------------------------------------
+Cookies- 
+>stores info max 4KB
+>can be deleted by setting expiry date(document.cookie="name=vipul;expires="+new Date().toString())[accept only UTC date]// max-age can be used which uses time in seconds
+>can be send to server on every http request
+>use Secure for sending cookes over https(document.cookie="name=vipul;Secure")
+>use HttpOnly when you do not want client to update the cookie (document.cookie="name=vipul;HttpOnly")
+>path="/" make cookie accessible to provided path only
+-----------------------------------------------------------------------------------------------
+Prototypal inheritance
+>In JavaScript, objects have a special hidden property [[Prototype]] 
+that is either null or references another object. That object is called “a prototype”.
+>When we read a property from object, and it’s missing, JavaScript automatically takes it from the prototype.
+>there can be only one _proto
+> we can read proto but cannot update 
+
+---------------------------------------------------------------
+Enumerable: 
+>An enumerable property in JavaScript means that a property can be viewed if it is iterated using the for…in loop or Object.keys() method. 
+All the properties which are created by simple assignment or property initializer are enumerable by default.
+Ex:
+const student = {
+    registration: '12342',
+    name: 'Sandeep',
+    age: 27,
+};
+  
+// This sets the enumerable attribute
+// of marks property to false 
+  
+Object.defineProperty(student, 'marks', {
+    value: 98,
+    configurable: true,
+    writable: false,
+    enumerable: false,
+});
+
+console.log(student.propertyIsEnumerable('marks')); returns false;
+
+for (const key in student){
+    console.log(key)
+} // registration name age>>>>>>>. marks will not be displayed as enumerable is set to false
+
+----------------------------------------------------------------
+
+A polyfill is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers
+----------------------------------------------------------------------------------------
+
+-- different type of dependecies package.json
+dependencies: All of the dependencies your project uses (the external code that the project relies on) are listed here
+devDependencies : Packages which are only needed during development, and aren't needed in production.
+peer dependecies: peerDependencies are for plugins, libraries that require a "host" library to perform their function, but may have been written at a time before the latest version of the host was released.
+---------------------------------------------------------------------------------------------------
+
+THIS:
+value of this always depends on how it is called;
+
+ex:
+
+let obj = {
+    functionA(){
+        console.log(this);
+    }
+
+     functionB(){
+        functionC(){
+            console.log(this)
+        }
+        return functionC();
+    }
+}
+
+>> obj.functionA()------- will give ans as obj object as it is called by obj itself;
+let test = obj.functionA;
+>> test(); --------- will global object as it is called directly
+>> obj.functionB(); --------- will global object as it is called directly (line 393)
+
+If we create object using new keyword then it always points to that object;
+ex:
+function funcA(){
+    return this;
+}
+
+var myfun = new funcA();
+console.log(myfun) // returns function funcA(){}
+------------------------------------------------------------------------------------------
+-- arrow vs normal function
+
+>Arrow function are not hoisted;
+>this is binded by previously value of this:
+ex:
+const obj = {
+    someMethod: () => {
+        return this;
+    }
+}
+
+let test = obj.someMethod;
+console.log(test()) // points to global (as this means window object)
+console.log(obj) // points to global(as this means window object)
+
+------------------------------------------------------------------------------------------
+-- es6 features
+
+1) Let & Const
+2) Arrow function
+3) Template liteteral > `My name is ${firstName} ${lastName}`
+4) Default parameter > function(height = 100, width = 50)
+5) Object literal 
+6) Rest & spread operators
+7) Destructing Assignment > let {name, age} = person;
++) Class, Module, Promises, Iterators e.t.c
+
+----------------------------------------------------------------------------------------------
+
+-- div vs span
+
+>> div is a block element and always starts in a new line
+>> span is a inline element and always appears in same line
+
+---------------------------------------------------------------------------------------------
+
+INLINE VS BLOCK vs INLINE-BLOCK:
+-- Inline cannot have margin padding height and will always be in same line 
+ex: a, span, img
+
+--Block can have margin padding top and will always be in next line
+ex: div, p, h1, section
+
+-- Inline BLOCK can have margin padding height and will always be in same line 
+
+------------------------------------------------------------------------------------------------
+
+-- thunk vs saga
+
+thunk:                              
+1.Less boilerplate code.                                                        
+2.Easy to understand as compared to redux-saga    
+3.Action creators may hold too much async logic          
+4.uses callbacks which may lead to situations like‘callback hell’ in some cases.
+
+Saga:
+1.More boilerplate code
+2.Difficult to understand as there are multiple concepts to learn like generator  
+3.Action creators stay pure
+4.Saga works like a separate thread or a background process that is solely 
+responsible for making your side effects or API calls unlike redux-thunk
+------------------------------------------------------------------------------------------
+
+-- dom vs virtual dom vs shadow dom
+DOM:
+-DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated.
+-It is object-based representation of the HTML elements. 
+-The browser converts the code into a tree-like structure that is made into javascript and compiled by the HTML and CSS compilers.
+
+Virtual DOM:
+
+-Virtual DOM, in simple terms, is nothing but the complete and full representation of an actual DOM.
+-Since any changes to the DOM causes the page to re-render more often than not, Virtual DOM primarily attempts to avoid any unnecessary and expensive changes to the DOM.
+-This is achieved by grouping changes and doing a single re-render instead of several small ones.
+-A copy of the DOM is saved in the memory and is used to compare any changes being done anywhere in the DOM, it’s compared to find differences. Thus, only those parts of the application are re-rendered which are updated instead of re-rendering the entire DOM.
+-VueJS and ReactJS both use Virtual DOM.
+
+Shadow DOM:
+
+-Shadow DOM, on the other hand, relates mostly to the concept of encapsulation. It is a tool that allows developers to overcome DOM encapsulation.
+-It refers to the browser’s potential to add a subtree of DOM elements into the rendering of a document, but not into the DOM tree of the main document.
+-Thus, it isolates the DOM and ensures that the DOM of a component is a separate element that won’t appear in a global DOM.
+ex: this.attachShadow({mode: 'open'}); -- open means you can manipulate shadow dom
+
+element.shadowRoot
+
+-- css position:
+
+STATIC (default): normal flow>> cannot change top bottom left right;
+RELATIVE: remove from normal document flow >> almost same as static but can change top bottom left right , 
+change top bottom left right respect to original position
+ABSOLUTE :  remove from normal document flow >> by default if we give top bottom left right it will be as per body, 
+if parent position is set to relative then absolute then top bottom left right it will be as per the parent
+FIXED: remove from normal document flow >>by default if we give top bottom left right it will be as per body
+if we scroll then also its postion is fixed
+STICKY: almost same as relative but if we scroll it and as per top bottom left right it becomes fixed
+
+---------------------------------------------------------------------------------------------------------
+pixel: fixed width as given
+% : relative to parent 
+vh/vw: relative to screen present
+rem : relative to root font size
+em: relative to parent font size
+------------------------------------------------------------------------------
+-- boxsizing: (default: content-box)
+>border-box
+>>Include padding and border in the element's total width and height
+------------------------------------------------------------------------------
+
+ DOM MANIPULATION:
+.append() >> append element as well as string
+.appendChild() >> append only element
+.innerText >> only display text visible in UI
+.textContent >> display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
+
+Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
+
+
+--add data-test1-test2 attribute in element then we can get it by element.dataset.test1Test2 (it removes "data-" part and convert rest to camelCase)
+
+------------------------------------------------------------
+useRef: persist value b/w renders, do not render on value change and also can be used with dom manipulation
+
+-----------------------------------------------------------------------------------------------------------
+
+ResizeObserver:
+It reacts to changes in size of any of the observed elements, independent of what caused the change. 
+It provides access to the new size of the observed elements too.
+
+Ex: 
+var element = document.getelementbyid("test);
+var ro = new ResizeObserver(entries => { 
+    for (let entry of entries) {
+    const cr = entry.contentRect;
+    console.log('Element:', entry.target);
+    console.log(`Element size: ${cr.width}px x ${cr.height}px`);
+    console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
+  }
+});
+ro.observe(element);
+
+------------------------------------------------------------------------------------------------------
+
+Intersection observer:
+An Intersection Observer is a browser API that provides a way to observe the visibility and position of a DOM element relative to the containing root element or view
+
+Ex: 
+var element = document.getelementbyid("test);
+var ro = new ResizeObserver(entries => { 
+    for (let entry of entries) {
+    const cr =  entry.isIntersecting; // this tells that element is visible or not
+    console.log('Element:', entry.target);
+  }
+});
+ro.observe(element);
+
+Usage:
+>Lazy loading
+>Infinite Scrolling
+>visibility
+
+-----------------------------------------------------
+
+MutationObserver
+The MutationObserver interface provides the ability to watch for changes being made to the DOM tree.
+
+>Observe childlist
+>Observe attibutes
+>Observes text inside element
+>Can observe more element by setting subtree=1
+--------------------------------------------------------------------------------------------------------------------------------
+
+useState vs useReducer:
+useState uses useReducer underhood...so we can use useReducer inplace of useState any time;
+
+>>useReducer takes reducer fn and initial state and returns new state and dispatch 
+ex: const [state,dispatch] = useReducer(reducerFn,initialState)
+
+and reducerFn takes current state and action and return new state
+
+-------------------------------------------------------------------------------------------------------
+
+Pure Functions:
+> For the same input return same output
+> It depends only on input and not any external value;
+> input should be immutable
+> It cannot change any external value
+
+-- CSR VS SSR
+
+Client side rendering -- user requests a website -> server sends HTML file with JavaScript link  -> Browser downloads HTML ->
+Browser downloads CSS and JavaScript -> Browser executes framework / library -> browser loads the website.
+
+Server side rendering -- user requests a website -> server sends ready HTML files -> Browser renders HTML but it's not interactive
+Browser downloads JS -> Browser  executes JS -> Website is fully interactive.
+
+Pros and Cons of SSR
+
++ Enables pages to load faster which improves user experience.
++ Improved SEO
++ Ideal for sites which serves only static content
++ Less / no JS dependency
++ Optimal when user has slow internet connection
+
+- Bottlenecking is one of the disadvantages of SSR. When the server has a lot of visitors or the site is large, it can create substantial slowdowns while the page gets rendered.
+- reloads entire page upon every single navigation
+- Server costs will be high to provide higher performance
+- HTML is downloaded everytime user visits new page
+
+Pros and Cons of CSR
+
++ Renders faster after initial page load
++ Places lesser load on server
++ Rich site interaction
++ Offers quick navigation in the website
+
+- Slower initial page load
+- hinders SEO if it's not properly implemented
+- Relies on external libraries and framework
+
+Pre Rendering
+There are two forms of pre-rendering: Static Generation and Server-side Rendering. 
+The difference is in when it generates the HTML for a page.
+Static Generation is the pre-rendering method that generates the HTML at build time(stores at CDN). The pre-rendered HTML is then reused on each request.
+Server-side Rendering is the pre-rendering method that generates the HTML on each request.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- optimization ques
+-- micro frontend architecture
+-- renderToString
+-- reactdom.hydrate
+-- progressive hydration
+-- Oauth 2.0
+-- all hooks
+
+---------------------------------------------------------------------------------------------------------------------------
+-- getBoundingClientRect:
+The getBoundingClientRect() method returns the size of an element and its position relative to the viewport. 
+It returns left, top, right, bottom, x, y, width, height.
+
+-------------------------------------------------------------------------------------------------------------
+-- forwardRef:
+React forwardRef is a method that allows parent components pass down (i.e., “forward”) refs to their children
+
+---------------------------------------------------------------------------------------------------------------------
+-- webAPI 
+ APIs that are built into the browser and provide native features that can also be used in a web app.
+
+---------------------------------------------------------------------------------------------------------------------
+-- doctype:
+The <!DOCTYPE html> (syntax for HTML5) declaration is used to inform a website visitor's browser that the document being rendered is an HTML document
+
+--------------------------------------------------------------------------------------------------------------------
+Semantic tags:
+Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation.
+Ex: <p><body>
+
+--security attacks on frontend:
+> Clickjacking: 
+Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to 
+trick a user into clicking on a button or link on another page when they were intending to click on the top level page. 
+Prevention:
+>>X-Frame-Options HTTP header with value same origin
+>>"Content-Security-Policy", "frame-ancestors 'self';"
+
+>Cross Site Scripting (XSS):
+XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user
+Prevention:
+To prevent this attack in pure JS, let’s write a custom function that looks out for special characters such as “<” , “>” and “&” 
+String.prototype.escape = function() {
+    var tagsToReplace = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return this.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
+>Cross Site Request Forgery (CSRF):
+Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. 
+With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing.
+Prevention:
+Random Tokens
+Same site in cookies
+
+---------------------------------------------------------------------------------------------------------------------------
+Portals
+Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+ReactDOM.createPortal(child, container)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Generators
+Regular functions return only one, single value (or nothing).
+
+>Generators can return (“yield”) multiple values, one after another, on-demand. 
+They work great with iterables, allowing to create data streams with ease.
+
+Ex:
+function* generateSequence() {
+  yield 1;
+  yield 2;
+  return 3;
+}
+
+// "generator function" creates "generator object"
+let generator = generateSequence();
+console.log(generator.next()) // // {value: 1, done: false}
+console.log(generator.next()) // // {value: 2, done: false}
+console.log(generator.next()) // // {value: 3, done: false}
+console.log(generator.next()) // // {value: undefined, done: true}
+
+----------------------------------------------------------------------------------------------------
+PropTypes:
+PropTypes are a mechanism to ensure that components use the correct data type and pass the right data,
+and that components use the right type of props, and that receiving components receive the right type of props.
+
+Ex:
+classOrFunctionName.propTypes = {
+  name: PropTypes.string
+};
+
+-----------------------------------------------------------------------------------------------------
+Synthetic Event:
+>The synthetic event is a cross-browser wrapper of the browser's native event.
+
+Handling events with react have some syntactic differences from handling events on DOM. These are:
+1.React events are named as camelCase instead of lowercase.
+2.With JSX, a function is passed as the event handler instead of a string. 
+
+Event declaration in plain HTML:
+
+<button onclick="showMessage()">  
+       Hello JavaTpoint  
+</button>  
+
+
+Event declaration in React:
+
+<button onClick={showMessage}>  
+      Hello JavaTpoint  
+</button>
+
+3. In react, we cannot return false to prevent the default behavior. 
+We must call preventDefault event explicitly to prevent the default behavior.
+
+------------------------------------------------------------------------------------------------------------------------
+CSS:
+If one element have different attributes and have different values for them they work as:
+
+inline> id> class> tag
+
+ex:
+
+<div id="id", class="class" style="color:black"> Hi</div>
+
+0 1 0 0 >> order of specificity
+#id{
+    color: red
+}
+
+0 0 1 0 >> order of specificity
+.class{
+    color: green
+}
+
+0 0 0 1 >> order of specificity
+div{
+    color: blue
+}
+
+-for inline it is 1 0 0 0 >> order of specificity
+
+-if we do h1.header then 0 0 1 1 >> order of specificity
+
+>then Hi will be displayed in black color bcz of specificity of CSS
+
+>but if we use !important with any property then it will override all properties
+
+---------------------------------------------------------------------------------------------
+
+Why reducers are pure function?
+>Redux takes a given state (object) and passes it to each reducer in a loop. 
+And it expects a brand new object from the reducer if there are any changes. 
+And it also expects to get the old object back if there are no changes.
+
+>Redux simply checks whether the old object is the same as the new object by comparing the memory locations of the two objects. 
+So if you mutate the old object’s property inside a reducer, the “new state” and the “old state” will both point to the same object.
+Hence Redux thinks nothing has changed! So this won’t work.
+
+---------------------------------------------------------------------------------------------------
+
+Weakest set and weakest map:
+
+Normally js can store object as a key but only one time.
+ex:
+let a ={}
+let b = {num:2}
+
+let c = {}
+c[a] = "a";
+c[b] = "b";
+
+so console.log(c) // will print only b obj...it remembers only last obj.
+
+So Map was introduced to store multiple object as a key
+
+let mapval = new Map();
+mapval.set(a);
+mapval.set(b)
+
+But in this the object set as key are not garbage collected so we use weakmap;
+
+>Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
+-----------------------------------------------------------------
+Rendering concept:
+https://prateeksurana.me/blog/future-of-rendering-in-react/
+
+------------------------------------------------------------------
+-Feature detection is trying to verify if a feature exists. For example, if the user’s browser supports the geolocation APIs.
+EX: if(navigator.geolocation){}
+Feature inference is if A exists we can assume B will exist too.
+Ex: If navigator.geolocation exists then assume it is a modern browser or it has local storage
+UA String is the string that helps you identify which browser is used by the user.
+Ex: navigator.userAgent
+
+-----------------------------------------------------------------------
+Attribute vs property:
+Attribute:
+- It is for html
+- Ex: <input id="test"/> // here id is an attribute
+- Not case sensitive
+- on changing attribute, property changes
+- it only have string values 
+
+Property:
+- It is for DOM
+- Ex: input.id // here id is property
+- case sensitive
+- on changing property, attribute does not changes
+- it can have string, object,etc like in input.style
+
+data- attribute is changed into dataset property
+Ex: <input data-test/> is changed to dataset.Test
+
+-------------------------------------------------------------------------
+Core Web Vitals:
+
+>Loading performance – It shows how fast content appears on the screen.
+>Responsiveness – It shows how fast a page responds to user input.
+>Visual stability – It relates to whether the content on a page moves around on the screen while loading.
+
+LCP(Largest contentful Paint): Time to load largest element on Above the fold content of the page.
+> Largest means in terms of element size not file size
+> It works per page
+> Good if time < 2.5s
+
+Fix: 
+> Use CDN
+> try not to use slideshow and large images
+> try to load font with font-display: swap
+> use defer/async for scripts
+> html,js,css minify
+> preloading resources
+
+Time to First Byte (TTFB):
+>Time when user make an http request and recieve first data byte from server.
+
+Time to Interactive (TTI):
+> Measure of the time when page starts loading to page become interactive
+
+First Input Delay (FID):
+>It is a measure of time when user interact with application and browser process that event
+Ex: link click, button click etc
+> good if time is <100ms
+
+Cumulative Layout Shift (CLS):
+> It measure the layout such that if user is going to click on something and page layout changes
+> good if value is < 0.1
+Fix:
+> Fix assets dimensions
+> do not inject dynamic js
+> add new element below the fold
+
+--------------------------------------------------------------------------------------------
+Reflow vs Repaint:
+Reflow
+>The Reflow happens when the changes made to the elements affects the layout of a portion of the page or the whole page.
+>The Reflow of an element will cause the subsequent reflow of all the child and ancestor elements in the DOM.
+
+Repaint:
+the process where the browser starts giving the right appearance to the elements that were placed in the Rendered Tree such as background colours or font-sizes.
+-----------------------------------------------------------
+Web Accessibility:
+https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
+
+---------------------------------------------------------------------------------------------------
+React Fiber:
+React Fiber is the new reconciliation algorithm in React 16.
+You’ve most likely heard of the virtualDOM from React 15. It’s the old reconciler algorithm (also known as the Stack Reconciler) because it uses stack internally(synchronous).
+
+The main goals of the Fiber reconciler are incremental rendering, better or smoother rendering of UI animations and gestures, and responsiveness of the user interactions.
+The reconciler also allows you to divide the work into multiple chunks and divide the rendering work over multiple frames.
+It also adds the ability to define the priority for each unit of work and pause, reuse, and abort the work. 
+
+A fiber(lowercase ‘f’) is a simple JavaScript object. It represents the React element or a node of the DOM tree.
+It’s a unit of work. In comparison, Fiber is the React Fiber reconciler.
+
+React Fiber divides the update into units of works. It can assign the priority to each unit of work, and has the ability to pause, reuse, or abort the unit of work if not needed.
+React Fiber divides the work into multiple units of work, which is fiber.
+
+It generates two tree one is the current tree that is rendered on the UI currently and second is the work in progress tree on which work is done with begin work function.
+
+Fiber uses requestAnimationFrame for higher priority updates and requestIdleCallback for lower priority updates.
+So, while scheduling a work, Fiber checks the priority of the current update and the deadline.
+
+It happens in two phases:
+1. Render phase where reconciliation process happens and nothing is render to UI yet.
+2. Commit phase where after all work is completed it renders on the UI
