@@ -1,6 +1,8 @@
 # **Frontend Interview Questions**
 
-- psuedo-class >> hover,link,visited
+- **psuedo-class** : A pseudo-class is used to define a special state of an element. For example, it can be used to: Style an element when a user mouses over it. Style visited and unvisited links differently.
+
+    *Example*: hover,link,visited
 
 - **CDN:** A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
  Ex: cloudfare
