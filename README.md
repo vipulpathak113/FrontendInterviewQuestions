@@ -929,3 +929,17 @@ So, while scheduling a work, Fiber checks the priority of the current update and
 It happens in two phases:
 1. Render phase where reconciliation process happens and nothing is render to UI yet.
 2. Commit phase where after all work is completed it renders on the UI
+
+-----------------------------------
+
+- Canvas vs SVG
+
+    | Canvas  | SVG |
+    | ------------- | ------------- |
+    | Pixel based (Dynamic .png)  | Shape based|
+    | Single HTML element	  | Multiple graphical elements, which become part of the DOM  |
+    | Modified through script only  | Modified through script and CSS|
+    | Event model/user interaction is granular (x,y)  | Event model/user interaction is abstracted (rect, path)|
+    | Performance is better with smaller surface, a larger number of objects (>10k), or both  | Performance is better with smaller number of objects (<10k), a larger surface, or both|
+
+    For more read [SVG vs Canvas](https://www.educba.com/svg-vs-canvas/)
