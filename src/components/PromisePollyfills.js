@@ -1,3 +1,5 @@
+/* eslint-disable no-loop-func */
+/* eslint-disable no-undef */
 
 
 let promise1 = new Promise((resolve, reject) => {

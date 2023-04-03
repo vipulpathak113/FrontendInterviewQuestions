@@ -1,7 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { render } from 'react-dom';
+import React, { useEffect, useState } from 'react';
 
 function InfiniteScroll(props) {
 
