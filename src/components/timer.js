@@ -18,19 +18,19 @@ export default function Timer() {
         let min = Number(minRef.current.value)
         let sec = Number(secRef.current.value)
 
-        if(hours==0 && min==0 && sec==0){
+        if(hours===0 && min===0 && sec===0){
             resetTimer();
         }
         else if(sec && sec!==0){
             sec--;
             secRef.current.value= sec
         }
-        else if(min && min!==0 && sec==0){
+        else if(min && min!==0 && sec===0){
             secRef.current.value=59;
             min--;
             minRef.current.value= min
         }
-        else if(hours && hours!=0 && min==0 && sec==0){
+        else if(hours && hours!==0 && min===0 && sec===0){
             minRef.current.value = 59;
             secRef.current.value = 59;
             hours--;
