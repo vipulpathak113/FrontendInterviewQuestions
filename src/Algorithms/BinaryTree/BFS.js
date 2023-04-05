@@ -13,9 +13,8 @@ const breadthFirstValuesIteration = (root) => {
   const result = [];
   const queue = [root];
   while (queue.length > 0) {
-    let size= queue.length;
-    result.push(queue[size-1].val);
     let current = queue.shift();
+    result.push(current.val);
     if (current.left !== null) queue.push(current.left);
     if (current.right !== null) queue.push(current.right);
   }
@@ -41,6 +40,6 @@ c.right = f;
 //  / \     \
 // d   e     f
 
-console.log(breadthFirstValuesIteration(a));
+breadthFirstValuesIteration(a);
 
 //    -> ['a', 'b', 'c', 'd', 'e', 'f']
