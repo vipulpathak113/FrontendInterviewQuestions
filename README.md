@@ -943,3 +943,22 @@ It happens in two phases:
     | Performance is better with smaller surface, a larger number of objects (>10k), or both  | Performance is better with smaller number of objects (<10k), a larger surface, or both|
 
     For more read [SVG vs Canvas](https://www.educba.com/svg-vs-canvas/)
+
+- Normal function vs Arrow function:
+    - Syntax
+    - arguments keyword not found 
+    - no prototype
+    - cannot be used with new keyword
+    - cannot be used as generator function
+    - not hoisted
+    - Does not have this of its own, inherit from parents context
+
+- Null vs undefined:
+    - null is an assigned value. It means nothing.
+    - undefined typically means a variable has been declared but not defined yet.
+    - null and undefined are falsy values.
+    - null and undefined are both primitives. However an error shows that typeof null = object.
+    - null !== undefined but null == undefined.
+    - if passed undefined in a function with default parameter it returns with default parameter while null uses null value only
+- Why react hooks cannot used in conditions:
+    React hooks are called in the same order each time a component renders.    
