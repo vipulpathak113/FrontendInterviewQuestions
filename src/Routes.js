@@ -17,6 +17,7 @@ const ErrorBoundry = React.lazy(() => import("./components/ErrorComponent"));
 const ContextApi = React.lazy(() => import("./components/ContextApi"));
 const CustomHookUse = React.lazy(() => import("./components/CustomHookUse"));
 const Pagination = React.lazy(() => import("./components/Pagination"));
+const FileStructure = React.lazy(() => import("./components/fileStructure"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -79,6 +80,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Pagination,
       path: "/pagination",
+    },
+    {
+      component: FileStructure,
+      path: "/fileStructure",
     },
   ];
 

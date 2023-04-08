@@ -961,4 +961,46 @@ It happens in two phases:
     - null !== undefined but null == undefined.
     - if passed undefined in a function with default parameter it returns with default parameter while null uses null value only
 - Why react hooks cannot used in conditions:
-    React hooks are called in the same order each time a component renders.    
+    React hooks are called in the same order each time a component renders.  
+- The useImperativeHandle Hook allows us to expose a value, state, or function inside a child component to the parent component through ref.
+ Example: Modal in child component and button to open in parent component. Logic for modal open in child so expose this fn using "useImperativeHandle" to parent and also parent will not rerender parent and only re-render child.
+
+ - React fires both useEffect and useLayoutEffect after performing the DOM updates, useLayoutEffect is called before the browser paints those updates for users to see, synchronously, while useEffect is called after the browser paints those updates, asynchronously.
+Therefore, the browser cannot paint any browser updates until useLayoutEffect runs.  
+
+   useEffect: DOM updates => Browser paints the update for users to see => useEffect is run => another DOM update => Broswer paints the second update for user to see
+
+   useLayoutEffect: DOM updates => useLayoutEffect is run =>another DOM update => Broswer paints the overall update for user to see.
+
+- How React works?
+    ```jsx
+     const App=()=>{
+        return(
+            <div>
+            App Component
+            </div>
+        )
+     }
+    ```
+  - React developers create either function-based or class-based React **Components**, that return JSX.
+  - Babel transpiles JSX to React.createElement(type,props,children)
+    Ex: ```js React.createElement('div',null,"App Component")```
+  - React.createElement is converted into object 
+    Ex: ```js 
+          $$typeof: Symbol(react.element)
+          key: null
+          props: {children:"App Component"}
+          ref: null
+          type: "div"
+    ```
+  - React creates necessary **React Components Instances** at run-time, and they return React Elements.
+  - ReactDOM renders the virtual DOM, that consists of **React Elements**. 
+
+- React Component: 
+    React Component is either a function or an ES6 class - nothing more, nothing less. You manage the state, handle events and implement other custom logic here.
+    It never renders anything to the screen. Instead, you create its instance to do that.
+- React Component Instance:
+    You may have an instance of the React Component only at run time.
+    Also, you may have multiple instances, each with its own properties and local state. It happens when you use React Component more than once.    
+- React Element is what React Component Instance returns at run-time. It's a plain JavaScript       object that completely describes a DOM node.
+    Multiple React Elements together form a virtual DOM, a tree-like structure that describes the UI of your React app.    
