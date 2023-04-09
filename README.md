@@ -927,8 +927,8 @@ Fiber uses requestAnimationFrame for higher priority updates and requestIdleCall
 So, while scheduling a work, Fiber checks the priority of the current update and the deadline.
 
 It happens in two phases:
-1. Render phase where reconciliation process happens and nothing is render to UI yet.
-2. Commit phase where after all work is completed it renders on the UI
+1. Render phase where reconciliation process happens and nothing is render to UI yet. It is asynchronous. Work is done in this phase like dom changes, state changes
+2. Commit phase where after all work is completed it renders on the UI. It is synchronous.
 
 -----------------------------------
 
@@ -960,6 +960,7 @@ It happens in two phases:
     - null and undefined are both primitives. However an error shows that typeof null = object.
     - null !== undefined but null == undefined.
     - if passed undefined in a function with default parameter it returns with default parameter while null uses null value only
+    
 - Why react hooks cannot used in conditions:
     React hooks are called in the same order each time a component renders.  
 - The useImperativeHandle Hook allows us to expose a value, state, or function inside a child component to the parent component through ref.
