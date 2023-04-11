@@ -153,7 +153,7 @@ Which one to use when?
 
 -------------------------------------------------------------------------------------------
 >>The lifecycle of an HTML page has three important events:
---DOMContentLoaded –(it waits for scripts before them to load except async ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
+--DOMContentLoaded –(it waits for scripts before them to load except async and document.createElement('script') ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
 --load – not only HTML is loaded, but also all the external resources: images, styles etc.
 --unload – the user leaves the page
 --onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.
@@ -395,7 +395,7 @@ let obj = {
 >> obj.functionA()------- will give ans as obj object as it is called by obj itself;
 let test = obj.functionA;
 >> test(); --------- will global object as it is called directly
->> obj.functionB(); --------- will global object as it is called directly (line 393)
+>> obj.functionB(); --------- will global object as it is called directly (line 391)
 
 If we create object using new keyword then it always points to that object;
 ex:
@@ -1005,3 +1005,21 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     Also, you may have multiple instances, each with its own properties and local state. It happens when you use React Component more than once.    
 - React Element is what React Component Instance returns at run-time. It's a plain JavaScript       object that completely describes a DOM node.
     Multiple React Elements together form a virtual DOM, a tree-like structure that describes the UI of your React app.    
+- In Promises **.finally()** does not recieve any arguments and neither it returns anything
+
+- The Critical Rendering Path are the steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen. The critical rendering path includes the Document Object Model (DOM), CSS Object Model (CSSOM), render tree and layout.
+
+The DOM is created as the HTML is parsed. The HTML may request JavaScript that might alter the DOM. The HTML includes or makes requests for styles, which builds the CSSOM.
+
+The browser engine combines the two to create the Render Tree. Layout determines the size and location of everything on the page. Once layout is determined, pixels are painted to the screen.
+
+- Load Images file asynchrnously:
+    - Use loading="lazy"
+
+- Load JS file asynchrnously:
+    - Use async/defer
+
+- Load CSS file asynchronously:
+    - use media tag
+    ```html <link rel="stylesheet" href="style.css" media="all" onload="this.media=all"> ```
+    By default css is render blocking but using media="print" it thinks it is not necessary
