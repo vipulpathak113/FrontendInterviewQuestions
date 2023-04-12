@@ -17,6 +17,7 @@ function SidebarComponents(props) {
         <Link to={"/customHookUse"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Custom Hook Usage </Link>
         <Link to={"/pagination"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Pagination </Link>
         <Link to={"/fileStructure"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> File Structure </Link>
+        <Link to={"/tabs"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Tabs </Link>
         </div>
     );
 }

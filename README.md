@@ -662,7 +662,7 @@ The <!DOCTYPE html> (syntax for HTML5) declaration is used to inform a website v
 --------------------------------------------------------------------------------------------------------------------
 Semantic tags:
 Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation.
-Ex: <p><body>
+Ex: <header><footer><main><nav>
 
 --security attacks on frontend:
 > Clickjacking: 
@@ -1005,6 +1005,7 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     Also, you may have multiple instances, each with its own properties and local state. It happens when you use React Component more than once.    
 - React Element is what React Component Instance returns at run-time. It's a plain JavaScript       object that completely describes a DOM node.
     Multiple React Elements together form a virtual DOM, a tree-like structure that describes the UI of your React app.    
+    
 - In Promises **.finally()** does not recieve any arguments and neither it returns anything
 
 - The Critical Rendering Path are the steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen. The critical rendering path includes the Document Object Model (DOM), CSS Object Model (CSSOM), render tree and layout.
@@ -1022,4 +1023,51 @@ The browser engine combines the two to create the Render Tree. Layout determines
 - Load CSS file asynchronously:
     - use media tag
     ```html <link rel="stylesheet" href="style.css" media="all" onload="this.media=all"> ```
-    By default css is render blocking but using media="print" it thinks it is not necessary
+    By default css is render blocking but using media="print" it thinks it is not important and priority is less
+
+- React Design Patterns:
+    - **Compound components** are a pattern in which multiple components work together to have a shared state and handle logic together, they are called compound components.   
+    Example: components like the <select> and <option> elements in HTML,Tabs.
+
+    - **Render Props Pattern:** It refers to a technique for sharing code between React components using a prop whose value is a function. Ex: React router,Formik 
+
+    - HOC
+    - Custom Hooks
+
+- **Tree Shaking:** The process of eliminating dead code before adding it to our bundle, is called tree-shaking.    
+    - Only modules defined with the ES2015 module syntax (import and export) can be tree-shaken.
+    - In Webpack 4 and 5, tree shaking is done in mode=production
+
+- **Web Workers** allow scripts to run in the background in separate threads to prevent scripts from blocking one another on the main thread. They have no access to DOM. They communicate with main thread using **.postMessage** and recieve message with **.onmessage**
+    const worker = new Worker('worker.js');
+
+- **A service worker** acts as a network proxy between an app, the browser, and the server, allowing scripts to run even in the event when the network goes offline. It is a type of web workers.
+    -They can cache results
+    - Works in offline mode
+    - Send push notifications
+    - Follow same origin policy
+
+- CSS vs CSS-in-JS:
+    - CSS:
+        - Advantage:
+             - Easy to use
+             - High performance
+             - Preprocessor Support
+             - SEO Support
+
+        - Disadvantage:
+            - Overriding Issue
+            - Several CSS levels
+            - Browser support
+            - Naming Issue
+    - CSS-in-JS: handle the style overriding issues in CSS. Ex: Style components, JSS
+        - Advantage:
+             - No Overriding Issue
+            - Automatic generate browser specific extensions like -webkit,-moz
+            - Portability 
+
+        - Disadvantage:
+            - Learning curve
+            - No Preprocessor Support
+            - Perormance Issue
+            - Cache Issue                

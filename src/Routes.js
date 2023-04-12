@@ -18,6 +18,7 @@ const ContextApi = React.lazy(() => import("./components/ContextApi"));
 const CustomHookUse = React.lazy(() => import("./components/CustomHookUse"));
 const Pagination = React.lazy(() => import("./components/Pagination"));
 const FileStructure = React.lazy(() => import("./components/fileStructure"));
+const TabComponent = React.lazy(() => import("./components/Tab/TabComponent"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -84,6 +85,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: FileStructure,
       path: "/fileStructure",
+    },
+    {
+      component: TabComponent,
+      path: "/tabs",
     },
   ];
 
