@@ -9,6 +9,7 @@ export default function TabComponent() {
 
   return (
     <div>
+      <h1 style={{textAlign:"center"}}>Tab using Compound pattern</h1>
       <Tabs currentTab={currentTab} onChange={handleChange}>
         <Tabs.HeaderContainer>
           <Tabs.Item label={"Tab1"} index={1} />

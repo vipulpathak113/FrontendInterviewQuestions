@@ -19,6 +19,7 @@ const CustomHookUse = React.lazy(() => import("./components/CustomHookUse"));
 const Pagination = React.lazy(() => import("./components/Pagination"));
 const FileStructure = React.lazy(() => import("./components/fileStructure"));
 const TabComponent = React.lazy(() => import("./components/Tab/TabComponent"));
+const Accordian = React.lazy(() => import("./components/Accordian"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -89,6 +90,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: TabComponent,
       path: "/tabs",
+    },
+    {
+      component: Accordian,
+      path: "/accordian",
     },
   ];
 

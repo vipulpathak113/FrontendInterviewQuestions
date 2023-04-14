@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(199, 233, 148, 1) 100%
+  );
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.accordian {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.accordian-title {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  background-color: #21aeca;
+  justify-content: space-between;
+}
+
+.accordian-title:hover {
+  background-color: #3ab4cc;
+}
+
+.accordian-title,
+.accordian-content {
+  padding: 1rem;
+}
+
+.accordian-content {
+  background-color: #39b9d2;
+}

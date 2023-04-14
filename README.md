@@ -107,30 +107,29 @@ preconnect - establish a server connection without loading a specific resource y
 More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
 ---------------------------------------------------------------------------------------------------------------------------------
 
-eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
+- Eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
-ESLint displays warning or error message when
-We use a variable without declaring it
-We re-declare the variable
-We try to change constant value
-We add un-necessary parenthesis
-When we use wrong syntax
+    ESLint displays warning or error message when
+    We use a variable without declaring it
+    We re-declare the variable
+    We try to change constant value
+    We add un-necessary parenthesis
+    When we use wrong syntax
 
 -----------------------------------------------------------------------------------------------
-npm vs npx:
-NPM-
->node package manager
->Manages package/ cant run the package directly
->run installed packages via scripts in package.json
->takes space as it install package locally or globally
+-NPM vs NPX:
+    NPM:
+    - Manages package/ cant run the package directly
+    - run installed packages via scripts in package.json
+    - takes space as it install package locally or globally
 
-NPX:
->node package execute
->execute package directly
->can run package without installation remotely / also mentioned in package.json
-> save space as it is not installed globally or locally it directly runs it
+    NPX:
+    - node package execute
+    - execute package directly
+    - can run package without installation remotely / also mentioned in package.json
+    - save space as it is not installed globally or locally it directly runs it
 -------------------------------------------------------------------------------------------
-code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
+- Code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
 Using dynamic import we can do code splitting . Ex: import { add } from './math';
 
 React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
@@ -138,11 +137,11 @@ Ex: const Home = React.lazy(() => import("./components/home"));
 We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
 Ex: <Suspense fallback="Loader"><Home></>
 ----------------------------------------------------------
-controlled vs uncontrolled form input:
-uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
-ex: <input type="text" ref = {this.input}/>
-controlled : In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
-ex: <input type="text" value={this.state.name} onchange={this.changeName}/>
+- Controlled vs Uncontrolled form input:
+    - Uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
+    ex: <input type="text" ref = {this.input}/>
+    controlled : In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
+    ex: <input type="text" value={this.state.name} onchange={this.changeName}/>
 
 Why they are required?
 Unlike other MVC frameworks, React inclines more towards a View Library. That’s why React is more flexible as well as opinionated and provides both a model-view approach with controlled components and an only view approach using uncontrolled components. While other frameworks like Angular or VueJs provide only Model-View two-way binding approach to the same use case, React provides two distinctively flexible solutions. It depends on the use cases about how and where one would use any of those.
@@ -337,8 +336,14 @@ that is either null or references another object. That object is called “a pro
 > we can read proto but cannot update 
 
 ---------------------------------------------------------------
-Enumerable: 
->An enumerable property in JavaScript means that a property can be viewed if it is iterated using the for…in loop or Object.keys() method. 
+- Object.defineProperty(object,value or symbol, descriptor) 
+    - Descriptor are value, enumerable, writable,configurable
+    - By default numerable, writable,configurable are false
+    - **data descriptor :** value
+    - **accessor descriptor:** get , set
+    - It cannot be both data descriptor and accessor descriptor
+
+- An **enumerable** property in JavaScript means that a property can be viewed if it is iterated using the for…in loop or Object.keys() method. 
 All the properties which are created by simple assignment or property initializer are enumerable by default.
 Ex:
 const student = {
@@ -359,11 +364,31 @@ Object.defineProperty(student, 'marks', {
 
 console.log(student.propertyIsEnumerable('marks')); returns false;
 
+ // for Symbol.for("e") > Will not be visible in foreach n loop
+
 for (const key in student){
     console.log(key)
 } // registration name age>>>>>>>. marks will not be displayed as enumerable is set to false
 
+- The **configurable** attribute controls whether the property can be deleted from the object and whether its attributes (other than value and writable) can be changed.
+
+- When the **writable** property attribute is false, the property is said to be "non-writable". It cannot be reassigned.
+
+- The **Object.freeze()** static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable.
+
+- The **Object.seal()** static method seals an object. Sealing an object prevents extensions and makes existing properties non-configurable. Values of existing properties can still be changed as long as they are writable.
+
+
 ----------------------------------------------------------------
+
+- **useDeferredValue():** this is useful when React needs to keep the old state value in the UI by applying the necessary UI changes while the new state value is being processed and then ready to be added to the UI.
+    It is different than debounce and throttling as:
+        - It can be interuptable unlike debounce and throttling which uses timeout
+        - It can be executed quickly also based on the system unlike debounce and throttling which uses proper delay time
+
+- **useTransition:** It markes priority to code , **the code in startTransiton is depriotized**. Ex: In typehead, searching text UI is priority and calling API n displaying result is not priority
+
+-------------------------------------------------------------------
 
 A polyfill is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers
 ----------------------------------------------------------------------------------------
@@ -633,15 +658,6 @@ Static Generation is the pre-rendering method that generates the HTML at build t
 Server-side Rendering is the pre-rendering method that generates the HTML on each request.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-
--- optimization ques
--- micro frontend architecture
--- renderToString
--- reactdom.hydrate
--- progressive hydration
--- Oauth 2.0
--- all hooks
-
 ---------------------------------------------------------------------------------------------------------------------------
 -- getBoundingClientRect:
 The getBoundingClientRect() method returns the size of an element and its position relative to the viewport. 
@@ -1027,7 +1043,7 @@ The browser engine combines the two to create the Render Tree. Layout determines
 
 - React Design Patterns:
     - **Compound components** are a pattern in which multiple components work together to have a shared state and handle logic together, they are called compound components.   
-    Example: components like the <select> and <option> elements in HTML,Tabs.
+    Example: components like the ``` <select> ``` and ``` <option> ``` elements in HTML,Tabs.
 
     - **Render Props Pattern:** It refers to a technique for sharing code between React components using a prop whose value is a function. Ex: React router,Formik 
 
@@ -1038,8 +1054,9 @@ The browser engine combines the two to create the Render Tree. Layout determines
     - Only modules defined with the ES2015 module syntax (import and export) can be tree-shaken.
     - In Webpack 4 and 5, tree shaking is done in mode=production
 
-- **Web Workers** allow scripts to run in the background in separate threads to prevent scripts from blocking one another on the main thread. They have no access to DOM. They communicate with main thread using **.postMessage** and recieve message with **.onmessage**
-    const worker = new Worker('worker.js');
+- **Web Workers** allow scripts to run in the background in separate threads to prevent scripts from blocking one another on the main thread. They have no access to DOM. They communicate with main thread using **.postMessage** and recieve message with **.onmessage** <br>
+    ```const worker = new Worker('worker.js');```
+    <br>Example: compress image site where compression occurs in background
 
 - **A service worker** acts as a network proxy between an app, the browser, and the server, allowing scripts to run even in the event when the network goes offline. It is a type of web workers.
     -They can cache results
@@ -1060,14 +1077,38 @@ The browser engine combines the two to create the Render Tree. Layout determines
             - Several CSS levels
             - Browser support
             - Naming Issue
+
     - CSS-in-JS: handle the style overriding issues in CSS. Ex: Style components, JSS
         - Advantage:
-             - No Overriding Issue
+            - No Overriding Issue
             - Automatic generate browser specific extensions like -webkit,-moz
             - Portability 
 
         - Disadvantage:
             - Learning curve
             - No Preprocessor Support
-            - Perormance Issue
-            - Cache Issue                
+            - Performance Issue
+            - Cache Issue     
+
+- Cookie vs. Token Authentication:
+   ![cookievstoken](https://img-blog.csdnimg.cn/20181101144817368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plZmZyZXkyMDE3MDgxMg==,size_16,color_FFFFFF,t_70)        
+
+   - **Cookie-Based Authentication :** Cookie-based authentication is **stateful.** This means that an authentication record or session must be kept both server and client-side. The server needs to keep track of active sessions in a database, while on the front-end a cookie is created that holds a session identifier, thus the name cookie based authentication. *It works only in the same domain.*
+        - User enters their login credentials.
+        - Server verifies the credentials are correct and creates a session which is then stored in a database.
+        - A cookie with the session ID is placed in the users browser.
+        - On subsequent requests, the session ID is verified against the database and if valid the request processed.
+        - Once a user logs out of the app, the session is destroyed both client-side and server-side.
+
+    - **Token-Based Authentication :**  Token-based authentication has gained prevalence over the last few years due to the rise of single page applications, web APIs, and the Internet of Things (IoT). When we talk about authentication with tokens, we generally talk about authentication with JSON Web Tokens (JWTs). <br>
+    Token-based authentication **is stateless.** The server does not keep a record of which users are logged in or which JWTs have been issued. Instead, every request to the server is accompanied by a token which the server uses to verify the authenticity of the request. The token is generally sent as an addition Authorization header in the form of Bearer {JWT}, but can additionally be sent in the body of a POST request or even as a query parameter. 
+        - User enters their login credentials.
+        - Server verifies the credentials are correct and returns a signed token.
+        - This token is stored client-side, most commonly in local storage - but can be stored in session storage or a cookie as well.
+        - Subsequent requests to the server include this token as an additional Authorization header or through one of the other methods mentioned above.
+        - The server decodes the JWT and if the token is valid processes the request.
+        - Once a user logs out, the token is destroyed client-side, no interaction with the server is necessary.
+
+**Advantages of Token-Based Authentication:** Stateless, Scalable, and Decoupled, Cross Domain, Performance, Mobile ready.    
+**Disadvantages of Token-Based Authentication:** Jwt size, storing as in local storage exposed to XSS attack n for storing in cookies exposed for CSRF attack.
+           
