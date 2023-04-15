@@ -494,7 +494,7 @@ Saga:
 responsible for making your side effects or API calls unlike redux-thunk
 ------------------------------------------------------------------------------------------
 
--- dom vs virtual dom vs shadow dom
+-- DOM vs Virtual DOM vs Shadow DOM vs BOM
 DOM:
 -DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated.
 -It is object-based representation of the HTML elements. 
@@ -516,6 +516,9 @@ Shadow DOM:
 ex: this.attachShadow({mode: 'open'}); -- open means you can manipulate shadow dom
 
 element.shadowRoot
+
+BOM: Browser object model
+The BOM consists of the objects navigator, history, screen, location and document which are children of window
 
 -- css position:
 
@@ -1109,6 +1112,7 @@ The browser engine combines the two to create the Render Tree. Layout determines
         - The server decodes the JWT and if the token is valid processes the request.
         - Once a user logs out, the token is destroyed client-side, no interaction with the server is necessary.
 
-**Advantages of Token-Based Authentication:** Stateless, Scalable, and Decoupled, Cross Domain, Performance, Mobile ready.    
-**Disadvantages of Token-Based Authentication:** Jwt size, storing as in local storage exposed to XSS attack n for storing in cookies exposed for CSRF attack.
+    **Advantages of Token-Based Authentication:** Stateless, Scalable, and Decoupled, Cross Domain, Performance, Mobile ready.    
+    **Disadvantages of Token-Based Authentication:** Jwt size, storing as in local storage exposed to XSS attack n for storing in cookies exposed for CSRF attack.
+- **Magic Numbers:** A number in your code that appears arbitrary. All magic numbers should all be replaced with calculations or constants
            
