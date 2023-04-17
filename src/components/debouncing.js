@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
-// Debounce function limits the execution of a function call and waits for a certain amount of time before running it again.
+import { customDebounce } from "./Pollyfills/debouncePollyfill";
+import { customThrottle } from "./Pollyfills/throtllingPollyfill";
 
 export default function Debouncing() {
   const [search, setSearch] = useState([]);
@@ -14,42 +14,8 @@ export default function Debouncing() {
       .then((json) => setSearch(json.data.items));
   };
 
-  const debounce = (func) => {
-    let timer;
-
-    return function (...args) {
-      let context = this;
-
-      if (timer) clearTimeout(timer);
-
-        timer = setTimeout(() => {
-          func.apply(context, args);
-        }, 500);
-    };
-  };
-
-//   Throttling is a technique in which, no matter how many times the user fires the event, 
-//   the attached function will be executed only once in a given time interval.
-
-  const throttle = (func) => {
-    let throttleTime = false;
-
-    return function (...args) {
-      let context = this;
-
-      if(!throttleTime){
-          func.apply(context,args);
-          throttleTime = true;
-          setTimeout(()=>{
-            throttleTime = false;
-          },500)
-      }
-
-    };
-  };
-
-  const optimizedDebounce = debounce(handleChange);
-  const optimizedThrottle = throttle(handleChange);
+  const optimizedDebounce = customDebounce(handleChange);
+  const optimizedThrottle = customThrottle(handleChange);
 
   return (
     <div>
@@ -69,7 +35,6 @@ export default function Debouncing() {
           type="text"
           placeholder="Enter throttle text here"
         />
-
       </div>
       {search && search.length > 0 ? (
         <div style={{ width: "100%", borderRadius: "5px" }}>

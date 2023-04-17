@@ -339,7 +339,7 @@ that is either null or references another object. That object is called “a pro
 - Object.defineProperty(object,value or symbol, descriptor) 
     - Descriptor are value, enumerable, writable,configurable
     - By default numerable, writable,configurable are false
-    - **data descriptor :** value
+    - **data descriptor :** value, writable, enumerable, configurable
     - **accessor descriptor:** get , set
     - It cannot be both data descriptor and accessor descriptor
 
@@ -1115,4 +1115,15 @@ The browser engine combines the two to create the Render Tree. Layout determines
     **Advantages of Token-Based Authentication:** Stateless, Scalable, and Decoupled, Cross Domain, Performance, Mobile ready.    
     **Disadvantages of Token-Based Authentication:** Jwt size, storing as in local storage exposed to XSS attack n for storing in cookies exposed for CSRF attack.
 - **Magic Numbers:** A number in your code that appears arbitrary. All magic numbers should all be replaced with calculations or constants
+
+- Some Important points:
+    - Imports are also hoisted
+    - exporting a variable return a constant so you cannot change the output value, to change it export an object then access and change it.
+    - a parameter with a default value is optional, such a parameter is not included in the length of the function.
+    - all parameters following the parameter with a default value are also optional. Therefore, they are also not included in the length property of the function.
+    - **…spread operator and Object.assign** ignore the prototype when cloning
+    - **instanceof operator** only works with objects and does not work with primitives 
+    - **Promise.resolve** and resolve function work the same way for plain values. Both returns fulfilled promises.
+    - **Promise.resolve** and **resolve** functions work differently when a promise is passed as an argument. Promise.resolve returns the same promise passed as an argument when resolve works in some strange way.
+    - **resolve** returns pending promise for any promised values regardless of their state. And may change the returned promise’s state in some async way.
            
