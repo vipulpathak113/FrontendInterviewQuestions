@@ -135,13 +135,13 @@ Using dynamic import we can do code splitting . Ex: import { add } from './math'
 React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
 Ex: const Home = React.lazy(() => import("./components/home"));
 We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
-Ex: <Suspense fallback="Loader"><Home></>
+Ex: ``` <Suspense fallback="Loader"><Home></> ```
 ----------------------------------------------------------
 - Controlled vs Uncontrolled form input:
     - Uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
-    ex: <input type="text" ref = {this.input}/>
+    ex: ``` <input type="text" ref = {this.input}/> ```
     controlled : In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
-    ex: <input type="text" value={this.state.name} onchange={this.changeName}/>
+    ex: ``` <input type="text" value={this.state.name} onchange={this.changeName}/> ```
 
 Why they are required?
 Unlike other MVC frameworks, React inclines more towards a View Library. That’s why React is more flexible as well as opinionated and provides both a model-view approach with controlled components and an only view approach using uncontrolled components. While other frameworks like Angular or VueJs provide only Model-View two-way binding approach to the same use case, React provides two distinctively flexible solutions. It depends on the use cases about how and where one would use any of those.
@@ -399,23 +399,32 @@ devDependencies : Packages which are only needed during development, and aren't 
 peer dependecies: peerDependencies are for plugins, libraries that require a "host" library to perform their function, but may have been written at a time before the latest version of the host was released.
 ---------------------------------------------------------------------------------------------------
 
-THIS:
-value of this always depends on how it is called;
+- **this**: value of this always depends on how it is called;
+    this keyword simply points to an object to which it is bound.
 
-ex:
+    - The this keyword, when used in a function, binds that function to a context object
+    - There are four kinds of bindings:
+        - **default binding:** global or window
+        - **implicit binding:** call by .
+        - **explicit binding:** call,apply and bind
+        - **constructor call binding:** object created with new are are bound to this
 
-let obj = {
-    functionA(){
-        console.log(this);
-    }
+    ex:
 
-     functionB(){
-        functionC(){
-            console.log(this)
+    ```js
+    let obj = {
+        functionA(){
+            console.log(this);
         }
-        return functionC();
+
+        functionB(){
+            functionC(){
+                console.log(this)
+            }
+            return functionC();
+        }
     }
-}
+    ```
 
 >> obj.functionA()------- will give ans as obj object as it is called by obj itself;
 let test = obj.functionA;
@@ -460,10 +469,9 @@ console.log(obj) // points to global(as this means window object)
 
 ----------------------------------------------------------------------------------------------
 
--- div vs span
-
->> div is a block element and always starts in a new line
->> span is a inline element and always appears in same line
+- DIV vs SPAN
+    - div is a block element and always starts in a new line
+    - span is a inline element and always appears in same line
 
 ---------------------------------------------------------------------------------------------
 
