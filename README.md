@@ -53,10 +53,9 @@ Can be enabled by elem.addEventListener(..., {capture: true})
 
 - **Debouncing**: Debounce function limits the execution of a function call and waits for a certain amount of time before running it again.
 
-- **Throttling**: Throttling is a technique in which, no matter how many times the user fires the event, 
-the attached function will be executed only once in a given time interval.
+- **Throttling**: Throttling is a technique in which, no matter how many times the user fires the event, the attached function will be executed only once in a given time interval.
 
-- **Currying**: Currying is a function that takes one argument at a time and returns a new function expecting the next argument. 
+- **Currying**: Currying is a transformation of a function such it that takes one argument at a time and returns a new function expecting the next argument. 
 It is a conversion of functions from callable as f(a,b,c)into callable as f(a)(b)(c).
 
 - **First Class functions**: Functions are treated as values – that you can assign a function into a variable, pass it around etc.
@@ -65,61 +64,63 @@ It is a conversion of functions from callable as f(a,b,c)into callable as f(a)(b
 
 - **map vs foreach** : foreach does not return any value whereas map return new array
 - **compose** : compose take function and evaluate function where one fn out become input of other fn (right to left)
-const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)
+    ```js const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)```
 
 - **pipe** : evaluate from left to right
-const pipe = (...fns)=>val=>fns.reduce((prev,fn)=>fn(prev),val)
+    ```js const pipe = (...fns)=>val=>fns.reduce((prev,fn)=>fn(prev),val)```
 
 - **Promise**: The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
-- **async/await** : makes promise code cleaner
+- **async/await** : Syntactical Sugar of Promise which makes promise code cleaner.
 
-- **ECMA** : ECMAScript is the standard that JavaScript programming language uses. ECMAScript provides the specification on how JavaScript programming language should work.
+- **ECMA** : ECMAScript is the standard that JavaScript programming language uses. ECMAScript provides the specification on how JavaScript programming language should work.(TC-39 is the commitee handelling it)
 
-  JavaScript ES6 (also known as ECMAScript 2015 or ECMAScript 6) is the newer version of JavaScript that was introduced in 2015.
+    JavaScript ES6 (also known as ECMAScript 2015 or ECMAScript 6) is the newer version of JavaScript that was introduced in 2015.
 
 - **Babel** : It is a transpiler which is used to convert ES6+ code to backward comaptible version of js so that it can be used with current and old browser environment.
-It transforms syntax (let a ="xyz") and
-polyfills to support functionality (like includes)
+    - It transforms syntax (let a ="xyz") and
+    - Polyfills to support functionality (like includes)
 
 - **Webpack**:  Its a Module bundler which is use to bundle all modules in single file>
  Its main function is to create dependency graph so that it can be injected in proper order
 
-- Package.json : dependecies and ^ ,~ version
-^ :  backwards-compatible new functionality also old functionality operational,bug fix
+- **Package.json : dependecies and ^ ,~ version:**
+    - **^ :**  backwards-compatible new functionality also old functionality operational,bug fix
 Ex: if dependency is 3.4.2 it supports for 3.*.*(means on npm install if 3.5.0 is available then it will update it not 4.0.0)
-~ :  bug fix
+    - **~ :**  bug fix
 Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
-----------------------------------------------------------------------------------------------------------
---defer vs async:
-defer: download scripts in background> but executes once dom is loaded(but before DOMContentLoaded event), 
--if there are more than 1 scripts then execution order is maintained
--defer is ignore if script tag does not have src attribute
-async: download scripts in background > but executes immediately 
-- if there are more than 1 scripts then any script can load first i.e order is not maintained
--async is ignore if script tag does not have src attribute
+----------------------------------------------------------------------------------------------------
+- **Defer vs Async:**
+    - **defer:** 
+        - download scripts in background> but executes once dom is loaded(but before DOMContentLoaded event), 
+        - if there are more than 1 scripts then execution order is maintained
+        - defer is ignore if script tag does not have src attribute
+    - **async:** 
+        - download scripts in background > but executes immediately 
+        - if there are more than 1 scripts then any script can load first i.e order is not maintained
+        -async is ignore if script tag does not have src attribute
 ---------------------------------------------------------------------------
 
-preload – load content that's required for the intial render
-prefetch - load content that may be needed to render the next page
-preconnect - establish a server connection without loading a specific resource yet
+- preload – load content that's required for the intial render
+- prefetch - load content that may be needed to render the next page
+- preconnect - establish a server connection without loading a specific resource yet
 
 More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
-- Eslint:JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
+- **Eslint:** JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
-    ESLint displays warning or error message when
-    We use a variable without declaring it
-    We re-declare the variable
-    We try to change constant value
-    We add un-necessary parenthesis
-    When we use wrong syntax
+    ESLint displays warning or error message when:
+        - We use a variable without declaring it
+        - We re-declare the variable
+        - We try to change constant value
+        - We add un-necessary parenthesis
+        - When we use wrong syntax
 
 -----------------------------------------------------------------------------------------------
 -NPM vs NPX:
     NPM:
-    - Manages package/ cant run the package directly
+    - Manages package/ can't run the package directly
     - run installed packages via scripts in package.json
     - takes space as it install package locally or globally
 
@@ -132,15 +133,15 @@ More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
 - Code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
 Using dynamic import we can do code splitting . Ex: import { add } from './math';
 
-React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
-Ex: const Home = React.lazy(() => import("./components/home"));
+- React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
+    Ex: ```js const Home = React.lazy(() => import("./components/home")); ```
 We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
-Ex: ``` <Suspense fallback="Loader"><Home></> ```
+    Ex: ``` <Suspense fallback="Loader"><Home></> ```
 ----------------------------------------------------------
 - Controlled vs Uncontrolled form input:
-    - Uncontrolled: traditional html input>> use to get value using ref (ex in case of form submit)
+    - **Uncontrolled:** traditional html input>> use to get value using ref (ex in case of form submit)
     ex: ``` <input type="text" ref = {this.input}/> ```
-    controlled : In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
+    - **Controlled :** In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
     ex: ``` <input type="text" value={this.state.name} onchange={this.changeName}/> ```
 
 Why they are required?
@@ -151,28 +152,27 @@ Which one to use when?
 - For small app where no more runtime changes are required> uncontrolled 
 
 -------------------------------------------------------------------------------------------
->>The lifecycle of an HTML page has three important events:
---DOMContentLoaded –(it waits for scripts before them to load except async and document.createElement('script') ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
---load – not only HTML is loaded, but also all the external resources: images, styles etc.
---unload – the user leaves the page
---onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.
-If we cancel the event, the browser may ask the visitor if they are sure.
+- The lifecycle of an HTML page has three important events:
+    - DOMContentLoaded –(it waits for scripts before them to load except async and document.createElement('script') ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
+    - load – not only HTML is loaded, but also all the external resources: images, styles etc.
+    - unload – the user leaves the page
+    - onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.If we cancel the event, the browser may ask the visitor if they are sure.
 --------------------------------------------------------------------------------------------------
->>There are cases when we are not sure whether the document is ready or not. We’d like our function to execute when the DOM is loaded, be it now or later.
+- There are cases when we are not sure whether the document is ready or not. We’d like our function to execute when the DOM is loaded, be it now or later.
 
 The document.readyState property tells us about the current loading state.
 
 There are 3 possible values:
 
-"loading" – the document is loading.
-"interactive" – the document was fully read.
-"complete" – the document was fully read and all resources (like images) are loaded too.
+    - "loading" – the document is loading.
+    - "interactive" – the document was fully read.
+    - "complete" – the document was fully read and all resources (like images) are loaded too.
 
 -onload >> check if element with src attribute is loaded
 -onerror >> check if element with src attribute is has some error on loading 
 
 ---------------------------------------------------------------------
->>What is Browserslist?
+- What is Browserslist?
 Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
 usage: By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles,
 ex: 0.2%: All browsers that have at least 0,2% of global market share
@@ -217,7 +217,7 @@ fetchApi(){
 
 }
 
--- When an action is dispatched it goes to thunk, thunk sees what action creator has returned , if an object is returned it passes it to store directly, if a function is returned then passes dispatch as a parameter and calls that function
+ When an action is dispatched it goes to thunk, thunk sees what action creator has returned , if an object is returned it passes it to store directly, if a function is returned then passes dispatch as a parameter and calls that function
 -------------------------------------------------------------------------------
 ALGORITHM:
 MERGE SORT: Divide n conquer ALGORITHM
@@ -234,53 +234,52 @@ SPREAD: Takes iterable and spread it (ex: var abc = [1,2,3]>>[...abc]>[1,2,3])
 REST: function call if we do not know no. of arguments(ex: func(...args))
 
 -------------------------------------------------------------------------
---shallow vs deep copy
-SHALLOW COPY: 
--- for array> spread operator, Array.from,slice do shallow copy
--- for object> Object.assign, spread operator 
-Same memory is allocated to copied>> It copies non primitive containing primitives values
-ex:
-let person = {
-    "name":"vipul",
-    "address":{
-        "city":"gkp",
-    }
-}
+- Shallow vs Deep copy
+    - SHALLOW COPY: 
+        - for array> spread operator, Array.from,slice do shallow copy
+        - for object> Object.assign, spread operator 
+        - Same memory is allocated to copied>> It copies non primitive containing primitives values
+        ex:
+        let person = {
+            "name":"vipul",
+            "address":{
+                "city":"gkp",
+            }
+        }
 
-let copied = Object.assign({},person);
-copied.name = "test";
-copied.address.city="noida"
->> now in person object, name is not changed but address will be changed
+        let copied = Object.assign({},person);
+        copied.name = "test";
+        copied.address.city="noida"
+        *now in person object, name is not changed but address will be changed*
+    - DEEP COPY:
+        - Json.parse,JSON.stringfy do deep copy
+        - Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
+        ex:
+        let person = {
+            "name":"vipul",
+            "address":{
+                "city":"gkp",
+            }
+        }
 
-DEEP COPY:
--- Json.parse,JSON.stringfy do deep copy
-Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
-ex:
-let person = {
-    "name":"vipul",
-    "address":{
-        "city":"gkp",
-    }
-}
-
-let copied = JSON.parse(JSON.stringfy(person));
-copied.name = "test";
-copied.address.city="noida"
->> now in person object, nothing will be changed
+        let copied = JSON.parse(JSON.stringfy(person));
+        copied.name = "test";
+        copied.address.city="noida"
+        *now in person object, nothing will be changed*
 -----------------------------------------------------------------
 
---pure component
-It implements shouldComponentUpdate with shallow props and state.
-If prev state and props are not changed then component will not re-render
+- Pure component
+    - It implements shouldComponentUpdate with shallow props and state.
+    - If prev state and props are not changed then component will not re-render
+    - In class component it can be done by extending React.PureComponent
+    - In Function component it can be done by wrapping component with React.Memo
 
 
 Reference: https://blog.logrocket.com/what-are-react-pure-functional-components/#:~:text=A%20React%20component%20is%20considered,are%20treated%20as%20pure%20components.
 
----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
--- document.getelementbyid vs ref>> Anyone can be used
-----------------------------------------------------------------------------------------------------------
--- component lifecycle>(in order which they are called)
+- Component lifecycle>(in order which they are called)
 MOUNTING: When new instance created or inserted in DOM
 constructor
 static getDerivedStateFromProps>>if initial state depends on props, cannot use this inside it, return null or object updating state, called on every rerender
@@ -300,27 +299,27 @@ UNMOUNTING: when component is removed from DOM
 ERROR: when there is error in component
 > static getDerivedStateFromError> show fallback UI in case of error>> return state
  componentDidCatch>> logs error information
--------------------------------------------------------
+------------------------------------------------------------------------------------------
 React fragment: It let us group children elements without adding any extra node in DOM >> Ex: <><h1></h1></>
 
 --------------------------------------------------
-ErrorBoundry> 
--- handle error in constructor,render,lifecycle
-   Handle error in production build not on local
-   Do not handle error in event handler
-   static getDerivedStateFromError or componentDidCatch is used to get error state
+- ErrorBoundry> 
+     - handle error in constructor,render,lifecycle
+     - Handle error in production build not on local
+     - Do not handle error in event handler
+     - static getDerivedStateFromError or componentDidCatch is used to get error state
 
 -------------------------------------------------------------------------------------
 
-useCallback-> It is a hook which return memoized version of function that changes if one of the dependency chnages (It caches whole function)[refrential inequality]
-useMemo - It caches the result from the function >> if dependency does not changes it will not change
+- useCallback-> It is a hook which return memoized version of function that changes if one of the dependency changes (It caches whole function)[refrential inequality]
+- useMemo - It caches the result from the function >> if dependency does not changes it will not change
 Common use cases of useMemo:
 1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
 2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed,
  you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
 
------------------------------------------------------------------------------------------------------------
-Cookies- 
+----------------------------------------------------------------------------------------------------
+- Cookies- 
 >stores info max 4KB
 >can be deleted by setting expiry date(document.cookie="name=vipul;expires="+new Date().toString())[accept only UTC date]// max-age can be used which uses time in seconds
 >can be send to server on every http request
@@ -565,7 +564,7 @@ Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-in
 ------------------------------------------------------------
 useRef: persist value b/w renders, do not render on value change and also can be used with dom manipulation
 
------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 ResizeObserver:
 It reacts to changes in size of any of the observed elements, independent of what caused the change. 
@@ -583,7 +582,7 @@ var ro = new ResizeObserver(entries => {
 });
 ro.observe(element);
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Intersection observer:
 An Intersection Observer is a browser API that provides a way to observe the visibility and position of a DOM element relative to the containing root element or view
@@ -622,9 +621,9 @@ ex: const [state,dispatch] = useReducer(reducerFn,initialState)
 
 and reducerFn takes current state and action and return new state
 
--------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
-Pure Functions:
+- Pure Functions:
 > For the same input return same output
 > It depends only on input and not any external value;
 > input should be immutable
@@ -668,13 +667,12 @@ The difference is in when it generates the HTML for a page.
 Static Generation is the pre-rendering method that generates the HTML at build time(stores at CDN). The pre-rendered HTML is then reused on each request.
 Server-side Rendering is the pre-rendering method that generates the HTML on each request.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- getBoundingClientRect:
 The getBoundingClientRect() method returns the size of an element and its position relative to the viewport. 
 It returns left, top, right, bottom, x, y, width, height.
 
--------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- forwardRef:
 React forwardRef is a method that allows parent components pass down (i.e., “forward”) refs to their children
 
@@ -682,19 +680,18 @@ React forwardRef is a method that allows parent components pass down (i.e., “f
 -- webAPI 
  APIs that are built into the browser and provide native features that can also be used in a web app.
 
----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- doctype:
 The <!DOCTYPE html> (syntax for HTML5) declaration is used to inform a website visitor's browser that the document being rendered is an HTML document
 
---------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 Semantic tags:
 Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation.
 Ex: <header><footer><main><nav>
 
---security attacks on frontend:
+- Security attacks on frontend:
 > Clickjacking: 
-Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to 
-trick a user into clicking on a button or link on another page when they were intending to click on the top level page. 
+Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top level page. 
 Prevention:
 >>X-Frame-Options HTTP header with value same origin
 >>"Content-Security-Policy", "frame-ancestors 'self';"
@@ -721,13 +718,13 @@ Prevention:
 Random Tokens
 Same site in cookies
 
----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 Portals
 Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
 ReactDOM.createPortal(child, container)
 
----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Generators
 Regular functions return only one, single value (or nothing).
@@ -1014,13 +1011,16 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
   - Babel transpiles JSX to React.createElement(type,props,children)
     Ex: ```js React.createElement('div',null,"App Component")```
   - React.createElement is converted into object 
-    Ex: ```js 
+    Ex: 
+
+    ```js 
           $$typeof: Symbol(react.element)
           key: null
           props: {children:"App Component"}
           ref: null
-          type: "div"
-    ```
+          type: "div" 
+          ```
+
   - React creates necessary **React Components Instances** at run-time, and they return React Elements.
   - ReactDOM renders the virtual DOM, that consists of **React Elements**. 
 
@@ -1049,7 +1049,7 @@ The browser engine combines the two to create the Render Tree. Layout determines
 
 - Load CSS file asynchronously:
     - use media tag
-    ```html <link rel="stylesheet" href="style.css" media="all" onload="this.media=all"> ```
+    ```html <link rel="stylesheet" href="style.css" media="print" onload="this.media=all"> ```
     By default css is render blocking but using media="print" it thinks it is not important and priority is less
 
 - React Design Patterns:
@@ -1117,7 +1117,7 @@ The browser engine combines the two to create the Render Tree. Layout determines
         - Server verifies the credentials are correct and returns a signed token.
         - This token is stored client-side, most commonly in local storage - but can be stored in session storage or a cookie as well.
         - Subsequent requests to the server include this token as an additional Authorization header or through one of the other methods mentioned above.
-        - The server decodes the JWT and if the token is valid processes the request.
+        - The server decodes the JWT and if the token is valid, processes the request.
         - Once a user logs out, the token is destroyed client-side, no interaction with the server is necessary.
 
     **Advantages of Token-Based Authentication:** Stateless, Scalable, and Decoupled, Cross Domain, Performance, Mobile ready.    
