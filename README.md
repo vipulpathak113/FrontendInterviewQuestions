@@ -235,7 +235,7 @@ REST: function call if we do not know no. of arguments(ex: func(...args))
 
 -------------------------------------------------------------------------
 - Shallow vs Deep copy
-    - SHALLOW COPY: 
+    - **SHALLOW COPY:** Copied values still connected to original variable.
         - for array> spread operator, Array.from,slice do shallow copy
         - for object> Object.assign, spread operator 
         - Same memory is allocated to copied>> It copies non primitive containing primitives values
@@ -251,7 +251,7 @@ REST: function call if we do not know no. of arguments(ex: func(...args))
         copied.name = "test";
         copied.address.city="noida"
         *now in person object, name is not changed but address will be changed*
-    - DEEP COPY:
+    - **DEEP COPY:** All copied values are disconnected from original variable
         - Json.parse,JSON.stringfy do deep copy
         - Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
         ex:
@@ -530,12 +530,11 @@ The BOM consists of the objects navigator, history, screen, location and documen
 -- css position:
 
 STATIC (default): normal flow>> cannot change top bottom left right;
-RELATIVE: remove from normal document flow >> almost same as static but can change top bottom left right , 
+RELATIVE: remain in normal document flow >> almost same as static but can change top bottom left right. Changes position from its original position
 change top bottom left right respect to original position
-ABSOLUTE :  remove from normal document flow >> by default if we give top bottom left right it will be as per body, 
+ABSOLUTE :  remove from normal document flow >> by default if we give top bottom left right it will be as per parent, 
 if parent position is set to relative then absolute then top bottom left right it will be as per the parent
-FIXED: remove from normal document flow >>by default if we give top bottom left right it will be as per body
-if we scroll then also its postion is fixed
+FIXED: remove from normal document flow >>by default if we give top bottom left right it will be always as per HTML. If we scroll then also its postion is fixed
 STICKY: almost same as relative but if we scroll it and as per top bottom left right it becomes fixed
 
 ---------------------------------------------------------------------------------------------------------
@@ -678,7 +677,7 @@ React forwardRef is a method that allows parent components pass down (i.e., “f
 
 ---------------------------------------------------------------------------------------------------------------------
 -- webAPI 
- APIs that are built into the browser and provide native features that can also be used in a web app.
+ APIs that are built into the browser and provide native features that can also be used in a web app. Provide an interface for websites and client applications to have data access.
 
 ----------------------------------------------------------------------------------------------------
 -- doctype:
