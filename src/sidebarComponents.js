@@ -19,6 +19,7 @@ function SidebarComponents(props) {
         <Link to={"/fileStructure"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> File Structure </Link>
         <Link to={"/tabs"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Tabs </Link>
         <Link to={"/accordian"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Accordian </Link>
+        <Link to={"/slider"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Slider </Link>
         </div>
     );
 }

@@ -8,7 +8,6 @@ const InfiniteScroll = React.lazy(() => import("./components/infiniteScroll"));
 const ProgressBar = React.lazy(() => import("./components/progressBar"));
 const Tictactoe = React.lazy(() => import("./components/tictactoe"));
 const SodukuSolver = React.lazy(() => import("./components/sodukuSolve"));
-const ForEachPollyfill = React.lazy(() => import("./components/forEachPollyfill"));
 const HOCImp = React.lazy(() => import("./components/HOC/HOCExample"));
 const Playground = React.lazy(() => import("./components/playground"));
 const Section = React.lazy(() => import("./components/Section"));
@@ -20,6 +19,8 @@ const Pagination = React.lazy(() => import("./components/Pagination"));
 const FileStructure = React.lazy(() => import("./components/fileStructure"));
 const TabComponent = React.lazy(() => import("./components/Tab/TabComponent"));
 const Accordian = React.lazy(() => import("./components/Accordian"));
+const Slider = React.lazy(() => import("./components/Slider/Slider"));
+
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -46,10 +47,6 @@ const Routes = withRouter(({ location }) => {
     {
       component: SodukuSolver,
       path: "/sodukuSolver",
-    },
-    {
-      component: ForEachPollyfill,
-      path: "/forEachPollyfill",
     },
     {
       component: HOCImp,
@@ -94,6 +91,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Accordian,
       path: "/accordian",
+    },
+    {
+      component: Slider,
+      path: "/slider",
     },
   ];
 
