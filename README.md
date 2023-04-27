@@ -475,11 +475,11 @@ console.log(obj) // points to global(as this means window object)
 ---------------------------------------------------------------------------------------------
 
 INLINE VS BLOCK vs INLINE-BLOCK:
--- Inline cannot have margin padding height and will always be in same line 
-ex: a, span, img
+- **Inline elements** consume only the 𝗿𝗲𝗾𝘂𝗶𝗿𝗲𝗱 𝘄𝗶𝗱𝘁𝗵 and 𝗱𝗼 𝗻𝗼𝘁 𝗵𝗮𝘃𝗲 𝘁𝗼𝗽 𝗮𝗻𝗱 𝗯𝗼𝘁𝘁𝗼𝗺 𝗺𝗮𝗿𝗴𝗶𝗻𝘀. Thus, these elements 𝗱𝗼 𝗻𝗼𝘁 𝘀𝘁𝗮𝗿𝘁 𝗳𝗿𝗼𝗺 𝗮 𝗻𝗲𝘄 𝗹𝗶𝗻𝗲.
+𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀 - <𝙨𝙥𝙖𝙣>, <𝙖>, <𝙡𝙖𝙗𝙚𝙡>, <𝙗𝙧>
 
---Block can have margin padding top and will always be in next line
-ex: div, p, h1, section
+- **Block elements** consume the 𝗳𝘂𝗹𝗹 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝘄𝗶𝗱𝘁𝗵 and 𝗵𝗮𝘃𝗲 𝘁𝗼𝗽 𝗮𝗻𝗱 𝗯𝗼𝘁𝘁𝗼𝗺 𝗺𝗮𝗿𝗴𝗶𝗻𝘀. Since top and bottom margins are present, block elements always start from a 𝗻𝗲𝘄 𝗹𝗶𝗻𝗲.
+𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀 - <𝙙𝙞𝙫>, <𝙥>, <𝙝𝙚𝙖𝙙𝙚𝙧>, <𝙛𝙤𝙤𝙩𝙚𝙧>
 
 -- Inline BLOCK can have margin padding height and will always be in same line 
 
@@ -1133,4 +1133,14 @@ The browser engine combines the two to create the Render Tree. Layout determines
     - **Promise.resolve** and resolve function work the same way for plain values. Both returns fulfilled promises.
     - **Promise.resolve** and **resolve** functions work differently when a promise is passed as an argument. Promise.resolve returns the same promise passed as an argument when resolve works in some strange way.
     - **resolve** returns pending promise for any promised values regardless of their state. And may change the returned promise’s state in some async way.
+
+- Error handling in Javascript:
+    There are three types of error:
+        - **Syntax Errors:** Syntax errors, also called parsing errors, occur at compile time.
+            Ex: missing brackets,etc
+        - **Runtime Errors:** Runtime errors, also called exceptions, occur during execution (after compilation/interpretation).
+            Ex: Calling a method that does not exists
+        - **Logical Errors:**  Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected. **You cannot catch these errors.**   
+
+    - **try...catch...finally Statement:** You can catch programmer-generated and runtime exceptions, but you cannot catch JavaScript syntax errors. They can catch synchronous code errors. To check for asynchronous code, use promises or aync await.          
            
