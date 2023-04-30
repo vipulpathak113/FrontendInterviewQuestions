@@ -1142,5 +1142,17 @@ The browser engine combines the two to create the Render Tree. Layout determines
             Ex: Calling a method that does not exists
         - **Logical Errors:**  Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected. **You cannot catch these errors.**   
 
-    - **try...catch...finally Statement:** You can catch programmer-generated and runtime exceptions, but you cannot catch JavaScript syntax errors. They can catch synchronous code errors. To check for asynchronous code, use promises or aync await.          
+    - **try...catch...finally Statement:** You can catch programmer-generated and runtime exceptions, but you cannot catch JavaScript syntax errors. They can catch synchronous code errors. To check for asynchronous code, use promises or aync await. 
+
+- A **stacking context** is a group of elements that have a common parent and move up and down the z axis together. The z-index of elements inside of a stacking context are always relative to the parent's current order in its own stacking context. 
+
+- **z-index** works if position is other than static. For flex no need to set positions.
+
+- **og(open graph)** tags are used to configure how our website looks when shared on social media.
+    ```html 
+    <meta property="og:title" content="Colby Fayock - A UX Designer &amp; Front-end Developer Blog" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/static/website-social-card-44070c4a901df708aa1563ac4bbe595a.jpg" />
+    <meta property="og:url" content="https://www.colbyfayock.com" />
+    ```
            
