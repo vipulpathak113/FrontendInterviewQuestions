@@ -1,7 +1,6 @@
 {
   "name": "js",
   "version": "0.1.0",
-  "homepage": "http://vipulpathak113.github.io/FrontendInterviewQuestions",
   "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
