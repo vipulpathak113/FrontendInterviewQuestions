@@ -1038,7 +1038,8 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
 
 The DOM is created as the HTML is parsed. The HTML may request JavaScript that might alter the DOM. The HTML includes or makes requests for styles, which builds the CSSOM.
 
-The browser engine combines the two to create the Render Tree. Layout determines the size and location of everything on the page. Once layout is determined, pixels are painted to the screen.
+The browser engine combines the two to create the Render Tree. display:none is omitted in render tree.
+Layout determines the size and location of everything on the page. Once layout is determined, pixels are painted to the screen.
 
 - Load Images file asynchrnously:
     - Use loading="lazy"

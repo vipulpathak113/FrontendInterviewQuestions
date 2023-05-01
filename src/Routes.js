@@ -20,13 +20,13 @@ const FileStructure = React.lazy(() => import("./components/fileStructure"));
 const TabComponent = React.lazy(() => import("./components/Tab/TabComponent"));
 const Accordian = React.lazy(() => import("./components/Accordian"));
 const Slider = React.lazy(() => import("./components/Slider/Slider"));
-
+const Modal = React.lazy(() => import("./components/Modal/Modal"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
     {
       component: Home,
-      path: "/FrontendInterviewQuestions",
+      path: "/",
     },
     {
       component: Debouncing,
@@ -95,6 +95,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Slider,
       path: "/slider",
+    },
+    {
+      component: Modal,
+      path: "/modal",
     },
   ];
 
