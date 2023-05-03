@@ -189,7 +189,7 @@ ACTIONS:
 
 Ex: {type:"ADD_CHANGE",payload:data}
 
-REDUCER:
+- REDUCER:
 -- Reducer are pure JavaScript functions
 -- Reducer takes current state and action as input and return new state and then store updates the new state
 -- Reducers are responsible for particular state in the store
@@ -198,7 +198,7 @@ REDUCER:
 STORE:
 Provider take store as props and its main function is to provide store to all components
 
-REDUX-THUNK:
+- REDUX-THUNK:
 Thunk are functions which are used to delay a functionality
 -- to make action asynchronous we wrap it by thunk function
 Ex: Before thunk action creator looks like:
@@ -327,7 +327,7 @@ Common use cases of useMemo:
 >use HttpOnly when you do not want client to update the cookie (document.cookie="name=vipul;HttpOnly")
 >path="/" make cookie accessible to provided path only
 -----------------------------------------------------------------------------------------------
-Prototypal inheritance
+- Prototypal inheritance
 >In JavaScript, objects have a special hidden property [[Prototype]] 
 that is either null or references another object. That object is called “a prototype”.
 >When we read a property from object, and it’s missing, JavaScript automatically takes it from the prototype.
