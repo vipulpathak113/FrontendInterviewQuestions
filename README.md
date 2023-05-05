@@ -102,6 +102,10 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
 ---------------------------------------------------------------------------
 
 - preload – load content that's required for the intial render
+ ![preload](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/preload_fe604-1300x0.jpg)  
+
+    ![preloadas]( https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
+
 - prefetch - load content that may be needed to render the next page
 - preconnect - establish a server connection without loading a specific resource yet
 
@@ -175,7 +179,7 @@ There are 3 possible values:
 - What is Browserslist?
 Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
 usage: By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles,
-ex: 0.2%: All browsers that have at least 0,2% of global market share
+ex: 0.2%: All browsers that have at least 0.2% of global market share
 not dead: Exclude browsers without official support in the last 24 months
 not ie <= 11: Exclude IE 11 and older versions
 not op_mini all: Exclude Opera Mini
@@ -565,11 +569,12 @@ useRef: persist value b/w renders, do not render on value change and also can be
 
 ----------------------------------------------------------------------------------------------------
 
-ResizeObserver:
+- **ResizeObserver:**
 It reacts to changes in size of any of the observed elements, independent of what caused the change. 
 It provides access to the new size of the observed elements too.
 
 Ex: 
+```js 
 var element = document.getelementbyid("test);
 var ro = new ResizeObserver(entries => { 
     for (let entry of entries) {
@@ -577,24 +582,27 @@ var ro = new ResizeObserver(entries => {
     console.log('Element:', entry.target);
     console.log(`Element size: ${cr.width}px x ${cr.height}px`);
     console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
-  }
+}
 });
 ro.observe(element);
+```
 
 ----------------------------------------------------------------------------------------------------
 
-Intersection observer:
+- **Intersection observer:**
 An Intersection Observer is a browser API that provides a way to observe the visibility and position of a DOM element relative to the containing root element or view
 
-Ex: 
+Ex:
+```js 
 var element = document.getelementbyid("test);
-var ro = new ResizeObserver(entries => { 
+var ro = new IntersectionObserver(entries => { 
     for (let entry of entries) {
     const cr =  entry.isIntersecting; // this tells that element is visible or not
     console.log('Element:', entry.target);
   }
 });
 ro.observe(element);
+```
 
 Usage:
 >Lazy loading
@@ -603,16 +611,16 @@ Usage:
 
 -----------------------------------------------------
 
-MutationObserver
+- **MutationObserver:**
 The MutationObserver interface provides the ability to watch for changes being made to the DOM tree.
 
->Observe childlist
->Observe attibutes
->Observes text inside element
->Can observe more element by setting subtree=1
---------------------------------------------------------------------------------------------------------------------------------
+    - Observe childlist
+    - Observe attibutes
+    - Observes text inside element
+    - Can observe more element by setting subtree=1
+----------------------------------------------------------------------------------------------------
 
-useState vs useReducer:
+- useState vs useReducer:
 useState uses useReducer underhood...so we can use useReducer inplace of useState any time;
 
 >>useReducer takes reducer fn and initial state and returns new state and dispatch 
@@ -623,12 +631,12 @@ and reducerFn takes current state and action and return new state
 ----------------------------------------------------------------------------------------------------
 
 - Pure Functions:
-> For the same input return same output
-> It depends only on input and not any external value;
-> input should be immutable
-> It cannot change any external value
+    - For the same input return same output
+    - It depends only on input and not any external value;
+    - input should be immutable
+    - It cannot change any external value
 
--- CSR VS SSR
+- CSR VS SSR
 
 Client side rendering -- user requests a website -> server sends HTML file with JavaScript link  -> Browser downloads HTML ->
 Browser downloads CSS and JavaScript -> Browser executes framework / library -> browser loads the website.
@@ -667,24 +675,24 @@ Static Generation is the pre-rendering method that generates the HTML at build t
 Server-side Rendering is the pre-rendering method that generates the HTML on each request.
 
 ----------------------------------------------------------------------------------------------------
--- getBoundingClientRect:
+- getBoundingClientRect:
 The getBoundingClientRect() method returns the size of an element and its position relative to the viewport. 
 It returns left, top, right, bottom, x, y, width, height.
 
 ----------------------------------------------------------------------------------------------------
--- forwardRef:
+- forwardRef:
 React forwardRef is a method that allows parent components pass down (i.e., “forward”) refs to their children
 
----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- webAPI 
  APIs that are built into the browser and provide native features that can also be used in a web app. Provide an interface for websites and client applications to have data access.
 
 ----------------------------------------------------------------------------------------------------
--- doctype:
+- doctype:
 The <!DOCTYPE html> (syntax for HTML5) declaration is used to inform a website visitor's browser that the document being rendered is an HTML document
 
 ----------------------------------------------------------------------------------------------------
-Semantic tags:
+- Semantic tags:
 Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation.
 Ex: <header><footer><main><nav>
 
