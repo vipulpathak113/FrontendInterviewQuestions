@@ -139,6 +139,8 @@ Promise.myAllSettled = function(arrayOfPromises){
     return Promise.all(mappedPromises)
 }
 
+// .catch is never called in promise.settled
+
 Promise.allSettled(arrayOfPromises).then(res => {
     console.log("native Promise.allSettled", res)
 }).catch(err => {
