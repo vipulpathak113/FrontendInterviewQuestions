@@ -21,6 +21,7 @@ const TabComponent = React.lazy(() => import("./components/Tab/TabComponent"));
 const Accordian = React.lazy(() => import("./components/Accordian"));
 const Slider = React.lazy(() => import("./components/Slider/Slider"));
 const Modal = React.lazy(() => import("./components/Modal/Modal"));
+const SolidPrincipless = React.lazy(() => import("./SolidPrinciples"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -99,6 +100,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Modal,
       path: "/modal",
+    },
+    {
+      component: SolidPrincipless,
+      path: "/solid",
     },
   ];
 

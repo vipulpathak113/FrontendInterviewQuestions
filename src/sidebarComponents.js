@@ -21,6 +21,7 @@ function SidebarComponents(props) {
         <Link to={"/accordian"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Accordian </Link>
         <Link to={"/slider"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Slider </Link>
         <Link to={"/modal"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Modal </Link>
+        <Link to={"/solid"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Solid Principles </Link>
         </div>
     );
 }
