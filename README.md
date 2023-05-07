@@ -109,8 +109,8 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
 - prefetch - load content that may be needed to render the next page
 - preconnect - establish a server connection without loading a specific resource yet
 
-More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
-----------------------------------------------------------------------------------------------------
+- More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
+--------------------------------------------
 
 - **Eslint:** JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
@@ -121,62 +121,62 @@ More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
         - We add un-necessary parenthesis
         - When we use wrong syntax
 
------------------------------------------------------------------------------------------------
--NPM vs NPX:
-    NPM:
+--------------------------------------------
+- **NPM vs NPX:** <br>
+    **NPM:**
     - Manages package/ can't run the package directly
     - run installed packages via scripts in package.json
     - takes space as it install package locally or globally
 
-    NPX:
+   **NPX:**
     - node package execute
     - execute package directly
     - can run package without installation remotely / also mentioned in package.json
     - save space as it is not installed globally or locally it directly runs it
--------------------------------------------------------------------------------------------
+--------------------------------------------
 - Code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
-Using dynamic import we can do code splitting . Ex: import { add } from './math';
+- Using dynamic import we can do code splitting . Ex: import { add } from './math';
 
 - React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
     Ex: ```js const Home = React.lazy(() => import("./components/home")); ```
-We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
+- We use suspense enclosing lazy component to show some loader or text to UI until the component is loaded
     Ex: ``` <Suspense fallback="Loader"><Home></> ```
-----------------------------------------------------------
+--------------------------------------------
 - Controlled vs Uncontrolled form input:
     - **Uncontrolled:** traditional html input>> use to get value using ref (ex in case of form submit)
     ex: ``` <input type="text" ref = {this.input}/> ```
     - **Controlled :** In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
     ex: ``` <input type="text" value={this.state.name} onchange={this.changeName}/> ```
 
-Why they are required?
-Unlike other MVC frameworks, React inclines more towards a View Library. That’s why React is more flexible as well as opinionated and provides both a model-view approach with controlled components and an only view approach using uncontrolled components. While other frameworks like Angular or VueJs provide only Model-View two-way binding approach to the same use case, React provides two distinctively flexible solutions. It depends on the use cases about how and where one would use any of those.
+    - Why they are required?<br>
+    Unlike other MVC frameworks, React inclines more towards a View Library. That’s why React is more flexible as well as opinionated and provides both a model-view approach with controlled components and an only view approach using uncontrolled components. While other frameworks like Angular or VueJs provide only Model-View two-way binding approach to the same use case, React provides two distinctively flexible solutions. It depends on the use cases about how and where one would use any of those.
 
-Which one to use when?
-- For large app where all inputs are shared across app> controlled
-- For small app where no more runtime changes are required> uncontrolled 
+    - Which one to use when?
+        - For large app where all inputs are shared across app> controlled
+        - For small app where no more runtime changes are required> uncontrolled 
 
--------------------------------------------------------------------------------------------
+--------------------------------------------
 - The lifecycle of an HTML page has three important events:
     - DOMContentLoaded –(it waits for scripts before them to load except async and document.createElement('script') ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
     - load – not only HTML is loaded, but also all the external resources: images, styles etc.
     - unload – the user leaves the page
     - onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.If we cancel the event, the browser may ask the visitor if they are sure.
---------------------------------------------------------------------------------------------------
+--------------------------------------------
 - There are cases when we are not sure whether the document is ready or not. We’d like our function to execute when the DOM is loaded, be it now or later.
 
-The document.readyState property tells us about the current loading state.
+    The document.readyState property tells us about the current loading state.
 
-There are 3 possible values:
+    There are 3 possible values:
 
     - "loading" – the document is loading.
     - "interactive" – the document was fully read.
     - "complete" – the document was fully read and all resources (like images) are loaded too.
 
--onload >> check if element with src attribute is loaded
--onerror >> check if element with src attribute is has some error on loading 
+- onload >> check if element with src attribute is loaded
+- onerror >> check if element with src attribute is has some error on loading 
 
----------------------------------------------------------------------
-- What is Browserslist?
+--------------------------------------------
+- What is Browserslist? <br>
 Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
 usage: By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles,
 ex: 0.2%: All browsers that have at least 0.2% of global market share
@@ -184,7 +184,7 @@ not dead: Exclude browsers without official support in the last 24 months
 not ie <= 11: Exclude IE 11 and older versions
 not op_mini all: Exclude Opera Mini
 
---------------------------------------------------------------------------------------
+--------------------------------------------
 >> REDUX
 ACTIONS:
 -- They are plan JS objects
