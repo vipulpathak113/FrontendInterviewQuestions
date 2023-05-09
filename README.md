@@ -178,11 +178,13 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
 --------------------------------------------
 - What is Browserslist? <br>
 Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
-usage: By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles,
-ex: 0.2%: All browsers that have at least 0.2% of global market share
-not dead: Exclude browsers without official support in the last 24 months
-not ie <= 11: Exclude IE 11 and older versions
-not op_mini all: Exclude Opera Mini
+    **Usage:** By using browserslist, transpilers/bundlers know what browsers you want to support, so they can "group" browsers in different categories and generate separate bundles.
+
+    **Example:** 
+    0.2%: All browsers that have at least 0.2% of global market share
+    not dead: Exclude browsers without official support in the last 24 months
+    not ie <= 11: Exclude IE 11 and older versions
+    not op_mini all: Exclude Opera Mini
 
 --------------------------------------------
 >> REDUX
@@ -233,7 +235,7 @@ MERGE SORT: Divide n conquer ALGORITHM
 > mergeSort(right)
 > merge (left,right,orginalArr)>> check at i index for left and j index for right which is smaller and fill at k index of orginal
 
---rest vs spread operator:
+- Rest vs Spread operator:
 SPREAD: Takes iterable and spread it (ex: var abc = [1,2,3]>>[...abc]>[1,2,3])
 REST: function call if we do not know no. of arguments(ex: func(...args))
 
@@ -536,21 +538,20 @@ The BOM consists of the objects navigator, history, screen, location and documen
 STATIC (default): normal flow>> cannot change top bottom left right;
 RELATIVE: remain in normal document flow >> almost same as static but can change top bottom left right. Changes position from its original position
 change top bottom left right respect to original position
-ABSOLUTE :  remove from normal document flow >> by default if we give top bottom left right it will be as per parent, 
-if parent position is set to relative then absolute then top bottom left right it will be as per the parent
+ABSOLUTE :  remove from normal document flow >> by default if we give top bottom left right it will be as per body, 
+if parent position is set to other than static then absolute then top bottom left right it will be as per the parent
 FIXED: remove from normal document flow >>by default if we give top bottom left right it will be always as per HTML. If we scroll then also its postion is fixed
 STICKY: almost same as relative but if we scroll it and as per top bottom left right it becomes fixed
 
----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 pixel: fixed width as given
 % : relative to parent 
 vh/vw: relative to screen present
 rem : relative to root font size
 em: relative to parent font size
 ------------------------------------------------------------------------------
--- boxsizing: (default: content-box)
->border-box
->>Include padding and border in the element's total width and height
+- boxsizing: (default: content-box)
+    border-box: Include padding and border in the element's total width and height
 ------------------------------------------------------------------------------
 
  DOM MANIPULATION:
@@ -688,278 +689,288 @@ React forwardRef is a method that allows parent components pass down (i.e., “f
  APIs that are built into the browser and provide native features that can also be used in a web app. Provide an interface for websites and client applications to have data access.
 
 ----------------------------------------------------------------------------------------------------
-- doctype:
+- Doctype:
 The <!DOCTYPE html> (syntax for HTML5) declaration is used to inform a website visitor's browser that the document being rendered is an HTML document
 
-----------------------------------------------------------------------------------------------------
+--------------------------------------------
 - Semantic tags:
 Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation.
 Ex: <header><footer><main><nav>
+--------------------------------------------
+- **Security attacks on frontend:**
+    - **Clickjacking:** 
+    Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top level page.<br> 
+    ***Prevention:***
+        - X-Frame-Options HTTP header with value same origin
+        - "Content-Security-Policy", "frame-ancestors 'self';"
 
-- Security attacks on frontend:
-> Clickjacking: 
-Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top level page. 
-Prevention:
->>X-Frame-Options HTTP header with value same origin
->>"Content-Security-Policy", "frame-ancestors 'self';"
-
->Cross Site Scripting (XSS):
-XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user
-Prevention:
-To prevent this attack in pure JS, let’s write a custom function that looks out for special characters such as “<” , “>” and “&” 
-String.prototype.escape = function() {
-    var tagsToReplace = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;'
+    - **Cross Site Scripting (XSS):**
+    XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user<br>
+    ***Prevention:***
+    To prevent this attack in pure JS, let’s write a custom function that looks out for special characters such as “<” , “>” and “&” 
+    String.prototype.escape = function() {
+        var tagsToReplace = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;'
+        };
+        return this.replace(/[&<>]/g, function(tag) {
+            return tagsToReplace[tag] || tag;
+        });
     };
-    return this.replace(/[&<>]/g, function(tag) {
-        return tagsToReplace[tag] || tag;
-    });
-};
 
->Cross Site Request Forgery (CSRF):
-Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. 
-With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing.
-Prevention:
-Random Tokens
-Same site in cookies
+    - **Cross Site Request Forgery (CSRF):**
+    Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. 
+    With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing.<br>
+    ***Prevention:***
+    - Random Tokens
+    - Same site in cookies
 
-----------------------------------------------------------------------------------------------------
-Portals
+--------------------------------------------
+- Portals
 Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
-ReactDOM.createPortal(child, container)
+    ReactDOM.createPortal(child, container)
 
-----------------------------------------------------------------------------------------------------
+--------------------------------------------
 
-Generators
-Regular functions return only one, single value (or nothing).
+- **Generators:**
+    Regular functions return only one, single value (or nothing).
 
->Generators can return (“yield”) multiple values, one after another, on-demand. 
-They work great with iterables, allowing to create data streams with ease.
+    Generators can return (“yield”) multiple values, one after another, on-demand. 
+    They work great with iterables, allowing to create data streams with ease.
 
-Ex:
-function* generateSequence() {
-  yield 1;
-  yield 2;
-  return 3;
-}
+    ```js
+    Ex:
+    function* generateSequence() {
+    yield 1;
+    yield 2;
+    return 3;
+    }
 
-// "generator function" creates "generator object"
-let generator = generateSequence();
-console.log(generator.next()) // // {value: 1, done: false}
-console.log(generator.next()) // // {value: 2, done: false}
-console.log(generator.next()) // // {value: 3, done: false}
-console.log(generator.next()) // // {value: undefined, done: true}
+    // "generator function" creates "generator object"
+    let generator = generateSequence();
+    console.log(generator.next()) // // {value: 1, done: false}
+    console.log(generator.next()) // // {value: 2, done: false}
+    console.log(generator.next()) // // {value: 3, done: false}
+    console.log(generator.next()) // // {value: undefined, done: true}
+    ```
 
-----------------------------------------------------------------------------------------------------
-PropTypes:
+--------------------------------------------
+- **PropTypes:**
 PropTypes are a mechanism to ensure that components use the correct data type and pass the right data,
 and that components use the right type of props, and that receiving components receive the right type of props.
 
-Ex:
-classOrFunctionName.propTypes = {
-  name: PropTypes.string
-};
+    Ex:
+    ```js
+    classOrFunctionName.propTypes = {
+    name: PropTypes.string
+    };
+    ```
 
------------------------------------------------------------------------------------------------------
-Synthetic Event:
->The synthetic event is a cross-browser wrapper of the browser's native event.
+--------------------------------------------
+**Synthetic Event:**
+The synthetic event is a cross-browser wrapper of the browser's native event.
 
 Handling events with react have some syntactic differences from handling events on DOM. These are:
-1.React events are named as camelCase instead of lowercase.
-2.With JSX, a function is passed as the event handler instead of a string. 
+- React events are named as camelCase instead of lowercase.
+- With JSX, a function is passed as the event handler instead of a string. 
 
 Event declaration in plain HTML:
 
+```html
 <button onclick="showMessage()">  
        Hello JavaTpoint  
 </button>  
+```
 
 
 Event declaration in React:
 
-<button onClick={showMessage}>  
+```html
+ <button onClick={showMessage}>  
       Hello JavaTpoint  
 </button>
+```
 
-3. In react, we cannot return false to prevent the default behavior. 
+- In react, we cannot return false to prevent the default behavior. 
 We must call preventDefault event explicitly to prevent the default behavior.
 
-------------------------------------------------------------------------------------------------------------------------
-CSS:
+--------------------------------------------
+- **CSS Specifity:**
 If one element have different attributes and have different values for them they work as:
 
-inline> id> class> tag
+- **inline> id> class> tag**
 
-ex:
 
-<div id="id", class="class" style="color:black"> Hi</div>
+        ```html <div id="id", class="class" style="color:black"> Hi</div>
 
-0 1 0 0 >> order of specificity
-#id{
-    color: red
-}
+        ```
 
-0 0 1 0 >> order of specificity
-.class{
-    color: green
-}
 
-0 0 0 1 >> order of specificity
-div{
-    color: blue
-}
+    - 0 1 0 0 >> order of specificity
+    #id{
+        color: red
+    }
 
--for inline it is 1 0 0 0 >> order of specificity
+    - 0 0 1 0 >> order of specificity
+    .class{
+        color: green
+    }
 
--if we do h1.header then 0 0 1 1 >> order of specificity
+    - 0 0 0 1 >> order of specificity
+    div{
+        color: blue
+    }
 
->then Hi will be displayed in black color bcz of specificity of CSS
+    - for inline it is 1 0 0 0 >> order of specificity
 
->but if we use !important with any property then it will override all properties
+    - if we do h1.header then 0 0 1 1 >> order of specificity then "Hi" will be displayed in black color bcz of specificity of CSS
+    but if we use !important with any property then it will override all properties
 
----------------------------------------------------------------------------------------------
+--------------------------------------------
 
-Why reducers are pure function?
->Redux takes a given state (object) and passes it to each reducer in a loop. 
-And it expects a brand new object from the reducer if there are any changes. 
-And it also expects to get the old object back if there are no changes.
+- Why reducers are pure function?
+    - Redux takes a given state (object) and passes it to each reducer in a loop. 
+    And it expects a brand new object from the reducer if there are any changes. 
+    And it also expects to get the old object back if there are no changes.
 
->Redux simply checks whether the old object is the same as the new object by comparing the memory locations of the two objects. 
-So if you mutate the old object’s property inside a reducer, the “new state” and the “old state” will both point to the same object.
-Hence Redux thinks nothing has changed! So this won’t work.
+    - Redux simply checks whether the old object is the same as the new object by comparing the memory locations of the two objects. 
+    So if you mutate the old object’s property inside a reducer, the “new state” and the “old state” will both point to the same object.
+    Hence Redux thinks nothing has changed! So this won’t work.
 
----------------------------------------------------------------------------------------------------
+--------------------------------------------
 
-Weakest set and weakest map:
+- Weakest set and weakest map:
 
-Normally js can store object as a key but only one time.
-ex:
-let a ={}
-let b = {num:2}
+    Normally js can store object as a key but only one time.
+    ex:
+    let a ={}
+    let b = {num:2}
 
-let c = {}
-c[a] = "a";
-c[b] = "b";
+    let c = {}
+    c[a] = "a";
+    c[b] = "b";
 
-so console.log(c) // will print only b obj...it remembers only last obj.
+    so console.log(c) // will print only b obj...it remembers only last obj.
 
-So Map was introduced to store multiple object as a key
+    - So Map was introduced to store multiple object as a key
 
-let mapval = new Map();
-mapval.set(a);
-mapval.set(b)
+        let mapval = new Map();
+        mapval.set(a);
+        mapval.set(b)
 
-But in this the object set as key are not garbage collected so we use weakmap;
+        But in this the object set as key are not garbage collected so we use weakmap;
 
->Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
------------------------------------------------------------------
+    - Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
+--------------------------------------------
 Rendering concept:
 https://prateeksurana.me/blog/future-of-rendering-in-react/
 
-------------------------------------------------------------------
--Feature detection is trying to verify if a feature exists. For example, if the user’s browser supports the geolocation APIs.
+--------------------------------------------
+- Feature detection is trying to verify if a feature exists. For example, if the user’s browser supports the geolocation APIs.
 EX: if(navigator.geolocation){}
-Feature inference is if A exists we can assume B will exist too.
+- Feature inference is if A exists we can assume B will exist too.
 Ex: If navigator.geolocation exists then assume it is a modern browser or it has local storage
-UA String is the string that helps you identify which browser is used by the user.
+- UA String is the string that helps you identify which browser is used by the user.
 Ex: navigator.userAgent
 
------------------------------------------------------------------------
-Attribute vs property:
-Attribute:
-- It is for html
-- Ex: <input id="test"/> // here id is an attribute
-- Not case sensitive
-- on changing attribute, property changes
-- it only have string values 
+--------------------------------------------
+- Attribute vs property:
 
-Property:
-- It is for DOM
-- Ex: input.id // here id is property
-- case sensitive
-- on changing property, attribute does not changes
-- it can have string, object,etc like in input.style
+    **Attribute:**
+    - It is for html
+    - Ex: ```<input id="test"/>``` // here id is an attribute
+    - Not case sensitive
+    - on changing attribute, property changes
+    - it only have string values 
 
-data- attribute is changed into dataset property
-Ex: <input data-test/> is changed to dataset.Test
+    **Property:**
+    - It is for DOM
+    - Ex: input.id // here id is property
+    - case sensitive
+    - on changing property, attribute does not changes
+    - it can have string, object,etc like in input.style
 
--------------------------------------------------------------------------
-Core Web Vitals:
+    data- attribute is changed into dataset property
+    Ex: ``` <input data-test/>``` is changed to dataset.Test
 
->Loading performance – It shows how fast content appears on the screen.
->Responsiveness – It shows how fast a page responds to user input.
->Visual stability – It relates to whether the content on a page moves around on the screen while loading.
+--------------------------------------------
+- Core Web Vitals:
 
-LCP(Largest contentful Paint): Time to load largest element on Above the fold content of the page.
-> Largest means in terms of element size not file size
-> It works per page
-> Good if time < 2.5s
+    - Loading performance – It shows how fast content appears on the screen.
+    - Responsiveness – It shows how fast a page responds to user input.
+    - Visual stability – It relates to whether the content on a page moves around on the screen while loading.
 
-Fix: 
-> Use CDN
-> try not to use slideshow and large images
-> try to load font with font-display: swap
-> use defer/async for scripts
-> html,js,css minify
-> preloading resources
+    **LCP(Largest contentful Paint):** Time to load largest element on Above the fold content of the page.
+    - Largest means in terms of element size not file size
+    - It works per page
+    - Good if time < 2.5s
+    <br> 
 
-Time to First Byte (TTFB):
->Time when user make an http request and recieve first data byte from server.
+    *How to improve LCP:*
+    - Use CDN
+    - try not to use slideshow and large images
+    - try to load font with font-display: swap
+    - use defer/async for scripts
+    - html,js,css minify
+    - preloading resources
 
-Time to Interactive (TTI):
-> Measure of the time when page starts loading to page become interactive
+    **Time to First Byte (TTFB):**
+    Time when user make an http request and recieve first data byte from server.
 
-First Input Delay (FID):
->It is a measure of time when user interact with application and browser process that event
-Ex: link click, button click etc
-> good if time is <100ms
+    **Time to Interactive (TTI):**
+    Measure of the time when page starts loading to page become interactive
 
-Cumulative Layout Shift (CLS):
-> It measure the layout such that if user is going to click on something and page layout changes
-> good if value is < 0.1
-Fix:
-> Fix assets dimensions
-> do not inject dynamic js
-> add new element below the fold
+    **First Input Delay (FID):**
+    It is a measure of time when user interact with application and browser process that event
+    Ex: link click, button click etc
+    good if time is <100ms
 
---------------------------------------------------------------------------------------------
-Reflow vs Repaint:
-Reflow
->The Reflow happens when the changes made to the elements affects the layout of a portion of the page or the whole page.
->The Reflow of an element will cause the subsequent reflow of all the child and ancestor elements in the DOM.
+    **Cumulative Layout Shift (CLS):**
+    - It measure the layout such that if user is going to click on something and page layout changes
+    - good if value is < 0.1
 
-Repaint:
-the process where the browser starts giving the right appearance to the elements that were placed in the Rendered Tree such as background colours or font-sizes.
------------------------------------------------------------
+    *How to improve CLS:*
+    - Fix assets dimensions
+    - do not inject dynamic js
+    - add new element below the fold
+
+--------------------------------------------
+- Reflow vs Repaint:
+    - **Reflow:**
+        - The Reflow happens when the changes made to the elements affects the layout of a portion of the page or the whole page.
+        - The Reflow of an element will cause the subsequent reflow of all the child and ancestor elements in the DOM.
+
+    - **Repaint:**
+    the process where the browser starts giving the right appearance to the elements that were placed in the Rendered Tree such as background colours or font-sizes.
+--------------------------------------------
 Web Accessibility:
 https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
 
----------------------------------------------------------------------------------------------------
-React Fiber:
-React Fiber is the new reconciliation algorithm in React 16.
-You’ve most likely heard of the virtualDOM from React 15. It’s the old reconciler algorithm (also known as the Stack Reconciler) because it uses stack internally(synchronous).
+--------------------------------------------
+- **React Fiber:**
+    React Fiber is the new reconciliation algorithm in React 16.
+    You’ve most likely heard of the virtualDOM from React 15. It’s the old reconciler algorithm (also known as the Stack Reconciler) because it uses stack internally(synchronous).
 
-The main goals of the Fiber reconciler are incremental rendering, better or smoother rendering of UI animations and gestures, and responsiveness of the user interactions.
-The reconciler also allows you to divide the work into multiple chunks and divide the rendering work over multiple frames.
-It also adds the ability to define the priority for each unit of work and pause, reuse, and abort the work. 
+    The main goals of the Fiber reconciler are incremental rendering, better or smoother rendering of UI animations and gestures, and responsiveness of the user interactions.
+    The reconciler also allows you to divide the work into multiple chunks and divide the rendering work over multiple frames.
+    It also adds the ability to define the priority for each unit of work and pause, reuse, and abort the work. 
 
-A fiber(lowercase ‘f’) is a simple JavaScript object. It represents the React element or a node of the DOM tree.
-It’s a unit of work. In comparison, Fiber is the React Fiber reconciler.
+    A fiber(lowercase ‘f’) is a simple JavaScript object. It represents the React element or a node of the DOM tree.
+    It’s a unit of work. In comparison, Fiber is the React Fiber reconciler.
 
-React Fiber divides the update into units of works. It can assign the priority to each unit of work, and has the ability to pause, reuse, or abort the unit of work if not needed.
-React Fiber divides the work into multiple units of work, which is fiber.
+    React Fiber divides the update into units of works. It can assign the priority to each unit of work, and has the ability to pause, reuse, or abort the unit of work if not needed.
+    React Fiber divides the work into multiple units of work, which is fiber.
 
-It generates two tree one is the current tree that is rendered on the UI currently and second is the work in progress tree on which work is done with begin work function.
+    It generates two tree one is the current tree that is rendered on the UI currently and second is the work in progress tree on which work is done with begin work function.
 
-Fiber uses requestAnimationFrame for higher priority updates and requestIdleCallback for lower priority updates.
-So, while scheduling a work, Fiber checks the priority of the current update and the deadline.
+    Fiber uses requestAnimationFrame for higher priority updates and requestIdleCallback for lower priority updates.
+    So, while scheduling a work, Fiber checks the priority of the current update and the deadline.
 
-It happens in two phases:
-1. Render phase where reconciliation process happens and nothing is render to UI yet. It is asynchronous. Work is done in this phase like dom changes, state changes
-2. Commit phase where after all work is completed it renders on the UI. It is synchronous.
+    It happens in two phases:
+    1. Render phase where reconciliation process happens and nothing is render to UI yet. It is asynchronous. Work is done in this phase like dom changes, state changes
+    2. Commit phase where after all work is completed it renders on the UI. It is synchronous.
 
 -----------------------------------
 
