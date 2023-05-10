@@ -172,8 +172,8 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
     - "interactive" – the document was fully read.
     - "complete" – the document was fully read and all resources (like images) are loaded too.
 
-- onload >> check if element with src attribute is loaded
-- onerror >> check if element with src attribute is has some error on loading 
+- onload : check if element with src attribute is loaded
+- onerror : check if element with src attribute is has some error on loading 
 
 --------------------------------------------
 - What is Browserslist? <br/>
@@ -237,7 +237,7 @@ MERGE SORT: Divide n conquer ALGORITHM
 - repeat process 
 - mergeSort(left)
 - mergeSort(right)
-- merge (left,right,orginalArr)>> check at i index for left and j index for right which is smaller and fill at k index of orginal
+- merge (left,right,orginalArr): check at i index for left and j index for right which is smaller and fill at k index of orginal
 
 - Rest vs Spread operator:
 **SPREAD:** Takes iterable and spread it (ex: ```var abc = [1,2,3]>>[...abc]>[1,2,3]```)
@@ -570,15 +570,14 @@ em: relative to parent font size
 ------------------------------------------------------------------------------
 
 - **DOM MANIPULATION:**
-.append() >> append element as well as string
-.appendChild() >> append only element
-.innerText >> only display text visible in UI
-.textContent >> display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
+    - .append() : append element as well as string
+    - .appendChild() : append only element
+    - .innerText : only display text visible in UI
+    - .textContent : display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
 
 Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
 
-
---add data-test1-test2 attribute in element then we can get it by element.dataset.test1Test2 (it removes "data-" part and convert rest to camelCase)
+- add data-test1-test2 attribute in element then we can get it by element.dataset.test1Test2 (it removes "data-" part and convert rest to camelCase)
 
 ------------------------------------------------------------
 useRef: persist value b/w renders, do not render on value change and also can be used with dom manipulation
