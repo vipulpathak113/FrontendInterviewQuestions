@@ -286,9 +286,9 @@ ACTIONS:
     - In Function component it can be done by wrapping component with React.Memo
 
 
-Reference: https://blog.logrocket.com/what-are-react-pure-functional-components/#:~:text=A%20React%20component%20is%20considered,are%20treated%20as%20pure%20components.
+    Reference: https://blog.logrocket.com/what-are-react-pure-functional-components/#:~:text=A%20React%20component%20is%20considered,are%20treated%20as%20pure%20components.
 
-----------------------------------------------------------------------------------------------------
+------------------------------------------------
 
 - Component lifecycle>(in order which they are called)
     - MOUNTING: When new instance created or inserted in DOM
@@ -311,7 +311,7 @@ Reference: https://blog.logrocket.com/what-are-react-pure-functional-components/
         - static getDerivedStateFromError> show fallback UI in case of error>> return state
     componentDidCatch>> logs error information
 ------------------------------------------------------------------------------------------
-React fragment: It let us group children elements without adding any extra node in DOM >> Ex: ```<><h1></h1></>```
+- **React fragment:** It let us group children elements without adding any extra node in DOM >> Ex: ```<><h1></h1></>```
 
 --------------------------------------------------
 - ErrorBoundry> 
@@ -322,23 +322,22 @@ React fragment: It let us group children elements without adding any extra node 
 
 -------------------------------------------------------------------------------------
 
-- useCallback-> It is a hook which return memoized version of function that changes if one of the dependency changes (It caches whole function)[refrential inequality]
-- useMemo - It caches the result from the function >> if dependency does not changes it will not change
+- **useCallback:** It is a hook which return memoized version of function that changes if one of the dependency changes (It caches whole function)[refrential inequality]
+- **useMemo:** It caches the result from the function >> if dependency does not changes it will not change
 Common use cases of useMemo:
-1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
-2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed,
- you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
+    1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
+    2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed,you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
 
-----------------------------------------------------------------------------------------------------
-- Cookies- 
+----------------------------------------------
+- **Cookies:**
     - stores info max 4KB
     - can be deleted by setting expiry date(document.cookie="name=vipul;expires="+new Date().toString())[accept only UTC date]// max-age can be used which uses time in seconds
     - can be send to server on every http request
     - use Secure for sending cookes over https(document.cookie="name=vipul;Secure")
     - use HttpOnly when you do not want client to update the cookie (document.cookie="name=vipul;HttpOnly")
     - path="/" make cookie accessible to provided path only
------------------------------------------------------------------------------------------------
-- Prototypal inheritance
+-----------------------------------------------
+- **Prototypal inheritance:**
     - In JavaScript, objects have a special hidden property [[Prototype]] 
     that is either null or references another object. That object is called “a prototype”.
     - When we read a property from object, and it’s missing, JavaScript automatically takes it from the prototype.
@@ -346,7 +345,7 @@ Common use cases of useMemo:
     -  we can read proto but cannot update 
 
 ---------------------------------------------------------------
-- Object.defineProperty(object,value or symbol, descriptor) 
+- **Object.defineProperty**(object,value or symbol, descriptor) 
     - Descriptor are value, enumerable, writable,configurable
     - By default enumerable, writable,configurable are false
     - **data descriptor :** value, writable, enumerable, configurable
@@ -356,32 +355,32 @@ Common use cases of useMemo:
 - An **enumerable** property in JavaScript means that a property can be viewed if it is iterated using the for…in loop or Object.keys() method. 
 All the properties which are created by simple assignment or property initializer are enumerable by default.
 Ex:
-```js
-const student = {
-    registration: '12342',
-    name: 'Sandeep',
-    age: 27,
-};
+    ```js
+    const student = {
+        registration: '12342',
+        name: 'Sandeep',
+        age: 27,
+    };
 
   
-// This sets the enumerable attribute
-// of marks property to false 
-  
-Object.defineProperty(student, 'marks', {
-    value: 98,
-    configurable: true,
-    writable: false,
-    enumerable: false,
-});
+    // This sets the enumerable attribute
+    // of marks property to false 
+    
+    Object.defineProperty(student, 'marks', {
+        value: 98,
+        configurable: true,
+        writable: false,
+        enumerable: false,
+    });
 
-console.log(student.propertyIsEnumerable('marks')); returns false;
+    console.log(student.propertyIsEnumerable('marks')); returns false;
 
- // for Symbol.for("e") > Will not be visible in foreach n loop
+    // for Symbol.for("e") > Will not be visible in foreach n loop
 
-for (const key in student){
-    console.log(key)
-} // registration name age>>>>>>>. marks will not be displayed as enumerable is set to false
-```
+    for (const key in student){
+        console.log(key)
+    } // registration name age>>>>>>>. marks will not be displayed as enumerable is set to false
+    ```
 
 - The **configurable** attribute controls whether the property can be deleted from the object and whether its attributes (other than value and writable) can be changed.
 
@@ -403,7 +402,7 @@ for (const key in student){
 
 -------------------------------------------------------------------
 
-A polyfill is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers
+- A **polyfill** is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers
 ----------------------------------------------------------------------------------------
 
 - Different type of dependecies package.json
@@ -457,20 +456,20 @@ console.log(myfun) // returns function funcA(){}
 ------------------------------------------------------------------------------------------
 - **Arrow vs Normal function:**
 
-- Arrow function are not hoisted;
-- this is binded by previously value of this:
-Ex:
-```js
-const obj = {
-    someMethod: () => {
-        return this;
+    - Arrow function are not hoisted;
+    - this is binded by previously value of this:
+    Ex:
+    ```js
+    const obj = {
+        someMethod: () => {
+            return this;
+        }
     }
-}
 
-let test = obj.someMethod;
-console.log(test()) // points to global (as this means window object)
-console.log(obj) // points to global(as this means window object)
-```
+    let test = obj.someMethod;
+    console.log(test()) // points to global (as this means window object)
+    console.log(obj) // points to global(as this means window object)
+    ```
 ------------------------------------------------------------------------------------------
 - es6 features
 
@@ -1046,16 +1045,15 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
   - React creates necessary **React Components Instances** at run-time, and they return React Elements.
   - ReactDOM renders the virtual DOM, that consists of **React Elements**. 
 
-- React Component: 
+- **React Component:**
     React Component is either a function or an ES6 class - nothing more, nothing less. You manage the state, handle events and implement other custom logic here.
     It never renders anything to the screen. Instead, you create its instance to do that.
-- React Component Instance:
+- **React Component Instance:**
     You may have an instance of the React Component only at run time.
     Also, you may have multiple instances, each with its own properties and local state. It happens when you use React Component more than once.    
-- React Element is what React Component Instance returns at run-time. It's a plain JavaScript       object that completely describes a DOM node.
+- **React Element** is what React Component Instance returns at run-time. It's a plain JavaScript       object that completely describes a DOM node.
     Multiple React Elements together form a virtual DOM, a tree-like structure that describes the UI of your React app.    
-    
-- In Promises **.finally()** does not recieve any arguments and neither it returns anything
+--------------------------------------    
 
 - The Critical Rendering Path are the steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen. The critical rendering path includes the Document Object Model (DOM), CSS Object Model (CSSOM), render tree and layout.
 
@@ -1150,6 +1148,7 @@ Layout determines the size and location of everything on the page. Once layout i
 - Some Important points:
     - Imports are also hoisted
     - exporting a variable return a constant so you cannot change the output value, to change it export an object then access and change it.
+    - In Promises **.finally()** does not recieve any arguments and neither it returns anything
     - a parameter with a default value is optional, such a parameter is not included in the length of the function.
     - all parameters following the parameter with a default value are also optional. Therefore, they are also not included in the length property of the function.
     - **…spread operator and Object.assign** ignore the prototype when cloning
