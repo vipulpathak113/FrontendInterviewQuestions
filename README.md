@@ -104,7 +104,7 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
 - preload – load content that's required for the intial render
  ![preload](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/preload_fe604-1300x0.jpg)  
 
-    ![preloadas]( https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
+    ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
 
 - prefetch - load content that may be needed to render the next page
 - preconnect - establish a server connection without loading a specific resource yet
@@ -193,7 +193,7 @@ ACTIONS:
 -- They are synchronous
 -- Actions tells store that there is a change (Pass packet of information to store)
 
-Ex: ```{type:"ADD_CHANGE",payload:data}```
+    Ex: ```{type:"ADD_CHANGE",payload:data}```
 
 - REDUCER:
     -- Reducer are pure JavaScript functions
@@ -202,46 +202,43 @@ Ex: ```{type:"ADD_CHANGE",payload:data}```
     -- All reducers are called when an action is dispatched
 
 - STORE:
-Provider take store as props and its main function is to provide store to all components
+    Provider take store as props and its main function is to provide store to all components
 
 - REDUX-THUNK:
-Thunk are functions which are used to delay a functionality
--- to make action asynchronous we wrap it by thunk function
-Ex: Before thunk action creator looks like:
+    Thunk are functions which are used to delay a functionality
+    -- to make action asynchronous we wrap it by thunk function
+    Ex: Before thunk action creator looks like:
 
-```js
-fetchApi(){
-    return {type:"ADD_CHANGE",payload:data}
-}
-```
-
-```js
-After thunk:
-fetchApi(){
-
-    return(dispatch)=>{
-
-    dispatch({type:"ADD_CHANGE",payload:data})
+    ```js
+    fetchApi(){
+      return {type:"ADD_CHANGE",payload:data}
     }
+    ```
 
-}
-```
-
+    ```js
+    After thunk:
+    fetchApi(){
+        return(dispatch)=>{
+        dispatch({type:"ADD_CHANGE",payload:data})
+        }
+    }
+    ```
     When an action is dispatched it goes to thunk, thunk sees what action creator has returned , if an object is returned it passes it to store directly, if a function is returned then passes dispatch as a parameter and calls that function
--------------------------------------------------------------------------------
-ALGORITHM:
-MERGE SORT: Divide n conquer ALGORITHM
-- find mid
-- divide input into two parts first 0 to mid(left) and second mid+1 to length(right)
-- sort both and merge again
-- repeat process 
-- mergeSort(left)
-- mergeSort(right)
-- merge (left,right,orginalArr): check at i index for left and j index for right which is smaller and fill at k index of orginal
+------------------------------------------------
+- ALGORITHM:
+    - MERGE SORT: Divide n conquer ALGORITHM
+        - find mid
+        - divide input into two parts first 0 to mid(left) and second mid+1 to length(right)
+        - sort both and merge again
+        - repeat process 
+        - mergeSort(left)
+        - mergeSort(right)
+        - merge (left,right,orginalArr): check at i index for left and j index for right which is smaller and fill at k index of orginal
+------------------------------------------------
 
 - Rest vs Spread operator:
 **SPREAD:** Takes iterable and spread it (ex: ```var abc = [1,2,3]>>[...abc]>[1,2,3]```)
-**REST:** function call if we do not know no. of arguments(ex: ```func(...args)```)
+**REST:** function call if we do not know no. of arguments(ex: ```func(...args)```) // ...args is an array
 
 -------------------------------------------------------------------------
 - Shallow vs Deep copy
@@ -351,7 +348,7 @@ Common use cases of useMemo:
 ---------------------------------------------------------------
 - Object.defineProperty(object,value or symbol, descriptor) 
     - Descriptor are value, enumerable, writable,configurable
-    - By default numerable, writable,configurable are false
+    - By default enumerable, writable,configurable are false
     - **data descriptor :** value, writable, enumerable, configurable
     - **accessor descriptor:** get , set
     - It cannot be both data descriptor and accessor descriptor
@@ -488,86 +485,77 @@ console.log(obj) // points to global(as this means window object)
 
 ----------------------------------------------------------------------------------------------
 
-- DIV vs SPAN
-    - div is a block element and always starts in a new line
-    - span is a inline element and always appears in same line
+- INLINE VS BLOCK vs INLINE-BLOCK:
+    - **Inline elements** consume only the 𝗿𝗲𝗾𝘂𝗶𝗿𝗲𝗱 𝘄𝗶𝗱𝘁𝗵 and 𝗱𝗼 𝗻𝗼𝘁 𝗵𝗮𝘃𝗲 𝘁𝗼𝗽 𝗮𝗻𝗱 𝗯𝗼𝘁𝘁𝗼𝗺 𝗺𝗮𝗿𝗴𝗶𝗻𝘀. Thus, these elements 𝗱𝗼 𝗻𝗼𝘁 𝘀𝘁𝗮𝗿𝘁 𝗳𝗿𝗼𝗺 𝗮 𝗻𝗲𝘄 𝗹𝗶𝗻𝗲.
+    𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀 - ```<𝙨𝙥𝙖𝙣>, <𝙖>, <𝙡𝙖𝙗𝙚𝙡>, <𝙗𝙧>```
 
----------------------------------------------------------------------------------------------
+    - **Block elements** consume the 𝗳𝘂𝗹𝗹 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝘄𝗶𝗱𝘁𝗵 and 𝗵𝗮𝘃𝗲 𝘁𝗼𝗽 𝗮𝗻𝗱 𝗯𝗼𝘁𝘁𝗼𝗺 𝗺𝗮𝗿𝗴𝗶𝗻𝘀. Since top and bottom margins are present, block elements always start from a 𝗻𝗲𝘄 𝗹𝗶𝗻𝗲.
+    𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀 - ```<𝙙𝙞𝙫>, <𝙥>, <𝙝𝙚𝙖𝙙𝙚𝙧>, <𝙛𝙤𝙤𝙩𝙚𝙧>```
 
-INLINE VS BLOCK vs INLINE-BLOCK:
-- **Inline elements** consume only the 𝗿𝗲𝗾𝘂𝗶𝗿𝗲𝗱 𝘄𝗶𝗱𝘁𝗵 and 𝗱𝗼 𝗻𝗼𝘁 𝗵𝗮𝘃𝗲 𝘁𝗼𝗽 𝗮𝗻𝗱 𝗯𝗼𝘁𝘁𝗼𝗺 𝗺𝗮𝗿𝗴𝗶𝗻𝘀. Thus, these elements 𝗱𝗼 𝗻𝗼𝘁 𝘀𝘁𝗮𝗿𝘁 𝗳𝗿𝗼𝗺 𝗮 𝗻𝗲𝘄 𝗹𝗶𝗻𝗲.
-𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀 - ```<𝙨𝙥𝙖𝙣>, <𝙖>, <𝙡𝙖𝙗𝙚𝙡>, <𝙗𝙧>```
+    - **Inline Block** can have margin padding height and will always be in same line 
 
-- **Block elements** consume the 𝗳𝘂𝗹𝗹 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝘄𝗶𝗱𝘁𝗵 and 𝗵𝗮𝘃𝗲 𝘁𝗼𝗽 𝗮𝗻𝗱 𝗯𝗼𝘁𝘁𝗼𝗺 𝗺𝗮𝗿𝗴𝗶𝗻𝘀. Since top and bottom margins are present, block elements always start from a 𝗻𝗲𝘄 𝗹𝗶𝗻𝗲.
-𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀 - ```<𝙙𝙞𝙫>, <𝙥>, <𝙝𝙚𝙖𝙙𝙚𝙧>, <𝙛𝙤𝙤𝙩𝙚𝙧>```
+------------------------------------------------
 
-- Inline BLOCK can have margin padding height and will always be in same line 
+- Thunk vs Saga :
 
-------------------------------------------------------------------------------------------------
+    - **Thunk:**                             
+        1. Less boilerplate code.                  
+        2. Easy to understand as compared to redux-saga    
+        3. Action creators may hold too much async logic          
+        4. uses callbacks which may lead to situations like‘callback hell’ in some cases.
 
-- Thunk vs Saga
-
-- **Thunk:**                             
-1.Less boilerplate code.                                                        
-2.Easy to understand as compared to redux-saga    
-3.Action creators may hold too much async logic          
-4.uses callbacks which may lead to situations like‘callback hell’ in some cases.
-
-- **Saga:**
-1.More boilerplate code
-2.Difficult to understand as there are multiple concepts to learn like generator  
-3.Action creators stay pure
-4.Saga works like a separate thread or a background process that is solely 
-responsible for making your side effects or API calls unlike redux-thunk
-------------------------------------------------------------------------------------------
+    - **Saga:**
+        1. More boilerplate code
+        2. Difficult to understand as there are multiple concepts to learn like generator  
+        3. Action creators stay pure
+        4. Saga works like a separate thread or a background process that is solely 
+        responsible for making your side effects or API calls unlike redux-thunk
+------------------------------------------------
 
 - DOM vs Virtual DOM vs Shadow DOM vs BOM
-**DOM:**
--DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated.
--It is object-based representation of the HTML elements. 
--The browser converts the code into a tree-like structure that is made into javascript and compiled by the HTML and CSS compilers.
+    - **DOM:**
+        - DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated.
+        - It is an object-based representation of the HTML elements. 
+        - The browser converts the code into a tree-like structure that is made into javascript and compiled by the HTML and CSS compilers.
 
-**Virtual DOM:**
+    - **Virtual DOM:**
+        - Virtual DOM, in simple terms, is nothing but the complete and full representation of an actual DOM.
+        - Since any changes to the DOM causes the page to re-render more often than not, Virtual DOM primarily attempts to avoid any unnecessary and expensive changes to the DOM.
+        - This is achieved by grouping changes and doing a single re-render instead of several small ones.
+        - A copy of the DOM is saved in the memory and is used to compare any changes being done anywhere in the DOM, it’s compared to find differences. Thus, only those parts of the application are re-rendered which are updated instead of re-rendering the entire DOM.
+        - VueJS and ReactJS both use Virtual DOM.
 
--Virtual DOM, in simple terms, is nothing but the complete and full representation of an actual DOM.
--Since any changes to the DOM causes the page to re-render more often than not, Virtual DOM primarily attempts to avoid any unnecessary and expensive changes to the DOM.
--This is achieved by grouping changes and doing a single re-render instead of several small ones.
--A copy of the DOM is saved in the memory and is used to compare any changes being done anywhere in the DOM, it’s compared to find differences. Thus, only those parts of the application are re-rendered which are updated instead of re-rendering the entire DOM.
--VueJS and ReactJS both use Virtual DOM.
+    - **Shadow DOM:**
+        - Shadow DOM, on the other hand, relates mostly to the concept of encapsulation. It is a tool that allows developers to overcome DOM encapsulation.
+        - It refers to the browser’s potential to add a subtree of DOM elements into the rendering of a document, but not into the DOM tree of the main document.
+        - Thus, it isolates the DOM and ensures that the DOM of a component is a separate element that won’t appear in a global DOM.
+        ex: ```this.attachShadow({mode: 'open'});``` -- open means you can manipulate shadow dom
 
-**Shadow DOM:**
+            Example: ```element.shadowRoot```
 
--Shadow DOM, on the other hand, relates mostly to the concept of encapsulation. It is a tool that allows developers to overcome DOM encapsulation.
--It refers to the browser’s potential to add a subtree of DOM elements into the rendering of a document, but not into the DOM tree of the main document.
--Thus, it isolates the DOM and ensures that the DOM of a component is a separate element that won’t appear in a global DOM.
-ex: ```this.attachShadow({mode: 'open'});``` -- open means you can manipulate shadow dom
+    - **BOM:** Browser object model
+    The BOM consists of the objects navigator, history, screen, location and document which are children of window
 
-```element.shadowRoot```
-
-**BOM:** Browser object model
-The BOM consists of the objects navigator, history, screen, location and document which are children of window
-
---------------------------------------------------------------------------------------------
+------------------------------------------------
 - CSS position:
 
-- **STATIC (default):** normal flow>> cannot change top bottom left right;
-- **RELATIVE:** remain in normal document flow >> almost same as static but can change top bottom left right. Changes position from its original position
-change top bottom left right respect to original position
-- **ABSOLUTE :**  remove from normal document flow >> by default if we give top bottom left right it will be as per body, 
-if parent position is set to other than static then absolute then top bottom left right it will be as per the parent
-- **FIXED:** remove from normal document flow >>by default if we give top bottom left right it will be always as per HTML. If we scroll then also its postion is fixed
-- **STICKY:** almost same as relative but if we scroll it and as per top bottom left right it becomes fixed
+    - **STATIC (default):** normal flow>> cannot change top bottom left right;
+    - **RELATIVE:** remain in normal document flow >> almost same as static but can change top bottom left right. Changes position respect to its original position.
+    - **ABSOLUTE :**  remove from normal document flow >> by default if we give top bottom left right it will be as per body, 
+    if parent position is set to other than static then absolute then top bottom left right it will be as per the parent.
+    - **FIXED:** remove from normal document flow >>by default if we give top bottom left right it will be always as per HTML. If we scroll then also its postion is fixed
+    - **STICKY:** almost same as relative but if we scroll it and as per top bottom left right it becomes fixed.
 
-----------------------------------------------------------------------------------------------------
-pixel: fixed width as given
-% : relative to parent 
-vh/vw: relative to screen present
-rem : relative to root font size
-em: relative to parent font size
-------------------------------------------------------------------------------
-- boxsizing: (default: content-box)
-    border-box: Include padding and border in the element's total width and height
-------------------------------------------------------------------------------
+------------------------------------------------
+- pixel: fixed width as given
+- % : relative to parent 
+- vh/vw: relative to screen present
+- rem : relative to root font size
+- em: relative to parent font size
+------------------------------------------------
+- **boxsizing:** (default: content-box)<br>
+    **border-box:** Include padding and border in the element's total width and height
+------------------------------------------------
 
 - **DOM MANIPULATION:**
     - .append() : append element as well as string
@@ -575,56 +563,54 @@ em: relative to parent font size
     - .innerText : only display text visible in UI
     - .textContent : display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
 
-Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
+    Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
 
 - add data-test1-test2 attribute in element then we can get it by element.dataset.test1Test2 (it removes "data-" part and convert rest to camelCase)
 
-------------------------------------------------------------
-useRef: persist value b/w renders, do not render on value change and also can be used with dom manipulation
+------------------------------------------------
+- **useRef:** Persist value b/w renders, do not render on value change and also can be used with DOM manipulation
 
-----------------------------------------------------------------------------------------------------
+------------------------------------------------
 
 - **Resize Observer:**
 It reacts to changes in size of any of the observed elements, independent of what caused the change. 
 It provides access to the new size of the observed elements too.
+ 
+    ```js 
+    var element = document.getElementbyId("test");
+    var ro = new ResizeObserver(entries => { 
+        for (let entry of entries) {
+        const cr = entry.contentRect;
+        console.log('Element:', entry.target);
+        console.log(`Element size: ${cr.width}px x ${cr.height}px`);
+        console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
+    }
+    });
+    ro.observe(element);
+    ```
 
-Ex: 
-```js 
-var element = document.getelementbyid("test);
-var ro = new ResizeObserver(entries => { 
-    for (let entry of entries) {
-    const cr = entry.contentRect;
-    console.log('Element:', entry.target);
-    console.log(`Element size: ${cr.width}px x ${cr.height}px`);
-    console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
-}
-});
-ro.observe(element);
-```
-
-----------------------------------------------------------------------------------------------------
+------------------------------------------------
 
 - **Intersection observer:**
 An Intersection Observer is a browser API that provides a way to observe the visibility and position of a DOM element relative to the containing root element or view
 
-Ex:
-```js 
-var element = document.getelementbyid("test);
-var ro = new IntersectionObserver(entries => { 
-    for (let entry of entries) {
-    const cr =  entry.isIntersecting; // this tells that element is visible or not
-    console.log('Element:', entry.target);
-  }
-});
-ro.observe(element);
-```
+    ```js 
+    var element = document.getElementbyId("test");
+    var ro = new IntersectionObserver(entries => { 
+        for (let entry of entries) {
+        const cr =  entry.isIntersecting; // this tells that element is visible or not
+        console.log('Element:', entry.target);
+    }
+    });
+    ro.observe(element);
+    ```
 
-Usage:
-- Lazy loading
-- Infinite Scrolling
-- visibility
+    Usage:
+    - Lazy loading
+    - Infinite Scrolling
+    - visibility
 
------------------------------------------------------
+------------------------------------------------
 
 - **MutationObserver:**
 The MutationObserver interface provides the ability to watch for changes being made to the DOM tree.
@@ -633,7 +619,7 @@ The MutationObserver interface provides the ability to watch for changes being m
     - Observe attibutes
     - Observes text inside element
     - Can observe more element by setting subtree=1
-----------------------------------------------------------------------------------------------------
+------------------------------------------------
 
 - useState vs useReducer:
 useState uses useReducer underhood...so we can use useReducer inplace of useState any time;
@@ -963,8 +949,8 @@ Ex: navigator.userAgent
     - **Repaint:**
     the process where the browser starts giving the right appearance to the elements that were placed in the Rendered Tree such as background colours or font-sizes.
 --------------------------------------------
-Web Accessibility:
-https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
+- Web Accessibility:
+    https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
 
 --------------------------------------------
 - **React Fiber:**
@@ -1017,7 +1003,7 @@ https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/
     - null is an assigned value. It means nothing.
     - undefined typically means a variable has been declared but not defined yet.
     - null and undefined are falsy values.
-    - null and undefined are both primitives. However an error shows that typeof null = object.
+    - null and undefined are both primitives. However there is an open bug in JS which shows typeof null = object.
     - null !== undefined but null == undefined.
     - if passed undefined in a function with default parameter it returns with default parameter while null uses null value only
     
