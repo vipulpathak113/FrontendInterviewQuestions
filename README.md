@@ -1057,11 +1057,11 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
 
 - The Critical Rendering Path are the steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen. The critical rendering path includes the Document Object Model (DOM), CSS Object Model (CSSOM), render tree and layout.
 
-The DOM is created as the HTML is parsed. The HTML may request JavaScript that might alter the DOM. The HTML includes or makes requests for styles, which builds the CSSOM.
+    The DOM is created as the HTML is parsed. The HTML may request JavaScript that might alter the DOM. The HTML includes or makes requests for styles, which builds the CSSOM.
 
-The browser engine combines the two to create the Render Tree. display:none is omitted in render tree.
-Layout determines the size and location of everything on the page. Once layout is determined, pixels are painted to the screen.
-
+    The browser engine combines the two to create the Render Tree. display:none is omitted in render tree.
+    Layout determines the size and location of everything on the page. Once layout is determined, pixels are painted to the screen.
+----------------------------------------
 - Load Images file asynchrnously:
     - Use loading="lazy"
 
@@ -1072,7 +1072,7 @@ Layout determines the size and location of everything on the page. Once layout i
     - use media tag
     ```html <link rel="stylesheet" href="style.css" media="print" onload="this.media=all"> ```
     By default css is render blocking but using media="print" it thinks it is not important and priority is less
-
+----------------------------------------
 - React Design Patterns:
     - **Compound components** are a pattern in which multiple components work together to have a shared state and handle logic together, they are called compound components.   
     Example: components like the ``` <select> ``` and ``` <option> ``` elements in HTML,Tabs.
@@ -1081,11 +1081,11 @@ Layout determines the size and location of everything on the page. Once layout i
 
     - HOC
     - Custom Hooks
-
+----------------------------------------
 - **Tree Shaking:** The process of eliminating dead code before adding it to our bundle, is called tree-shaking.    
     - Only modules defined with the ES2015 module syntax (import and export) can be tree-shaken.
     - In Webpack 4 and 5, tree shaking is done in mode=production
-
+---------------------------------
 - **Web Workers** allow scripts to run in the background in separate threads to prevent scripts from blocking one another on the main thread. They have no access to DOM. They communicate with main thread using **.postMessage** and recieve message with **.onmessage** <br/>
     ```const worker = new Worker('worker.js');```
     <br/>Example: compress image site where compression occurs in background
@@ -1095,7 +1095,7 @@ Layout determines the size and location of everything on the page. Once layout i
     - Works in offline mode
     - Send push notifications
     - Follow same origin policy
-
+----------------------------------
 - CSS vs CSS-in-JS:
     - CSS:
         - Advantage:
@@ -1121,7 +1121,7 @@ Layout determines the size and location of everything on the page. Once layout i
             - No Preprocessor Support
             - Performance Issue
             - Cache Issue     
-
+------------------------------------
 - Cookie vs. Token Authentication:
    ![cookievstoken](https://img-blog.csdnimg.cn/20181101144817368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plZmZyZXkyMDE3MDgxMg==,size_16,color_FFFFFF,t_70)        
 
@@ -1143,8 +1143,9 @@ Layout determines the size and location of everything on the page. Once layout i
 
     **Advantages of Token-Based Authentication:** Stateless, Scalable, and Decoupled, Cross Domain, Performance, Mobile ready.    
     **Disadvantages of Token-Based Authentication:** Jwt size, storing as in local storage exposed to XSS attack n for storing in cookies exposed for CSRF attack.
+------------------------------------------
 - **Magic Numbers:** A number in your code that appears arbitrary. All magic numbers should all be replaced with calculations or constants
-
+--------------------------------------
 - Some Important points:
     - Imports are also hoisted
     - exporting a variable return a constant so you cannot change the output value, to change it export an object then access and change it.
