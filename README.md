@@ -100,16 +100,16 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
         - if there are more than 1 scripts then any script can load first i.e order is not maintained
         -async is ignore if script tag does not have src attribute
 ---------------------------------------------------------------------------
+- **Resource Hinting**:
+    - preload – load content that's required for the intial render
+    ![preload](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/preload_fe604-1300x0.jpg)  
 
-- preload – load content that's required for the intial render
- ![preload](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/preload_fe604-1300x0.jpg)  
+        ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
 
-    ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
+    - prefetch - load content that may be needed to render the next page
+    - preconnect - establish a server connection without loading a specific resource yet. Handshake with domain is done before hand only.
 
-- prefetch - load content that may be needed to render the next page
-- preconnect - establish a server connection without loading a specific resource yet
-
-- More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
+    More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
 --------------------------------------------
 
 - **Eslint:** JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
