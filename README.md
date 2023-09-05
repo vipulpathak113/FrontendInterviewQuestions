@@ -106,10 +106,14 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
 
         ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
 
-    - prefetch - load content that may be needed to render the next page
+    - prefetch - load content that may be needed to render the next page/or in future
     - preconnect - establish a server connection without loading a specific resource yet. Handshake with domain is done before hand only.
 
     More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
+
+   - Support:
+        - Firefox does not support preload
+        - Safari does not support prefetch
 --------------------------------------------
 
 - **Eslint:** JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
@@ -169,8 +173,8 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
     There are 3 possible values:
 
     - "loading" – the document is loading.
-    - "interactive" – the document was fully read.
-    - "complete" – the document was fully read and all resources (like images) are loaded too.
+    - "interactive" – The document has finished loading and the document has been parsed but sub-resources such as scripts, images, stylesheets and frames are still loading. The state indicates that the DOMContentLoaded event is about to fire.
+    - "complete" – The document and all sub-resources have finished loading. The state indicates that the load event is about to fire.
 
 - onload : check if element with src attribute is loaded
 - onerror : check if element with src attribute is has some error on loading 
@@ -189,7 +193,7 @@ Browserslist is a tool that allows specifying which browsers should be supported
 --------------------------------------------
 - REDUX
 ACTIONS:
--- They are plan JS objects
+-- They are plain JS objects
 -- They are synchronous
 -- Actions tells store that there is a change (Pass packet of information to store)
 
@@ -237,8 +241,8 @@ ACTIONS:
 ------------------------------------------------
 
 - Rest vs Spread operator:
-**SPREAD:** Takes iterable and spread it (ex: ```var abc = [1,2,3]>>[...abc]>[1,2,3]```)
-**REST:** function call if we do not know no. of arguments(ex: ```func(...args)```) // ...args is an array
+**SPREAD:** Spread operators allow us to expand an array or object into its individual elements (ex: ```var abc = [1,2,3]>>[...abc]>[1,2,3]```)
+**REST:** rest operators allow us to condense multiple elements into a single array or object. Helpful in case of function call if we do not know no. of arguments(ex: ```func(...args)```) // ...args is an array
 
 -------------------------------------------------------------------------
 - Shallow vs Deep copy
