@@ -247,6 +247,9 @@ ACTIONS:
 -------------------------------------------------------------------------
 - Shallow vs Deep copy
     - **SHALLOW COPY:** Copied values still connected to original variable.
+
+    Shallow copying only creates a new reference to the existing objects or values and doesn’t create a deep copy, which means that nested objects are still referenced, not duplicated.
+
         - for array> spread operator, Array.from,slice do shallow copy
         - for object> Object.assign, spread operator 
         - Same memory is allocated to copied>> It copies non primitive containing primitives values
@@ -264,7 +267,11 @@ ACTIONS:
         copied.address.city="noida"
         ```
         *now in person object, name is not changed but address will be changed*
-    - **DEEP COPY:** All copied values are disconnected from original variable
+
+    - **DEEP COPY:** All copied values are disconnected from original variable.
+
+    Deep copying is a technique that creates a new object, which is an exact copy of an existing object. This includes copying all its properties and any nested objects, instead of references. 
+
         - Json.parse,JSON.stringfy do deep copy
         - Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
         ex:
@@ -315,6 +322,12 @@ ACTIONS:
         - static getDerivedStateFromError> show fallback UI in case of error>> return state
     componentDidCatch>> logs error information
 ------------------------------------------------------------------------------------------
+- Why getDerivedStateFromProps is static?
+getDerivedStateFromProps exists only to enable a component to update its internal state as a result of changes in props. As we update only state on the bases of props, so there is no reason of comparing nextProps and this.props. Here we should compare only next props and previous state, If state and props are different, update state otherwise there should be no update.
+
+If we compare this.props with next props,we require to store the old props value, which impact performance. Keeping copy of past value is called memoization. To avoid misuse of “this” and memoization, getDerivedStateFromProps is made static.
+
+------------------
 - **React fragment:** It let us group children elements without adding any extra node in DOM >> Ex: ```<><h1></h1></>```
 
 --------------------------------------------------
@@ -367,8 +380,7 @@ Ex:
     };
 
   
-    // This sets the enumerable attribute
-    // of marks property to false 
+    // This sets the enumerable attribute of marks property to false 
     
     Object.defineProperty(student, 'marks', {
         value: 98,
@@ -377,7 +389,7 @@ Ex:
         enumerable: false,
     });
 
-    console.log(student.propertyIsEnumerable('marks')); returns false;
+    console.log(student.propertyIsEnumerable('marks')); // returns false;
 
     // for Symbol.for("e") > Will not be visible in foreach n loop
 
@@ -397,12 +409,28 @@ Ex:
 
 ----------------------------------------------------------------
 
+- **Concurrency:**
+
+Before React 18, rendering was synchronous. This meant that once React started rendering, nothing could stop it until it completed rendering the component. However, with concurrent rendering, React can pause the rendering and continue with it later or abort the rendering altogether. 
+
 - **useDeferredValue():** this is useful when React needs to keep the old state value in the UI by applying the necessary UI changes while the new state value is being processed and then ready to be added to the UI.
     It is different than debounce and throttling as:
         - It can be interuptable unlike debounce and throttling which uses timeout
         - It can be executed quickly also based on the system unlike debounce and throttling which uses proper delay time
 
+```js
+  const defQuery = useDeferredValue(query);
+```        
+
 - **useTransition:** It markes priority to code , **the code in startTransiton is depriotized**. Ex: In typehead, searching text UI is priority and calling API n displaying result is not priority
+
+```js
+const [isPending, startTransition] = useTransition();
+
+ startTransition(() => {
+            setQuery(e.target.value);
+        });
+```
 
 -------------------------------------------------------------------
 
@@ -413,6 +441,8 @@ Ex:
     - **dependencies:** All of the dependencies your project uses (the external code that the project relies on) are listed here
     - **devDependencies:** Packages which are only needed during development, and aren't needed in production.
     - **peer dependecies:** peerDependencies are for plugins, libraries that require a "host" library to perform their function, but may have been written at a time before the latest version of the host was released.
+    
+    https://www.solutelabs.com/blog/peer-dependencies-in-npm
 ---------------------------------------------------------------------------------------------------
 
 - **this**: value of this always depends on how it is called;
@@ -536,7 +566,7 @@ console.log(myfun) // returns function funcA(){}
 
             Example: ```element.shadowRoot```
 
-    - **BOM:** Browser object model
+    - **BOM:** Browser object model - All the objects exposed by the web browser. The BOM allows JavaScript to “interact with” the browser. The object of the window represents a browser window and all its corresponding features.
     The BOM consists of the objects navigator, history, screen, location and document which are children of window
 
 ------------------------------------------------
