@@ -845,7 +845,8 @@ If one element have different attributes and have different values for them they
 
 
     - 0 1 0 0 >> order of specificity
-    ```css #id{
+    ```css 
+    #id{
         color: red
     } ```
 
@@ -858,6 +859,7 @@ If one element have different attributes and have different values for them they
     div{
         color: blue
     }
+    
 
     - for inline it is 1 0 0 0 >> order of specificity
 
@@ -1022,6 +1024,7 @@ Ex: navigator.userAgent
     | Performance is better with smaller surface, a larger number of objects ```(>10k)```, or both  | Performance is better with smaller number of objects ```(<10k)```, a larger surface, or both|
 
     For more read [SVG vs Canvas](https://www.educba.com/svg-vs-canvas/)
+------------------------------------------------------------------------
 
 - Normal function vs Arrow function:
     - Syntax
@@ -1032,6 +1035,8 @@ Ex: navigator.userAgent
     - not hoisted
     - Does not have this of its own, inherit from parents context
 
+--------------------------------------------------------------------------    
+
 - Null vs undefined:
     - null is an assigned value. It means nothing.
     - undefined typically means a variable has been declared but not defined yet.
@@ -1039,11 +1044,18 @@ Ex: navigator.userAgent
     - null and undefined are both primitives. However there is an open bug in JS which shows typeof null = object.
     - null !== undefined but null == undefined.
     - if passed undefined in a function with default parameter it returns with default parameter while null uses null value only
+
+--------------------------------------------------------------------------    
     
 - Why react hooks cannot used in conditions:
     React hooks are called in the same order each time a component renders.  
+
+---------------------------------------------------------------------------
+
 - The useImperativeHandle Hook allows us to expose a value, state, or function inside a child component to the parent component through ref.
  Example: Modal in child component and button to open in parent component. Logic for modal open in child so expose this fn using "useImperativeHandle" to parent and also parent will not rerender parent and only re-render child.
+
+ ----------------------------------------------------------------------------
 
  - React fires both useEffect and useLayoutEffect after performing the DOM updates, useLayoutEffect is called before the browser paints those updates for users to see, synchronously, while useEffect is called after the browser paints those updates, asynchronously.
 Therefore, the browser cannot paint any browser updates until useLayoutEffect runs.  
@@ -1051,6 +1063,8 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
    useEffect: DOM updates => Browser paints the update for users to see => useEffect is run => another DOM update => Broswer paints the second update for user to see
 
    useLayoutEffect: DOM updates => useLayoutEffect is run =>another DOM update => Broswer paints the overall update for user to see.
+
+-----------------------------------------------------------------------------   
 
 - How React works?
     ```jsx
