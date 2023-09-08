@@ -1055,6 +1055,14 @@ Ex: navigator.userAgent
 - The useImperativeHandle Hook allows us to expose a value, state, or function inside a child component to the parent component through ref.
  Example: Modal in child component and button to open in parent component. Logic for modal open in child so expose this fn using "useImperativeHandle" to parent and also parent will not rerender parent and only re-render child.
 
+ ```js
+ useImperativeHandle(ref, () => ({
+    someExposedProperty: () => {
+      console.log(`we're inside the exposed property function!`);
+    }
+  }));
+ ```
+
  ----------------------------------------------------------------------------
 
  - React fires both useEffect and useLayoutEffect after performing the DOM updates, useLayoutEffect is called before the browser paints those updates for users to see, synchronously, while useEffect is called after the browser paints those updates, asynchronously.
@@ -1092,6 +1100,11 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
 
   - React creates necessary **React Components Instances** at run-time, and they return React Elements.
   - ReactDOM renders the virtual DOM, that consists of **React Elements**. 
+
+-------------------------------------------------
+- use of $$typeof: Symbol(react.element)
+    https://medium.com/@fengyu214/learning-react-source-code-ecfee15f875f
+
 
 - **React Component:**
     React Component is either a function or an ES6 class - nothing more, nothing less. You manage the state, handle events and implement other custom logic here.
