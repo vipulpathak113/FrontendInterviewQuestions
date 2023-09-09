@@ -11,7 +11,7 @@ const obj = {
 };
 
 const flattenObject = (obj, parent) => {
-  let result = {};
+  var result = {};
 
   const getFlattenObject = (obj, parent) => {
     for (let key in obj) {

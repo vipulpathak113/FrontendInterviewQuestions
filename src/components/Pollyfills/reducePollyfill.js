@@ -1,3 +1,5 @@
+/* eslint-disable no-extend-native */
+/* eslint-disable eqeqeq */
 
   let arr = [2,3,4,5];
 
