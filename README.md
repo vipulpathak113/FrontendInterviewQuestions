@@ -1229,7 +1229,10 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
 
     - **try...catch...finally Statement:** You can catch programmer-generated and runtime exceptions, but you cannot catch JavaScript syntax errors. They can catch synchronous code errors. To check for asynchronous code, use promises or aync await. 
 
+------------------------------------------------------
 - A **stacking context** is a group of elements that have a common parent and move up and down the z axis together. The z-index of elements inside of a stacking context are always relative to the parent's current order in its own stacking context. 
+
+---------------------------------------------------------
 
 - **z-index** works if position is other than static. For flex no need to set positions.
 
@@ -1240,4 +1243,5 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     <meta property="og:image" content="/static/website-social-card-44070c4a901df708aa1563ac4bbe595a.jpg" />
     <meta property="og:url" content="https://www.colbyfayock.com" />
     ```
+---------------------------------------------------------    
            
