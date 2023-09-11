@@ -406,12 +406,13 @@ Ex:
 
 - The **Object.seal()** static method seals an object. Sealing an object prevents extensions and makes existing properties non-configurable. Values of existing properties can still be changed as long as they are writable.
 
-
 ----------------------------------------------------------------
 
 - **Concurrency:**
 
 Before React 18, rendering was synchronous. This meant that once React started rendering, nothing could stop it until it completed rendering the component. However, with concurrent rendering, React can pause the rendering and continue with it later or abort the rendering altogether. 
+
+----------------------------------------------------------------
 
 - **useDeferredValue():** this is useful when React needs to keep the old state value in the UI by applying the necessary UI changes while the new state value is being processed and then ready to be added to the UI.
     It is different than debounce and throttling as:
@@ -421,6 +422,7 @@ Before React 18, rendering was synchronous. This meant that once React started r
 ```js
   const defQuery = useDeferredValue(query);
 ```        
+------------------------------------------------------------------
 
 - **useTransition:** It markes priority to code , **the code in startTransiton is depriotized**. Ex: In typehead, searching text UI is priority and calling API n displaying result is not priority
 
