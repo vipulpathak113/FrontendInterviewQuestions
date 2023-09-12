@@ -1246,4 +1246,29 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     <meta property="og:url" content="https://www.colbyfayock.com" />
     ```
 ---------------------------------------------------------    
+
+## Typescript:
+
+- TypeScript is a superset of JavaScript that compiles to plain JavaScript. TypeScript is an object-oriented and statically typed language.
+
+- Enums or enumerated types are a means of defining a set of named constants. These data structures have a constant length and contain a set of constant values. 
+
+- never vs void
+    - Void : Functions with no explicit returns are inferred by TypeScript to have a return type of void.
+    ```js
+    printName(name: string): void {
+  console.log(name);
+    }
+
+    const printer = printName('Will');
+    console.log(printer); // logs "undefined"
+    ```
+    - never: never is a type that represents a value that never occurs.
+    For example, a function with an infinite loop or a function that throws an error are functions that have a never return type.
+    ```js
+    const error = (): never => {
+        throw new Error("");
+    };
+    ```
+
            
