@@ -1245,7 +1245,19 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     <meta property="og:image" content="/static/website-social-card-44070c4a901df708aa1563ac4bbe595a.jpg" />
     <meta property="og:url" content="https://www.colbyfayock.com" />
     ```
----------------------------------------------------------    
+---------------------------------------------------------   
+
+- **Self Invoking Function (IIFE):** A self-invoking function is a nameless (anonymous) function that is invoked immediately after its definition.
+
+```js
+(function(){
+    console.log("This function is called immediately");
+})();
+```
+ Javascript engine executes this function just once after the declaration. As this function is anonymous, it does not keep a reference to that function.
+
+After this function gets executed, there will be no reference of this function in the memory like a regular function. Therefore, you can not use this function a second time, not even its return value.
+
 
 ## Typescript:
 
