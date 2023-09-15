@@ -838,7 +838,10 @@ We must call preventDefault event explicitly to prevent the default behavior.
 - **CSS Specifity:**
 If one element have different attributes and have different values for them they work as:
 
-- **inline> id> class> tag**
+Order of specifity is **inline> id> class> tag**
+
+- Classes,Attributes([type="input"]),psuedo classes(:hover) are at the same level
+- Tags,Psuedo elements(::before) are at the same level
 
 
         ```html <div id="id", class="class" style="color:black"> Hi</div>
@@ -867,6 +870,8 @@ If one element have different attributes and have different values for them they
 
     - if we do h1.header then 0 0 1 1 >> order of specificity then "Hi" will be displayed in black color bcz of specificity of CSS
     but if we use !important with any property then it will override all properties
+
+
 
 --------------------------------------------------------------------
 
@@ -1282,5 +1287,6 @@ After this function gets executed, there will be no reference of this function i
         throw new Error("");
     };
     ```
+- **unknown** is a special type that is similar to **any**. Like any, a common use case of the unknown type is when you don’t know the exact type upfront. unknown variables accept any value. However, when trying to operate on an unknown variable, TypeScript requires a type check or a type assertion.  
 
            
