@@ -58,6 +58,11 @@ Can be enabled by ```elem.addEventListener(..., {capture: true})```
 - **Currying**: Currying is a transformation of a function such it that takes one argument at a time and returns a new function expecting the next argument. 
 It is a conversion of functions from callable as f(a,b,c)into callable as f(a)(b)(c).
 
+Usage:
+- If passing same value in a function again and again
+- Create separate function for different functionality
+- Higher order function
+
 - **First Class functions**: Functions are treated as values – that you can assign a function into a variable, pass it around etc.
 
 - **Higher Order functions**: Functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
