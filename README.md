@@ -1268,7 +1268,7 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
 
 After this function gets executed, there will be no reference of this function in the memory like a regular function. Therefore, you can not use this function a second time, not even its return value.
 
-
+------------------------------------------------
 ## Typescript:
 
 - TypeScript is a superset of JavaScript that compiles to plain JavaScript. TypeScript is an object-oriented and statically typed language.
