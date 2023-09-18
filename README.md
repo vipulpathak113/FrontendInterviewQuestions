@@ -1273,7 +1273,11 @@ After this function gets executed, there will be no reference of this function i
 
 - TypeScript is a superset of JavaScript that compiles to plain JavaScript. TypeScript is an object-oriented and statically typed language.
 
+------------------------------------------
+
 - Enums or enumerated types are a means of defining a set of named constants. These data structures have a constant length and contain a set of constant values. 
+
+------------------------------------------
 
 - never vs void
     - Void : Functions with no explicit returns are inferred by TypeScript to have a return type of void.
@@ -1292,6 +1296,46 @@ After this function gets executed, there will be no reference of this function i
         throw new Error("");
     };
     ```
+------------------------------------------
+
 - **unknown** is a special type that is similar to **any**. Like any, a common use case of the unknown type is when you don’t know the exact type upfront. unknown variables accept any value. However, when trying to operate on an unknown variable, TypeScript requires a type check or a type assertion.  
+
+------------------------------------------
+
+- **Type assertions:** Type assertion allows you to explicitly set the type of a value and tell the compiler not to infer it. 
+This is useful when you know the type of an object more specifically than its current type or current inferred type. In such cases, you can use type assertions to tell TypeScript the current type of the variable.
+
+TypeScript provides two syntaxes for type assertions – **as and <>.**
+```js
+// using the `as` keyword
+const name: string = person.name as string;
+
+// using `<>`
+const name: string = <string>person.name;
+```
+
+------------------------------------------
+
+- **Type inference:** TypeScript can infer the type of a variable usually based on the variable’s initialization or declaration. This process is known as type inference.
+
+```js
+let name = 'john' //infer as string
+```
+------------------------------------------
+
+- **Contextual typing:** Contextual typing is a subset of type inference where TypeScript uses the location or context of a variable to infer its type.
+
+```js
+window.onmousedown = function(mouseEvent) {
+   console.log(mouseEvent.button);   // OK
+   console.log(mouseEvent.person);   // Error
+};
+
+//TypeScript uses information from the onmousedown function to infer the type of the mouseEvent parameter.
+```
+------------------------------------------
+
+
+
 
            
