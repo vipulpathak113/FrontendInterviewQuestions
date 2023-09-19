@@ -1305,35 +1305,55 @@ After this function gets executed, there will be no reference of this function i
 - **Type assertions:** Type assertion allows you to explicitly set the type of a value and tell the compiler not to infer it. 
 This is useful when you know the type of an object more specifically than its current type or current inferred type. In such cases, you can use type assertions to tell TypeScript the current type of the variable.
 
-TypeScript provides two syntaxes for type assertions – **as and <>.**
-```js
-// using the `as` keyword
-const name: string = person.name as string;
+    TypeScript provides two syntaxes for type assertions – **as and <>.**
+    ```js
+    // using the `as` keyword
+    const name: string = person.name as string;
 
-// using `<>`
-const name: string = <string>person.name;
-```
+    // using `<>`
+    const name: string = <string>person.name;
+    ```
 
 ------------------------------------------
 
 - **Type inference:** TypeScript can infer the type of a variable usually based on the variable’s initialization or declaration. This process is known as type inference.
 
-```js
-let name = 'john' //infer as string
-```
+    ```js
+    let name = 'john' //infer as string
+    ```
 ------------------------------------------
 
 - **Contextual typing:** Contextual typing is a subset of type inference where TypeScript uses the location or context of a variable to infer its type.
 
-```js
-window.onmousedown = function(mouseEvent) {
-   console.log(mouseEvent.button);   // OK
-   console.log(mouseEvent.person);   // Error
-};
+    ```js
+    window.onmousedown = function(mouseEvent) {
+    console.log(mouseEvent.button);   // OK
+    console.log(mouseEvent.person);   // Error
+    };
 
-//TypeScript uses information from the onmousedown function to infer the type of the mouseEvent parameter.
-```
+    //TypeScript uses information from the onmousedown function to infer the type of the mouseEvent parameter.
+    ```
 ------------------------------------------
+
+- **Types vs Interfaces:**
+
+    ![image](https://pbs.twimg.com/media/DwV-oOsXcAIct2q?format=jpg&name=medium)
+
+------------------------------------------
+
+- **Type Guard:** A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block.
+
+    Type guards are typically used for narrowing a type and are quite similar to feature detection, allowing you to detect the correct methods, prototypes, and properties of a value.
+
+   There are five major ways to use a type guard:
+
+    - The **instanceof** keyword
+    - The **typeof** keyword
+    - The **in** keyword
+    - Equality narrowing type guard
+    - Custom type guard with predicate
+
+
 
 
 
