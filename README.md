@@ -1147,6 +1147,7 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     By default css is render blocking but using media="print" it thinks it is not important and priority is less
 ----------------------------------------
 - React Design Patterns:
+    - **Container-Presentation Pattern:** The Container-Presentation pattern, often referred to as “smart” and “dumb” components or “containers” and “presentational” components, extends the concept of component composition. It separates components into two distinct categories based on their responsibilities
     - **Compound components** are a pattern in which multiple components work together to have a shared state and handle logic together, they are called compound components.   
     Example: components like the ``` <select> ``` and ``` <option> ``` elements in HTML,Tabs.
 
@@ -1267,6 +1268,20 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
  Javascript engine executes this function just once after the declaration. As this function is anonymous, it does not keep a reference to that function.
 
 After this function gets executed, there will be no reference of this function in the memory like a regular function. Therefore, you can not use this function a second time, not even its return value.
+
+------------------------------------------------
+
+- **__proto__ :** The __proto__ property is a default property added to every object. This property points to the prototype of the object.
+
+The default prototype of every object is Object.prototype. Therefore, the __proto__ property of the object points to the Object.prototype.
+
+------------------------------------------------
+
+- **Prototype:** Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+
+Functions are special types of objects. Function’s __proto__ property points to Function.prototype as opposed to Object.prototype.
+
+Whenever we instantiate an object with the constructor, the constructor makes the __proto__ property of the new object point to the same object as its prototype property.
 
 ------------------------------------------------
 ## Typescript:
