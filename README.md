@@ -1284,6 +1284,28 @@ Functions are special types of objects. Function’s __proto__ property points t
 Whenever we instantiate an object with the constructor, the constructor makes the __proto__ property of the new object point to the same object as its prototype property.
 
 ------------------------------------------------
+
+- CommonJS VS ESM:
+    - CommonJS:
+        - Synchronous
+        - Can be called anywhere 
+        - Not hoisted
+        - Work on Node not on browser (unless transpiled)
+        - use require and exports
+        - As require is a function it is called runtime
+
+    - ESM:
+        - Asynchronous
+        - Can be called only at the top 
+        - Hoisted    
+        - Work on browser
+        - Tree shaking
+        - use import and export
+        - It is static and compile time
+
+
+------------------------------------------------
+
 ## Typescript:
 
 - TypeScript is a superset of JavaScript that compiles to plain JavaScript. TypeScript is an object-oriented and statically typed language.
