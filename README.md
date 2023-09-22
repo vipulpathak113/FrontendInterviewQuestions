@@ -86,6 +86,25 @@ Usage:
     - It transforms syntax (let a ="xyz") and
     - Polyfills to support functionality (like includes)
 
+For babel we need to install 3 packages:
+    - @babel/core - This is main babel library which transpiles the code
+    - @babel/cli  - This is used to handle command line code for babel
+    - @babel/preset-env - This is used to configure which browser to support for babel
+
+```js
+// babel.rc
+  {
+    "presets":[
+        "@babel/preset-env",{
+            "targets":{
+                "edge":"17"
+            }
+        }
+    ]
+  }
+
+```    
+
 - **Webpack**:  Its a Module bundler which is use to bundle all modules in single file>
  Its main function is to create dependency graph so that it can be injected in proper order
 
@@ -106,7 +125,8 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
         -async is ignore if script tag does not have src attribute
 ---------------------------------------------------------------------------
 - **Resource Hinting**:
-    - preload – load content that's required for the intial render
+    - preload – load content that's required for the intial render.
+      preload is a declarative fetch, allowing you to force the browser to make a request for a resource without blocking the document’s onload event.
     ![preload](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/preload_fe604-1300x0.jpg)  
 
         ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
