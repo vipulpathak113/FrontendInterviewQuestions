@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path= require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -6,6 +5,7 @@ module.exports={
     entry:"index.js",
     output:{
         path: path.join(__dirname,"../dist"),
+        // eslint-disable-next-line no-restricted-globals
         filename:[name].js
     },
     mode:"production",
@@ -18,6 +18,7 @@ module.exports={
                 options: {
                     presets: ['@babel/preset-env']
                   },
+                // eslint-disable-next-line no-undef
                 exclude:node_modules
             },
             {
