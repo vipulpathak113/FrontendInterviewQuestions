@@ -68,6 +68,7 @@ Usage:
 - **Higher Order functions**: Functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
 
 - **map vs foreach** : foreach does not return any value whereas map return new array
+
 - **compose** : compose take function and evaluate function where one fn out become input of other fn (right to left)
     ```js const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)```
 
@@ -278,8 +279,8 @@ ACTIONS:
         - for array> spread operator, Array.from,slice do shallow copy
         - for object> Object.assign, spread operator 
         - Same memory is allocated to copied>> It copies non primitive containing primitives values
-        ex:
-       ```js
+    ex:
+    ```js
         let person = {
             "name":"vipul",
             "address":{
@@ -290,8 +291,8 @@ ACTIONS:
         let copied = Object.assign({},person);
         copied.name = "test";
         copied.address.city="noida"
-        ```
-        *now in person object, name is not changed but address will be changed*
+    ```
+    *now in person object, name is not changed but address will be changed*
 
     - **DEEP COPY:** All copied values are disconnected from original variable.
 
@@ -381,10 +382,10 @@ Common use cases of useMemo:
 -----------------------------------------------
 - **Prototypal inheritance:**
     - In JavaScript, objects have a special hidden property [[Prototype]] 
-    that is either null or references another object. That object is called “a prototype”.
-    - When we read a property from object, and it’s missing, JavaScript automatically takes it from the prototype.
+    that is either null or references another object. That object is called "a prototype".
+    - When we read a property from object, and it's missing, JavaScript automatically takes it from the prototype.
     - there can be only one _proto
-    -  we can read proto but cannot update 
+    - we can read proto but cannot update 
 
 ---------------------------------------------------------------
 - **Object.defineProperty**(object,value or symbol, descriptor) 
@@ -614,14 +615,14 @@ console.log(myfun) // returns function funcA(){}
 - em: relative to parent font size
 ------------------------------------------------
 - **boxsizing:** (default: content-box)<br>
-    **border-box:** Include padding and border in the element's total width and height
+  **border-box:** Include padding and border in the element's total width and height
 ------------------------------------------------
 
 - **DOM MANIPULATION:**
     - .append() : append element as well as string
     - .appendChild() : append only element
     - .innerText : only display text visible in UI
-    - .textContent : display whole text on the element(irrespective if display none or block) with space as wee see in dom but surrounding invisible tags
+    - .textContent : display whole text on the element(irrespective if display none or block) with space as we see in dom but surrounding invisible tags
 
     Reference: https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
 
@@ -742,7 +743,7 @@ It returns left, top, right, bottom, x, y, width, height.
 
 ----------------------------------------------------------------------------------------------------
 - forwardRef:
-React forwardRef is a method that allows parent components pass down (i.e., “forward”) refs to their children
+React forwardRef is a method that allows parent components pass down (i.e., "forward") refs to their children
 
 ----------------------------------------------------------------------------------------------------
 - webAPI 
@@ -800,7 +801,7 @@ Portals provide a first-class way to render children into a DOM node that exists
 - **Generators:**
     Regular functions return only one, single value (or nothing).
 
-    Generators can return (“yield”) multiple values, one after another, on-demand. 
+    Generators can return ("yield") multiple values, one after another, on-demand. 
     They work great with iterables, allowing to create data streams with ease.
 
     ```js
@@ -847,7 +848,6 @@ Event declaration in plain HTML:
 </button>  
 ```
 
-
 Event declaration in React:
 
 ```html
@@ -857,7 +857,7 @@ Event declaration in React:
 ```
 
 - In react, we cannot return false to prevent the default behavior. 
-We must call preventDefault event explicitly to prevent the default behavior.
+We must call preventDefault() event explicitly to prevent the default behavior.
 
 --------------------------------------------
 - **CSS Specifity:**
@@ -906,12 +906,12 @@ Order of specifity is **inline> id> class> tag**
     And it also expects to get the old object back if there are no changes.
 
     - Redux simply checks whether the old object is the same as the new object by comparing the memory locations of the two objects. 
-    So if you mutate the old object’s property inside a reducer, the “new state” and the “old state” will both point to the same object.
-    Hence Redux thinks nothing has changed! So this won’t work.
+    So if you mutate the old object’s property inside a reducer, the "new state" and the "old state" will both point to the same object.
+    Hence Redux thinks nothing has changed! So this won't work.
 
 --------------------------------------------------------------------
 
-- Weakest set and weakest map:
+- Weakest Set and Weakest Map:
 
     Normally js can store object as a key but only one time.
     ex:
@@ -1128,7 +1128,7 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
           props: {children:"App Component"}
           ref: null
           type: "div" 
-          ```
+    ```
 
   - React creates necessary **React Components Instances** at run-time, and they return React Elements.
   - ReactDOM renders the virtual DOM, that consists of **React Elements**. 
@@ -1144,7 +1144,7 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
 - **React Component Instance:**
     You may have an instance of the React Component only at run time.
     Also, you may have multiple instances, each with its own properties and local state. It happens when you use React Component more than once.    
-- **React Element** is what React Component Instance returns at run-time. It's a plain JavaScript       object that completely describes a DOM node.
+- **React Element** is what React Component Instance returns at run-time. It's a plain JavaScript object that completely describes a DOM node.
     Multiple React Elements together form a virtual DOM, a tree-like structure that describes the UI of your React app.    
 --------------------------------------    
 
@@ -1171,7 +1171,7 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     - **Compound components** are a pattern in which multiple components work together to have a shared state and handle logic together, they are called compound components.   
     Example: components like the ``` <select> ``` and ``` <option> ``` elements in HTML,Tabs.
 
-    - **Render Props Pattern:** It refers to a technique for sharing code between React components using a prop whose value is a function. Ex: React router,Formik 
+    - **Render Props Pattern:** It refers to a technique for sharing code between React components using a prop whose value is a render function. Ex: React router,Formik 
 
     - HOC
     - Custom Hooks
