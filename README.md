@@ -69,6 +69,33 @@ Usage:
 
 - **map vs foreach** : foreach does not return any value whereas map return new array
 
+- **for in vs for of** - 
+    - **for in** : A for...in loop only iterates over enumerable, non-symbol properties.
+        ```js
+        const object = { a: 1, b: 2, c: 3 };
+
+        for (const property in object) {
+        console.log(`${property}: ${object[property]}`);
+        }
+
+        // Expected output:
+        // "a: 1"
+        // "b: 2"
+        // "c: 3"
+        ```
+    - **for of** : A for...of loop operates on the values sourced from an iterable one by one in sequential order.
+        ```js
+        const array1 = ['a', 'b', 'c'];
+
+        for (const element of array1) {
+        console.log(element);
+        }
+
+        // Expected output: "a"
+        // Expected output: "b"
+        // Expected output: "c"
+        ```    
+
 - **compose** : compose take function and evaluate function where one fn out become input of other fn (right to left)
     ```js const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)```
 
