@@ -141,7 +141,14 @@ For babel we need to install 3 packages:
 Ex: if dependency is 3.4.2 it supports for 3.*.*(means on npm install if 3.5.0 is available then it will update it not 4.0.0)
     - **~ :**  bug fix
 Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+- **package-lock.json** : Have snapshot of whole dependency tree. It locks the dependency tree.
+        - if a user deletes the node modules n package-lock and do npm install then package-lock will have version as per semantic and not as package.json
+        - if a user deletes the node modules but keep package-lock and do npm install then package-lock will have same version as package.json (Recommended)
+        - if a user manually update package.json with a version which remain in semantic then package-lock will remain within semantic ver.
+        - if a user manually update package.json with a version which is outside in semantic then package-lock will override the version
+
+-------------------------------------------------------------------
 - **Defer vs Async:**
     - **defer:** 
         - download scripts in background> but executes once dom is loaded(but before DOMContentLoaded event), 
