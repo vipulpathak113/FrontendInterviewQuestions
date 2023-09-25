@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+import Star from "./components/Star/Star";
 
 
 const Home = React.lazy(() => import("./components/home"));
@@ -104,6 +105,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: SolidPrincipless,
       path: "/solid",
+    },
+    {
+      component: Star,
+      path: "/star",
     },
   ];
 

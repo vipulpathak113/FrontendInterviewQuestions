@@ -930,6 +930,15 @@ Order of specifity is **inline> id> class> tag**
     - if we do h1.header then 0 0 1 1 >> order of specificity then "Hi" will be displayed in black color bcz of specificity of CSS
     but if we use !important with any property then it will override all properties
 
+--------------------------------------------------------------------
+
+- **CSS Combinators:** It defines relationship b/w two selectors.
+    There are 4 types of combinators:
+        - **descendant selector (space) -** Every child of a particular element irrespective of position will be selected. ```css  .abc li``` 
+        - **child selector (>) -**  Every direct child of a particular element will be selected.```css  .abc>li``` 
+        - **general sibling selector (~) -** Every sibling after the particular element within the same parent will be selected.```css  .abc~li``` 
+        - **adjacent sibling selector (+) -** Select first sibling after the particular element.
+        ```css  .abc+li``` 
 
 
 --------------------------------------------------------------------
