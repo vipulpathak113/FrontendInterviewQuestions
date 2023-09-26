@@ -3,14 +3,14 @@ import SidebarComponents from "../sidebarComponents";
 
 function home() {
   return (
-    <div>
-      <div style={{width:"20%",float:"left"}}>
+    <div style={{display:"flex"}}>
+      <div style={{width:"20%"}}>
         <div style={{margin:"20px"}}>
         <h2 style={{background:"indianred",display:"flex",justifyContent:"center",height:"43px"}}>Examples</h2>
      <SidebarComponents/>
         </div>
       </div>
-      <div style={{width:"80%",float:"right"}}>
+      <div style={{width:"80%"}}>
       <h1 className="header">FrontEnd Interview Questions</h1>
       <div className="question-box">
         <div className="question">
@@ -124,10 +124,10 @@ function home() {
             the standard that JavaScript programming language uses. ECMAScript
             provides the specification on how JavaScript programming language
             should work.
-            <pre>
+            <div>
               JavaScript ES6 (also known as ECMAScript 2015 or ECMAScript 6) is
               the newer version of JavaScript that was introduced in 2015.
-            </pre>
+            </div>
             </span>
           </div>
         </div>
