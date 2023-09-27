@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Star from "./components/Star/Star";
-
 
 const Home = React.lazy(() => import("./components/home"));
 const Debouncing = React.lazy(() => import("./components/debouncing"));
@@ -23,6 +21,8 @@ const Accordian = React.lazy(() => import("./components/Accordian"));
 const Slider = React.lazy(() => import("./components/Slider/Slider"));
 const Modal = React.lazy(() => import("./components/Modal/Modal"));
 const SolidPrincipless = React.lazy(() => import("./SolidPrinciples"));
+const DetectOutside = React.lazy(() => import("./components/DetectOutside"));
+const Star = React.lazy(() => import("./components/Star/Star"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -109,6 +109,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Star,
       path: "/star",
+    },
+    {
+      component: DetectOutside,
+      path: "/detectOutside",
     },
   ];
 

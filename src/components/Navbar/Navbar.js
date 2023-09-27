@@ -23,7 +23,7 @@ export default function Navbar() {
   };
 
   return (
-    <div style={style}>
+    <div id="navbar" style={style}>
       <a
         href="/"
         onClick={(e) =>

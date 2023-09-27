@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function SidebarComponents(props) {
     return (
-        <div style={{marginTop:"-7px",display:"flex",flexDirection:"column"}}>
+        <div style={{display:"flex",flexDirection:"column"}}>
         <Link to={"/progressbar"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Progress Bar</Link>
         <Link to={"/debouncing"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Debouncing and throtlling</Link>
         <Link to={"/infiniteScroll"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Infinite Scroll</Link>
@@ -23,6 +23,7 @@ function SidebarComponents(props) {
         <Link to={"/modal"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Modal </Link>
         <Link to={"/solid"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Solid Principles </Link>
         <Link to={"/star"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Star Widget </Link>
+        <Link to={"/detectOutside"} style={{border:"1px solid black",margin:"10px",padding:"2px"}}> Detect Outside </Link>
         </div>
     );
 }
