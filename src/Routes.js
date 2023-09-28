@@ -23,6 +23,10 @@ const Modal = React.lazy(() => import("./components/Modal/Modal"));
 const SolidPrincipless = React.lazy(() => import("./SolidPrinciples"));
 const DetectOutside = React.lazy(() => import("./components/DetectOutside"));
 const Star = React.lazy(() => import("./components/Star/Star"));
+const ToggleSwitch = React.lazy(() =>
+  import("./components/ToggleSwitch/ToggleSwitch")
+);
+
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -113,6 +117,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: DetectOutside,
       path: "/detectOutside",
+    },
+    {
+      component: ToggleSwitch,
+      path: "/toggleSwitch",
     },
   ];
 
