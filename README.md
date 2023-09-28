@@ -1,8 +1,25 @@
 # **Frontend Interview Questions**
 
-- **psuedo-class** : A pseudo-class is used to define a special state of an element. For example, it can be used to: Style an element when a user mouses over it. Style visited and unvisited links differently.
+- **Psuedo-classes** : Pseudo-classes(:) are used to define a special state of an element. For example, it can be used to: Style an element when a user mouses over it. Style visited and unvisited links differently.
 
     *Example*: hover,link,visited
+
+    ```css
+    a:hover {
+        color: lavender;
+    }  
+    ```
+
+-------------------------------
+
+- **Pseudo-Elements** : Pseudo-elements (::) are used to style specified parts of an element. They can be used to target the first letter or first line. Or they can be used to insert content before or after the element.
+
+    ```css
+    p::first-letter {
+        font-size: 9em;
+    }
+    ```
+-------------------------------    
 
 - **CDN:** A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
  Ex: cloudfare
@@ -1214,7 +1231,9 @@ Therefore, the browser cannot paint any browser updates until useLayoutEffect ru
     - **Compound components** are a pattern in which multiple components work together to have a shared state and handle logic together, they are called compound components.   
     Example: components like the ``` <select> ``` and ``` <option> ``` elements in HTML,Tabs.
 
-    - **Render Props Pattern:** It refers to a technique for sharing code between React components using a prop whose value is a render function. Ex: React router,Formik 
+    - **Render Props Pattern:** It refers to a technique for sharing code between React components using a prop whose value is a render function. Ex: React router,Formik.
+
+     This function, known as the render prop, allows the component to share its internal state, logic, or UI structure with other components. Instead of rendering content directly, the component calls the render prop function and returns its output. This pattern enables dynamic and customizable behavior without the need for complex inheritance or prop drilling.
 
     - HOC
     - Custom Hooks
