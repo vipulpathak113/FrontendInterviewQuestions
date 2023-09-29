@@ -6,7 +6,7 @@ export const ThemeContext = createContext();
 const themeOptions = {
   dark: {
     backgroundColor: "black",
-    color: "maroon",
+    color: "white",
   },
   light: {
     backgroundColor: "white",

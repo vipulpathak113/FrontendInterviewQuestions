@@ -12,7 +12,7 @@ export default function Navbar() {
   const style = {
     display: "flex",
     justifyContent: "space-around",
-    background: "khaki",
+    background: "darkkhaki",
     height: "40px",
     padding: "2px",
     fontSize: "18px",
