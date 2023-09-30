@@ -663,7 +663,9 @@ console.log(myfun) // returns function funcA(){}
 - % : relative to parent 
 - vh/vw: relative to screen present
 - rem : relative to root font size
-- em: relative to parent font size
+- em: relative to parent font size :
+    - if parent font-size is set to xem then child will think 1em as xem.
+    - Also if we try to set any attribute other than font-size(yem) in child then it will be 1em as yem
 ------------------------------------------------
 - **boxsizing:** (default: content-box)<br>
   **border-box:** Include padding and border in the element's total width and height
@@ -1386,6 +1388,15 @@ Whenever we instantiate an object with the constructor, the constructor makes th
         - It is static and compile time
 
 
+------------------------------------------------
+
+
+- **Usage of keys in React** - 
+
+    - never use random value in the “key” attribute: it will cause the item to re-mount on every render. Unless of course, this is your intention
+    - there is no harm in using the array’s index as “key” in “static” lists - those whose items number and order stay the same
+    - use item unique identifier (“id”) as “key” when the list can be re-sorted or items can be added in random places
+    - you can use the array’s index as “key” for dynamic lists with stateless items, where items are replaced with the new ones - paginated lists, search and autocomplete results and the like. This will improve the list’s performance.
 ------------------------------------------------
 
 ## Typescript:
