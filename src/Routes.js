@@ -26,7 +26,7 @@ const Star = React.lazy(() => import("./components/Star/Star"));
 const ToggleSwitch = React.lazy(() =>
   import("./components/ToggleSwitch/ToggleSwitch")
 );
-
+const TransferList = React.lazy(() => import("./components/TransferList"));
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -121,6 +121,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: ToggleSwitch,
       path: "/toggleSwitch",
+    },
+    {
+      component: TransferList,
+      path: "/transferList",
     },
   ];
 
