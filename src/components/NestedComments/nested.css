@@ -1,0 +1,44 @@
+.container{
+    height:100vh;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.card {
+    border: 10px;
+    background-color: lightgray;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.text{
+    display: block;
+    font-weight: bold
+}
+.reply{
+    color: blue;
+    cursor: pointer;
+}
+
+.comment-details{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.submit{
+    margin-left: 10px;
+    border: 0px;
+    border-radius: 10px;
+    width: 80px;
+    background-color: blue;
+    color: white;
+    height: 20px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.all-comment:not(:first-child){
+    margin-left: 4rem
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+import Nested from "./components/NestedComments";
 
 const Home = React.lazy(() => import("./components/home"));
 const Debouncing = React.lazy(() => import("./components/debouncing"));
@@ -125,6 +126,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: TransferList,
       path: "/transferList",
+    },
+     {
+      component: Nested,
+      path: "/nestedComments",
     },
   ];
 
