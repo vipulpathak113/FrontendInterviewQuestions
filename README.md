@@ -1389,6 +1389,30 @@ Whenever we instantiate an object with the constructor, the constructor makes th
 
 
 ------------------------------------------------
+- **Caching:** Caching is the idea of storing reusable data in a high-speed data storage layer, so it can be retrieved faster to serve future requests.
+    Caching for a resource is done with the help of **Cache-Control HTTP header.** It has both request and response directives that tell browsers and shared caches how to approach a resource.
+
+    Types of Caches in the Browser (Chrome)
+    Google chrome specifically has four types of caches:
+
+    - **Memory cache:** Memory cache is a short-term cache that stores all resources cached during the current document’s lifetime (nonpersistent). The resources cached here remain till the tab/session is closed. It is stored in memory.
+    - **Disk cache:** Disk cache (HTTP cache) is a persistent cache that allows resources to be reused between sessions and across sites. It is a disk-based cache.
+    - **Service worker cache:** The service worker has a cache API, which we can use to control the cache and is persistent. Service workers are a JS file, a fundamental component of building PWA (Progressive Web Apps).
+    - **Push cache:** The Push cache is where HTTP/2 push resources are stored. Pushing is a performance optimisation technique where the server sends the browser some resources before it requests them.
+
+        ![caching](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*NEDd93DdKrdhScduOkbPkA.png)
+
+- **Cache Busting:**
+Let’s say your website has an index.html , script.js , and style.css . You want the items to be cached for a long time (like a year or so), but you’re also making changes to script.js , and style.css regularly and deploying. Since the name doesn’t change, the users would be served the files from the cache.
+
+    Cache busting is a way to tackle this issue where we use versions or hashes in file names so that browser can load them and update the cache. Ex. in webpack we have name like [hash].js
+
+- **Cache-control:** A cache-control header that is part of the response from the server can tell browsers or proxies whether to cache the resource, how long it should be cached for, whether it should revalidate, etc.
+
+- **ETags:**
+    Suppose a file is in the cache, and the browser has to revalidate it before using it. This can be done with the help of an entity tag (ETag) viz. HTTP header. The value of an ETag is an identifier that represents a specific version of the file. They also help prevent simultaneous updates of a file from overwriting each other. If file is not chnaged then served returns 304 Not modified.
+
+------------------------------------------------
 
 
 - **Usage of keys in React** - 
