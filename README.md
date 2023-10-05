@@ -1148,7 +1148,7 @@ Ex: navigator.userAgent
 ---------------------------------------------------------------------------
 
 - The useImperativeHandle Hook allows us to expose a value, state, or function inside a child component to the parent component through ref.
- Example: Modal in child component and button to open in parent component. Logic for modal open in child so expose this fn using "useImperativeHandle" to parent and also parent will not rerender parent and only re-render child.
+ Example: Modal in child component and button to open in parent component. Logic for modal open in child so expose this fn using "useImperativeHandle" to parent and also it will not rerender parent and only re-render child.
 
  ```js
  useImperativeHandle(ref, () => ({
