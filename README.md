@@ -35,8 +35,9 @@ JavaScript Hoisting refers to the process whereby the interpreter appears to mov
 
 - **Event loop**:
 An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
-callbackque--setTimeOut
-jobQueue -- promise thenables --> executes before callback queue
+
+Callbackque(Macrotask queue) - setTimeOut,setIntervals
+JobQueue(Microtask queue) - Promise thenables,Mutation observer --> executes before callback queue
 
     Event loop checks b/w callstack and queue , if callstack is empty and queue has elements then it pop from queue and push in callstack
 
@@ -160,7 +161,7 @@ Ex: if dependency is 3.4.2 it supports for 3.*.*(means on npm install if 3.5.0 i
 Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
 --------------------------------------------------------------------------------------------------
 - **package-lock.json** : Have snapshot of whole dependency tree. It locks the dependency tree.
-        - if a user deletes the node modules n package-lock and do npm install then package-lock will have version as per semantic and not as package.json
+        - if a user deletes the node modules and package-lock and do npm install then package-lock will have version as per semantic and not as package.json
         - if a user deletes the node modules but keep package-lock and do npm install then package-lock will have same version as package.json (Recommended)
         - if a user manually update package.json with a version which remain in semantic then package-lock will remain within semantic ver.
         - if a user manually update package.json with a version which is outside in semantic then package-lock will override the version
@@ -181,7 +182,7 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
       preload is a declarative fetch, allowing you to force the browser to make a request for a resource without blocking the document’s onload event.
     ![preload](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/preload_fe604-1300x0.jpg)  
 
-        ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
+    ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)  
 
     - prefetch - load content that may be needed to render the next page/or in future
     - preconnect - establish a server connection without loading a specific resource yet. Handshake with domain is done before hand only.
@@ -215,8 +216,8 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
     - can run package without installation remotely / also mentioned in package.json
     - save space as it is not installed globally or locally it directly runs it
 --------------------------------------------
-- Code splitting(lazy load): Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
-- Using dynamic import we can do code splitting . Ex: import { add } from './math';
+- **Code splitting(lazy load):** Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance. 
+- Using dynamic import we can do code splitting . Ex: ```js import { add } from './math';```
 
 - React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
     Ex: ```js const Home = React.lazy(() => import("./components/home")); ```
@@ -226,7 +227,7 @@ Ex: if dependency is 3.4.2 it supports for 3.4.*(means on npm install if 3.4.2 i
 - Controlled vs Uncontrolled form input:
     - **Uncontrolled:** traditional html input>> use to get value using ref (ex in case of form submit)
     ex: ``` <input type="text" ref = {this.input}/> ```
-    - **Controlled :** In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so Ui and data are in sync
+    - **Controlled :** In controlled component the form input element’s values and mutations are totally driven by event handlers and the value of the input element is always inferred from the state. so UI and data are in sync
     ex: ``` <input type="text" value={this.state.name} onchange={this.changeName}/> ```
 
     - Why they are required?<br/>
@@ -349,22 +350,22 @@ ACTIONS:
 
     Deep copying is a technique that creates a new object, which is an exact copy of an existing object. This includes copying all its properties and any nested objects, instead of references. 
 
-        - Json.parse,JSON.stringfy do deep copy
-        - Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
-        ex:
-        ```js
-        let person = {
-            "name":"vipul",
-            "address":{
-                "city":"gkp",
-            }
+    - Json.parse,JSON.stringfy do deep copy
+    - Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
+    ex:
+    ```js
+    let person = {
+        "name":"vipul",
+        "address":{
+            "city":"gkp",
         }
+    }
 
-        let copied = JSON.parse(JSON.stringfy(person));
-        copied.name = "test";
-        copied.address.city="noida"
-        ```
-        *now in person object, nothing will be changed*
+    let copied = JSON.parse(JSON.stringfy(person));
+    copied.name = "test";
+    copied.address.city="noida"
+    ```
+    *now in person object, nothing will be changed*
 -----------------------------------------------------------------
 
 - Pure component
@@ -378,7 +379,7 @@ ACTIONS:
 
 ------------------------------------------------
 
-- Component lifecycle>(in order which they are called)
+- Class Component lifecycle>(in order which they are called)
     - MOUNTING: When new instance created or inserted in DOM
     constructor
     static getDerivedStateFromProps>>if initial state depends on props, cannot use this inside it, return null or object updating state, called on every rerender
@@ -532,7 +533,7 @@ const [isPending, startTransition] = useTransition();
         - **default binding:** global or window
         - **implicit binding:** call by .
         - **explicit binding:** call,apply and bind
-        - **constructor call binding:** object created with new are are bound to this
+        - **constructor call binding:** object created with new are bound to this
 
     Ex:
 
