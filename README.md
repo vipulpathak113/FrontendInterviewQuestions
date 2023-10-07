@@ -1213,7 +1213,7 @@ https://prateeksurana.me/blog/future-of-rendering-in-react/
   - null is an assigned value. It means nothing.
   - undefined typically means a variable has been declared but not defined yet.
   - null and undefined are falsy values.
-  - null and undefined are both primitives. However there is an open bug in JS which shows typeof null = object.
+  - null and undefined are both primitives. typeof undefined is undefined. However there is an open bug in JS which shows typeof null = object.
   - null !== undefined but null == undefined.
   - if passed undefined in a function with default parameter it returns with default parameter while null uses null value only
 
@@ -1530,6 +1530,18 @@ Whenever we instantiate an object with the constructor, the constructor makes th
   - there is no harm in using the array’s index as “key” in “static” lists - those whose items number and order stay the same
   - use item unique identifier (“id”) as “key” when the list can be re-sorted or items can be added in random places
   - you can use the array’s index as “key” for dynamic lists with stateless items, where items are replaced with the new ones - paginated lists, search and autocomplete results and the like. This will improve the list’s performance.
+
+---
+
+- **Javascript memory leaks:**
+  - **Global variables:** Always decleare variables with let, var, const
+  - **setInterval, setTimeout:** Always clear them using clearTimeout and clearInterval
+  - **Closures:** Variable inside closures are not GC
+  - **Event Listners:** Always use removeEventListners after using them
+  - **Detach DOM Elements:** After removing element from DOM always assign the variable to null
+  - **Websockets:** Close the connection after use
+
+For detailed info visit [Memory Leak JS](https://blog.stackademic.com/your-js-app-is-leaking-memory-and-you-dont-know-914e64ed07c7)
 
 ---
 
