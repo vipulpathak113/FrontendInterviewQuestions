@@ -25,6 +25,8 @@
 - **CDN:** A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
   Ex: cloudfare
 
+  ***
+
 - **Hoisting:**
   JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
 
@@ -33,6 +35,8 @@
       - var is hoisted with undefined value
       - let and const are hoisted but in a different way >> The variable is said to be in a "temporal dead zone" (TDZ) from the start of the block until the declaration has completed.
       - Function expressions and class expressions are not hoisted.
+
+---
 
 - **Event loop**:
   An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
