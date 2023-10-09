@@ -35,6 +35,9 @@ export default function Navbar() {
         Home
       </a>
       <div>System Status: {isOnline ? "Online" : "Offline"}</div>
+      <div>
+        Time/Date: <b>{new Date().toLocaleString()}</b>
+      </div>
       <div onClick={toggleTheme} style={{ cursor: "pointer" }}>
         <img
           src={`${isDarkMode ? moon : brightness}`}

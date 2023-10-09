@@ -14,17 +14,19 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   const [{ theme }] = useContext(ThemeContext);
   return (
-    <div
-      className="App"
-      style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
-    >
+    <>
       <Navbar />
-      <Router history={history}>
-        <Suspense fallback={"Loading"}>
-          <Routes />
-        </Suspense>
-      </Router>
-    </div>
+      <div
+        className="App"
+        style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
+      >
+        <Router history={history}>
+          <Suspense fallback={"Loading"}>
+            <Routes />
+          </Suspense>
+        </Router>
+      </div>
+    </>
   );
 }
 

@@ -56,7 +56,7 @@ code {
   font-size: larger;
 }
 
-.actual-answer{
+.actual-answer {
   font-size: larger;
   margin-left: 20px;
 }
@@ -71,53 +71,59 @@ code {
 
 /* tic tac toe */
 
-#div1, #div4, #div7{
+#div1,
+#div4,
+#div7 {
   clear: left;
   border-left-width: 0px !important;
 }
 
-#div1, #div2, #div3{
+#div1,
+#div2,
+#div3 {
   border-top-width: 0px !important;
 }
 
-#div3, #div6, #div9{
+#div3,
+#div6,
+#div9 {
   border-right-width: 0px !important;
 }
 
-#div7, #div8, #div9{
+#div7,
+#div8,
+#div9 {
   border-bottom-width: 0px !important;
 }
 
-
 table {
-  margin:1em auto;
+  margin: 1em auto;
   table-layout: fixed;
   border: 1;
   width: 550px;
 }
 td {
-  height:30px;
-  width: 10px!important;;
-  border:1px solid;
-  text-align:center;
+  height: 30px;
+  width: 10px !important;
+  border: 1px solid;
+  text-align: center;
 }
 td:first-child {
-  border-left:solid;
+  border-left: solid;
 }
 td:nth-child(3n) {
-  border-right:solid ;
+  border-right: solid;
 }
 tr:first-child {
-  border-top:solid;
+  border-top: solid;
 }
 tr:nth-child(3n) td {
-  border-bottom:solid ;
+  border-bottom: solid;
 }
 
-td input
-{
+td input {
   width: 100%;
-    box-sizing: border-box;
+  box-sizing: border-box;
   border: none;
   background-color: transparent;
   resize: none;
@@ -125,7 +131,7 @@ td input
   text-align: center;
 }
 
-div[data-tooltip]::after{
+div[data-tooltip]::after {
   content: attr(data-tooltip);
   display: block;
   position: absolute;
@@ -134,27 +140,27 @@ div[data-tooltip]::after{
   transform: scale(0);
   border: 1px solid black;
   background-color: grey;
-  color:white;
+  color: white;
   border-radius: 5px;
   transition: ease-out 150ms;
 }
 
-div[data-tooltip]:hover::after{
+div[data-tooltip]:hover::after {
   bottom: 100%;
   transform: scale(1);
 }
 
-#o-list{
+#o-list {
   counter-reset: o-list;
   list-style: none;
 }
 
-#o-list li::before{
-counter-increment: o-list;
-content: counter(o-list) '.';
+#o-list li::before {
+  counter-increment: o-list;
+  content: counter(o-list) ".";
 }
 
-.code{
+.code {
   background: #f7f4f3;
   display: flex;
   justify-content: center;

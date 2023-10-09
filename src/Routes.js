@@ -1,33 +1,69 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Nested from "./components/NestedComments";
+import Nested from "./components/Implementation/NestedComments";
 
 const Home = React.lazy(() => import("./components/home"));
-const Debouncing = React.lazy(() => import("./components/debouncing"));
-const InfiniteScroll = React.lazy(() => import("./components/infiniteScroll"));
-const ProgressBar = React.lazy(() => import("./components/progressBar"));
-const Tictactoe = React.lazy(() => import("./components/tictactoe"));
-const SodukuSolver = React.lazy(() => import("./components/sodukuSolve"));
-const HOCImp = React.lazy(() => import("./components/HOC/HOCExample"));
-const Playground = React.lazy(() => import("./components/playground"));
-const Section = React.lazy(() => import("./components/Section"));
-const Timer = React.lazy(() => import("./components/timer"));
-const ErrorBoundry = React.lazy(() => import("./components/ErrorComponent"));
-const ContextApi = React.lazy(() => import("./components/ContextApi"));
-const CustomHookUse = React.lazy(() => import("./components/CustomHookUse"));
-const Pagination = React.lazy(() => import("./components/Pagination"));
-const FileStructure = React.lazy(() => import("./components/fileStructure"));
-const TabComponent = React.lazy(() => import("./components/Tab/TabComponent"));
-const Accordian = React.lazy(() => import("./components/Accordian"));
-const Slider = React.lazy(() => import("./components/Slider/Slider"));
-const Modal = React.lazy(() => import("./components/Modal/Modal"));
-const SolidPrincipless = React.lazy(() => import("./SolidPrinciples"));
-const DetectOutside = React.lazy(() => import("./components/DetectOutside"));
-const Star = React.lazy(() => import("./components/Star/Star"));
-const ToggleSwitch = React.lazy(() =>
-  import("./components/ToggleSwitch/ToggleSwitch")
+const Debouncing = React.lazy(() =>
+  import("./components/Implementation/debouncing")
 );
-const TransferList = React.lazy(() => import("./components/TransferList"));
+const InfiniteScroll = React.lazy(() =>
+  import("./components/Implementation/infiniteScroll")
+);
+const ProgressBar = React.lazy(() =>
+  import("./components/Implementation/progressBar")
+);
+const Tictactoe = React.lazy(() =>
+  import("./components/Implementation/tictactoe")
+);
+const SodukuSolver = React.lazy(() =>
+  import("./components/Implementation/sodukuSolve")
+);
+const HOCImp = React.lazy(() =>
+  import("./components/Implementation/HOC/HOCExample")
+);
+const Playground = React.lazy(() => import("./components/playground"));
+const Section = React.lazy(() => import("./components/Implementation/Section"));
+const Timer = React.lazy(() => import("./components/Implementation/timer"));
+const ErrorBoundry = React.lazy(() =>
+  import("./components/Implementation/ErrorBoundary/ErrorComponent")
+);
+const ContextApi = React.lazy(() => import("./Contexts/ContextApi"));
+const CustomHookUse = React.lazy(() =>
+  import("./components/Implementation/CustomHookUse")
+);
+const Pagination = React.lazy(() =>
+  import("./components/Implementation/Pagination")
+);
+const FileStructure = React.lazy(() =>
+  import("./components/Implementation/fileStructure")
+);
+const TabComponent = React.lazy(() =>
+  import("./components/Implementation/Tab/TabComponent")
+);
+const Accordian = React.lazy(() =>
+  import("./components/Implementation/Accordian")
+);
+const Slider = React.lazy(() =>
+  import("./components/Implementation/Slider/Slider")
+);
+const Modal = React.lazy(() =>
+  import("./components/Implementation/Modal/Modal")
+);
+const SolidPrincipless = React.lazy(() => import("./SolidPrinciples"));
+const DetectOutside = React.lazy(() =>
+  import("./components/Implementation/DetectOutside")
+);
+const Star = React.lazy(() => import("./components/Implementation/Star/Star"));
+const ToggleSwitch = React.lazy(() =>
+  import("./components/Implementation/ToggleSwitch/ToggleSwitch")
+);
+const TransferList = React.lazy(() =>
+  import("./components/Implementation/TransferList")
+);
+
+const HighlightText = React.lazy(() =>
+  import("./components/Implementation/HighlightText")
+);
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -127,9 +163,13 @@ const Routes = withRouter(({ location }) => {
       component: TransferList,
       path: "/transferList",
     },
-     {
+    {
       component: Nested,
       path: "/nestedComments",
+    },
+    {
+      component: HighlightText,
+      path: "/highlightText",
     },
   ];
 

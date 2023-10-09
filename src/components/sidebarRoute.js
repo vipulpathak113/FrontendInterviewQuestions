@@ -21,5 +21,6 @@ export const SidebarPaths = [
   { title: "Progress Bar", path: "/progressbar" },
   { title: "Toggle Switch", path: "/toggleSwitch" },
   { title: "Transfer List", path: "/transferList" },
-  { title: "Nested Comments", path: "/nestedComments" }
+  { title: "Nested Comments", path: "/nestedComments" },
+  { title: "Highlight Text", path: "/highlightText" },
 ];
