@@ -1032,33 +1032,33 @@ Order of specifity is **inline> id> class> tag**
 
 ---
 
-- Weakest Set and Weakest Map:
+- **Weakest Set and Weakest Map:**
 
   Normally js can store object as a key but only one time.
   ex:
 
   ```js
-  let a ={}
-  let b = {num:2}
+  let a = {};
+  let b = { num: 2 };
 
-  let c = {}
+  let c = {};
   c[a] = "a";
   c[b] = "b";
 
-  so console.log(c) // will print only b obj...it remembers only last obj.
+  console.log(c); // will print only b obj...it remembers only last obj.
   ```
 
-  - So Map was introduced to store multiple object as a key
+- So Map was introduced to store multiple object as a key
 
-    ```js
-    let mapval = new Map();
-    mapval.set(a);
-    mapval.set(b);
-    ```
+  ```js
+  let mapval = new Map();
+  mapval.set(a);
+  mapval.set(b);
+  ```
 
-    But in this the object set as key are not garbage collected so we use weakmap;
+  But in this the object set as key are not garbage collected so we use weakmap;
 
-  - Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
+- Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
 
 ---
 
@@ -1099,7 +1099,7 @@ https://prateeksurana.me/blog/future-of-rendering-in-react/
 
 ---
 
-- Core Web Vitals:
+- **Core Web Vitals:**
 
   - Loading performance – It shows how fast content appears on the screen.
   - Responsiveness – It shows how fast a page responds to user input.
