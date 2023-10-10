@@ -34,7 +34,9 @@ export default function Navbar() {
       >
         Home
       </a>
-      <div>System Status: {isOnline ? "Online" : "Offline"}</div>
+      <div>
+        System Status: <b>{isOnline ? "Online" : "Offline"}</b>
+      </div>
       <div>
         Time/Date: <b>{new Date().toLocaleString()}</b>
       </div>
