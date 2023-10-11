@@ -121,7 +121,7 @@ Usage:
     // Expected output: "c"
     ```
 
-- **compose** : compose take function and evaluate function where one fn out become input of other fn (right to left)
+- **compose** : compose take function and evaluate function where one fn output becomes input of other fn (right to left)
   `js const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)`
 
 - **pipe** : evaluate from left to right
@@ -139,7 +139,11 @@ Usage:
   - It transforms syntax (let a ="xyz") and
   - Polyfills to support functionality (like includes)
 
-For babel we need to install 3 packages: - @babel/core - This is main babel library which transpiles the code - @babel/cli - This is used to handle command line code for babel - @babel/preset-env - This is used to configure which browser to support for babel
+For babel we need to install 3 packages:
+
+- @babel/core - This is main babel library which transpiles the code
+- @babel/cli - This is used to handle command line code for babel
+- @babel/preset-env - This is used to configure which browser to support for babel
 
 ```js
 // babel.rc
@@ -164,7 +168,11 @@ For babel we need to install 3 packages: - @babel/core - This is main babel libr
 
 ---
 
-- **package-lock.json** : Have snapshot of whole dependency tree. It locks the dependency tree. - if a user deletes the node modules and package-lock and do npm install then package-lock will have version as per semantic and not as package.json - if a user deletes the node modules but keep package-lock and do npm install then package-lock will have same version as package.json (Recommended) - if a user manually update package.json with a version which remain in semantic then package-lock will remain within semantic ver. - if a user manually update package.json with a version which is outside in semantic then package-lock will override the version
+- **package-lock.json** : Have snapshot of whole dependency tree. It locks the dependency tree.
+  - if a user deletes the node modules and package-lock and do npm install then package-lock will have version as per semantic and not as package.json
+  - if a user deletes the node modules but keep package-lock and do npm install then package-lock will have same version as package.json (Recommended)
+  - if a user manually update package.json with a version which remain in semantic then package-lock will remain within semantic ver.
+  - if a user manually update package.json with a version which is outside in semantic then package-lock will override the version
 
 ---
 
@@ -431,7 +439,7 @@ For babel we need to install 3 packages: - @babel/core - This is main babel libr
 - Why getDerivedStateFromProps is static?
   getDerivedStateFromProps exists only to enable a component to update its internal state as a result of changes in props. As we update only state on the bases of props, so there is no reason of comparing nextProps and this.props. Here we should compare only next props and previous state, If state and props are different, update state otherwise there should be no update.
 
-If we compare this.props with next props,we require to store the old props value, which impact performance. Keeping copy of past value is called memoization. To avoid misuse of “this” and memoization, getDerivedStateFromProps is made static.
+  If we compare this.props with next props,we require to store the old props value, which impact performance. Keeping copy of past value is called memoization. To avoid misuse of “this” and memoization, getDerivedStateFromProps is made static.
 
 ---
 
