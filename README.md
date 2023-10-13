@@ -122,10 +122,22 @@ Usage:
     ```
 
 - **compose** : compose take function and evaluate function where one fn output becomes input of other fn (right to left)
-  `js const compose = (...fns)=>val=>fns.reduceRight((prev,fn)=>fn(prev),val)`
+
+  ```js
+  const compose =
+    (...fns) =>
+    (val) =>
+      fns.reduceRight((prev, fn) => fn(prev), val);
+  ```
 
 - **pipe** : evaluate from left to right
-  `js const pipe = (...fns)=>val=>fns.reduce((prev,fn)=>fn(prev),val)`
+
+  ```js
+  const pipe =
+    (...fns) =>
+    (val) =>
+      fns.reduce((prev, fn) => fn(prev), val);
+  ```
 
 - **Promise**: The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
@@ -162,9 +174,11 @@ For babel we need to install 3 packages:
 - **Webpack**: Its a Module bundler which is use to bundle all modules in single file>
   Its main function is to create dependency graph so that it can be injected in proper order
 
-- **Package.json : dependecies and ^ ,~ version:** - **^ :** backwards-compatible new functionality also old functionality operational,bug fix
-  Ex: if dependency is 3.4.2 it supports for 3._._(means on npm install if 3.5.0 is available then it will update it not 4.0.0) - **~ :** bug fix
-  Ex: if dependency is 3.4.2 it supports for 3.4.\*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
+- **Package.json : dependecies and ^ ,~ version:**
+  - **^ :** backwards-compatible new functionality also old functionality operational,bug fix
+    Ex: if dependency is 3.4.2 it supports for 3._._(means on npm install if 3.5.0 is available then it will update it not 4.0.0)
+  - **~ :** bug fix
+    Ex: if dependency is 3.4.2 it supports for 3.4.\*(means on npm install if 3.4.2 is available then it will update it not 3.5.0)
 
 ---
 
@@ -431,8 +445,9 @@ For babel we need to install 3 packages:
 
     - componentwillunmount
 
-  - ERROR: when there is error in component - static getDerivedStateFromError> show fallback UI in case of error>> return state
-    componentDidCatch>> logs error information
+  - ERROR: when there is error in component
+    - static getDerivedStateFromError> show fallback UI in case of error>> return state
+    - componentDidCatch>> logs error information
 
 ---
 
@@ -465,7 +480,7 @@ For babel we need to install 3 packages:
   - stores info max 4KB
   - can be deleted by setting expiry date(document.cookie="name=vipul;expires="+new Date().toString())[accept only UTC date]// max-age can be used which uses time in seconds
   - can be send to server on every http request
-  - use Secure for sending cookes over https(document.cookie="name=vipul;Secure")
+  - use Secure for sending cookies over https(document.cookie="name=vipul;Secure")
   - use HttpOnly when you do not want client to update the cookie (document.cookie="name=vipul;HttpOnly")
   - path="/" make cookie accessible to provided path only
 
@@ -536,7 +551,9 @@ Before React 18, rendering was synchronous. This meant that once React started r
 ---
 
 - **useDeferredValue():** this is useful when React needs to keep the old state value in the UI by applying the necessary UI changes while the new state value is being processed and then ready to be added to the UI.
-  It is different than debounce and throttling as: - It can be interuptable unlike debounce and throttling which uses timeout - It can be executed quickly also based on the system unlike debounce and throttling which uses proper delay time
+  It is different than debounce and throttling as:
+  - It can be interuptable unlike debounce and throttling which uses timeout
+  - It can be executed quickly also based on the system unlike debounce and throttling which uses proper delay time
 
 ```js
 const defQuery = useDeferredValue(query);
@@ -666,7 +683,7 @@ console.log(myfun); // returns function funcA(){}
     1. Less boilerplate code.
     2. Easy to understand as compared to redux-saga
     3. Action creators may hold too much async logic
-    4. uses callbacks which may lead to situations like‘callback hell’ in some cases.
+    4. Uses callbacks which may lead to situations like 'callback hell' in some cases.
 
   - **Saga:**
     1. More boilerplate code
@@ -887,7 +904,11 @@ Pros and Cons of CSR
 
   - **Clickjacking:**
     Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top level page.<br/>
-    **_Prevention:_** - X-Frame-Options HTTP header with value same origin - "Content-Security-Policy", "frame-ancestors 'self';"
+
+    **_Prevention:_**
+
+    - X-Frame-Options HTTP header with value same origin
+    - "Content-Security-Policy", "frame-ancestors 'self';"
 
   - **Cross Site Scripting (XSS):**
     XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user<br/>
@@ -910,7 +931,9 @@ Pros and Cons of CSR
   - **Cross Site Request Forgery (CSRF):**
     Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated.
     With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing.<br/>
+
     **_Prevention:_**
+
   - Random Tokens
   - Same site in cookies
 
@@ -947,8 +970,7 @@ Pros and Cons of CSR
 ---
 
 - **PropTypes:**
-  PropTypes are a mechanism to ensure that components use the correct data type and pass the right data,
-  and that components use the right type of props, and that receiving components receive the right type of props.
+  PropTypes are a mechanism to ensure that components use the correct data type and pass the right data, and that components use the right type of props, and that receiving components receive the right type of props.
 
       Ex:
       ```js
@@ -1023,8 +1045,13 @@ Order of specifity is **inline> id> class> tag**
 ---
 
 - **CSS Combinators:** It defines relationship b/w two selectors.
-  There are 4 types of combinators: - **descendant selector (space) -** Every child of a particular element irrespective of position will be selected. `css  .abc li` - **child selector (>) -** Every direct child of a particular element will be selected.`css  .abc>li` - **general sibling selector (~) -** Every sibling after the particular element within the same parent will be selected.`css  .abc~li` - **adjacent sibling selector (+) -** Select first sibling after the particular element.
-  `css  .abc+li`
+  There are 4 types of combinators:
+  - **descendant selector (space) -** Every child of a particular element irrespective of position will be selected. `css  .abc li`
+  - **child selector (>) -** Every direct child of a particular element will be selected.
+    `css  .abc>li`
+  - **general sibling selector (~) -** Every sibling after the particular element within the same parent will be selected.`css  .abc~li`
+  - **adjacent sibling selector (+) -** Select first sibling after the particular element.
+    `css  .abc+li`
 
 ---
 
@@ -1351,7 +1378,7 @@ useImperativeHandle(ref, () => ({
   <br/>Example: compress image site where compression occurs in background
 
 - **A service worker** acts as a network proxy between an app, the browser, and the server, allowing scripts to run even in the event when the network goes offline. It is a type of web workers.
-  -They can cache results
+  - They can cache results
   - Works in offline mode
   - Send push notifications
   - Follow same origin policy
@@ -1428,9 +1455,13 @@ useImperativeHandle(ref, () => ({
   - **resolve** returns pending promise for any promised values regardless of their state. And may change the returned promise’s state in some async way.
 
 - Error handling in Javascript:
-  There are three types of error: - **Syntax Errors:** Syntax errors, also called parsing errors, occur at compile time.
-  Ex: missing brackets,etc - **Runtime Errors:** Runtime errors, also called exceptions, occur during execution (after compilation/interpretation).
-  Ex: Calling a method that does not exists - **Logical Errors:** Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected. **You cannot catch these errors.**
+  There are three types of error:
+
+  - **Syntax Errors:** Syntax errors, also called parsing errors, occur at compile time.
+    Ex: missing brackets,etc
+  - **Runtime Errors:** Runtime errors, also called exceptions, occur during execution (after compilation/interpretation).
+    Ex: Calling a method that does not exists
+  - **Logical Errors:** Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected. **You cannot catch these errors.**
 
   - **try...catch...finally Statement:** You can catch programmer-generated and runtime exceptions, but you cannot catch JavaScript syntax errors. They can catch synchronous code errors. To check for asynchronous code, use promises or aync await.
 

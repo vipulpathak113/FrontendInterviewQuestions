@@ -13,7 +13,7 @@ function visit_url(url) {
 
 function forward() {
   if (
-    forward_slack.length == 0 ||
+    forward_slack.length === 0 ||
     current_url === forward_slack[forward_slack.length - 1]
   ) {
     console.log("Not  found");
@@ -27,7 +27,7 @@ function forward() {
 
 function backward() {
   if (
-    backward_slack.length == 0 ||
+    backward_slack.length === 0 ||
     current_url === backward_slack[backward_slack.length - 1]
   ) {
     console.log("Not  found");
