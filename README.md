@@ -86,9 +86,15 @@ Usage:
 
 - **First Class functions**: Functions are treated as values – that you can assign a function into a variable, pass it around etc.
 
+---
+
 - **Higher Order functions**: Functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
 
+---
+
 - **map vs foreach** : foreach does not return any value whereas map return new array
+
+---
 
 - **for in vs for of** -
 
@@ -120,6 +126,8 @@ Usage:
     // Expected output: "b"
     // Expected output: "c"
     ```
+
+---
 
 - **compose** : compose take function and evaluate function where one fn output becomes input of other fn (right to left)
 
