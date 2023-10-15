@@ -1,11 +1,11 @@
 var current_url = "";
 
-let backward_slack = [];
-let forward_slack = [];
+let backward_stack = [];
+let forward_stack = [];
 
 function visit_url(url) {
   if (current_url !== "") {
-    backward_slack.push(current_url);
+    backward_stack.push(current_url);
   }
 
   current_url = url;
@@ -13,29 +13,29 @@ function visit_url(url) {
 
 function forward() {
   if (
-    forward_slack.length === 0 ||
-    current_url === forward_slack[forward_slack.length - 1]
+    forward_stack.length === 0 ||
+    current_url === forward_stack[forward_stack.length - 1]
   ) {
     console.log("Not  found");
     return;
   } else {
-    backward_slack.push(current_url);
-    current_url = forward_slack[forward_slack.length - 1];
-    forward_slack.pop();
+    backward_stack.push(current_url);
+    current_url = forward_stack[forward_stack.length - 1];
+    forward_stack.pop();
   }
 }
 
 function backward() {
   if (
-    backward_slack.length === 0 ||
-    current_url === backward_slack[backward_slack.length - 1]
+    backward_stack.length === 0 ||
+    current_url === backward_stack[backward_stack.length - 1]
   ) {
     console.log("Not  found");
     return;
   } else {
-    forward_slack.push(current_url);
-    current_url = backward_slack[backward_slack.length - 1];
-    backward_slack.pop();
+    forward_stack.push(current_url);
+    current_url = backward_stack[backward_stack.length - 1];
+    backward_stack.pop();
   }
 }
 
