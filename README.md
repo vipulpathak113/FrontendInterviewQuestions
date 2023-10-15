@@ -51,11 +51,19 @@ JobQueue(Microtask queue) - Promise thenables,Mutation observer --> executes bef
   then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
 - **Event bubbling** (by default on event handler) :
-  When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. - **event.stopPropagation()** stops the move upwards, but on the current element all other handlers will run. - **stopImmediatePropagation()** To stop the bubbling and prevent handlers on the current element from running,. After it no other handlers exec
+  When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+
+  - **event.stopPropagation()** stops the move upwards, but on the current element all other handlers will run.
+  - **stopImmediatePropagation()** To stop the bubbling and prevent handlers on the current element from running,. After it no other handlers exec
 
 - **Event capturing** :
   Opposite of bubbling.
-  Can be enabled by `elem.addEventListener(..., {capture: true})`
+  Can be enabled by
+
+  ````js
+   elem.addEventListener(..., {capture: true})```
+
+  ````
 
 - **Closures**: A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
   In other words, a closure gives you access to an outer function's scope from an inner function
@@ -89,6 +97,19 @@ Usage:
 ---
 
 - **Higher Order functions**: Functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
+
+---
+
+---
+
+- **Symbol** : It is a primitive value with unique identifier.
+  - Always return unique reference.
+  - Cannot be used as key in object.
+  - On looping key with Object.keys or for in loop, property will be not be visible.
+  ```js
+  let sym = Sybmol("id"); // to create symbol
+  let val = Symbol.for("id"); // to get the value of symbol
+  ```
 
 ---
 
@@ -258,7 +279,11 @@ For babel we need to install 3 packages:
 ---
 
 - **Code splitting(lazy load):** Usually webpack bundle all files into one and load into app. Bundle increases as files increases so need to split the bundle and load only when files are needed to improve app performance.
-- Using dynamic import we can do code splitting . Ex: `js import { add } from './math';`
+- Using dynamic import we can do code splitting . Ex:
+
+```js
+import { add } from "./math";
+```
 
 - React.lazy takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component.
   Ex: `js const Home = React.lazy(() => import("./components/home")); `
@@ -284,10 +309,10 @@ For babel we need to install 3 packages:
 ---
 
 - The lifecycle of an HTML page has three important events:
-  - DOMContentLoaded –(it waits for scripts before them to load except async and document.createElement('script') ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures `<img>` and stylesheets may not yet have loaded.
-  - load – not only HTML is loaded, but also all the external resources: images, styles etc.
-  - unload – the user leaves the page
-  - onbeforeunload - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.If we cancel the event, the browser may ask the visitor if they are sure.
+  - **DOMContentLoaded** –(it waits for scripts before them to load except async and document.createElement('script') ) the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures `<img>` and stylesheets may not yet have loaded.
+  - **load** – not only HTML is loaded, but also all the external resources: images, styles etc.
+  - **unload** – the user leaves the page
+  - **onbeforeunload** - If a visitor initiated navigation away from the page or tries to close the window, the beforeunload handler asks for additional confirmation.If we cancel the event, the browser may ask the visitor if they are sure.
 
 ---
 
@@ -379,7 +404,7 @@ For babel we need to install 3 packages:
 
 - Shallow vs Deep copy
 
-  - **SHALLOW COPY:** Copied values still connected to original variable.
+  - **SHALLOW COPY:** Copied values still connected to original reference.
 
   Shallow copying only creates a new reference to the existing objects or values and doesn’t create a deep copy, which means that nested objects are still referenced, not duplicated.
 
@@ -408,7 +433,7 @@ For babel we need to install 3 packages:
 
   Deep copying is a technique that creates a new object, which is an exact copy of an existing object. This includes copying all its properties and any nested objects, instead of references.
 
-  - Json.parse,JSON.stringfy do deep copy
+  - Json.parse,JSON.stringify do deep copy
   - Different memory is allocated to copied>> It copies non primitive containing non primitive/primitives values
     ex:
 
@@ -784,18 +809,18 @@ console.log(myfun); // returns function funcA(){}
 - **Resize Observer:**
   It reacts to changes in size of any of the observed elements, independent of what caused the change.
   It provides access to the new size of the observed elements too.
-  `` js
-var element = document.getElementbyId("test");
-var ro = new ResizeObserver(entries => {
+  ```js
+  var element = document.getElementbyId("test");
+  var ro = new ResizeObserver((entries) => {
     for (let entry of entries) {
-    const cr = entry.contentRect;
-    console.log('Element:', entry.target);
-    console.log(`Element size: ${cr.width}px x ${cr.height}px`);
-    console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
-}
-});
-ro.observe(element);
- ``
+      const cr = entry.contentRect;
+      console.log("Element:", entry.target);
+      console.log(`Element size: ${cr.width}px x ${cr.height}px`);
+      console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
+    }
+  });
+  ro.observe(element);
+  ```
 
 ---
 
@@ -1006,13 +1031,13 @@ Handling events with react have some syntactic differences from handling events 
 Event declaration in plain HTML:
 
 ```html
-<button onclick="showMessage()">Hello JavaTpoint</button>
+<button onclick="showMessage()">Hello Vipul</button>
 ```
 
 Event declaration in React:
 
-```html
-<button onClick="{showMessage}">Hello JavaTpoint</button>
+```jsx
+<button onClick={showMessage}>Hello Vipul</button>
 ```
 
 - In react, we cannot return false to prevent the default behavior.
