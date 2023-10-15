@@ -147,9 +147,15 @@ Usage:
       fns.reduce((prev, fn) => fn(prev), val);
   ```
 
+---
+
 - **Promise**: The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
+---
+
 - **async/await** : Syntactical Sugar of Promise which makes promise code cleaner.
+
+---
 
 - **ECMA** : ECMAScript is the standard that JavaScript programming language uses. ECMAScript provides the specification on how JavaScript programming language should work.(TC-39 is the commitee handelling it)
 
