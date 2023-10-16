@@ -38,7 +38,7 @@
 
 ---
 
-- **Event loop**:
+- **Event loop**: JS is a single threaded language and synchronous and using event loop it can heavy loaded in event loop.
   An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
 
 Callbackque(Macrotask queue) - setTimeOut,setIntervals
