@@ -100,8 +100,6 @@ Usage:
 
 ---
 
----
-
 - **Symbol** : It is a primitive value with unique identifier.
   - Always return unique reference.
   - Cannot be used as key in object.
@@ -109,6 +107,25 @@ Usage:
   ```js
   let sym = Sybmol("id"); // to create symbol
   let val = Symbol.for("id"); // to get the value of symbol
+  ```
+
+---
+
+- **Document Fragment:** The DocumentFragment interface represents a minimal document object that has no parent.
+
+  - DocumentFragment act as a virtual DOM. It's not connected to the DOM and unlike elements, it has no parent, EVER. You can then interact with the fragment as if it's a virtual document object. It's all in memory.
+  - It's really helpful to use fragments when you have many DOM manipulations to make or style changes, because those will trigger reflows and repaints - expensive operations on the DOM that can slow the page load down.
+  - It triggers only one reflow when the fragment is inserted into the DOM, no matter how many children it contains.
+  - DocumentFragment is not an element or a Node. It's a stripped down Document object with a reduced set of properties and methods
+
+  ```js
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < 100; i++) {
+    let node = document.createElement("div");
+    node.innerText = "hi";
+    frag.appendChild(node);
+  }
+  document.body.appendChild(frag); // here reflow will be done only 1 time which increases performance
   ```
 
 ---
