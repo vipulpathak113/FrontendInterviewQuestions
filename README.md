@@ -41,20 +41,19 @@
 - **Event loop**: JS is a single threaded language and synchronous and using event loop it can heavy loaded in event loop.
   An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
 
-Callbackque(Macrotask queue) - setTimeOut,setIntervals
-JobQueue(Microtask queue) - Promise thenables,Mutation observer --> executes before callback queue
+  Callbackque(Macrotask queue) - setTimeOut,setIntervals
+  JobQueue(Microtask queue) - Promise thenables,Mutation observer --> executes before callback queue
 
-    Event loop checks b/w callstack and queue , if callstack is empty and queue has elements then it pop from queue and push in callstack
+  Event loop checks b/w callstack and queue , if callstack is empty and queue has elements then it pop from queue and push in callstack
 
 - **Event delegation**:
-  The idea is that if we have a lot of elements handled in a similar way,
-  then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
+  The idea is that if we have a lot of elements handled in a similar way,then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
 - **Event bubbling** (by default on event handler) :
   When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
 
   - **event.stopPropagation()** stops the move upwards, but on the current element all other handlers will run.
-  - **stopImmediatePropagation()** To stop the bubbling and prevent handlers on the current element from running,. After it no other handlers exec
+  - **stopImmediatePropagation()** To stop the bubbling and prevent handlers on the current element from running. After it no other handlers will be executed.
 
 - **Event capturing** :
   Opposite of bubbling.
@@ -102,7 +101,7 @@ Usage:
 
 - **Symbol** : It is a primitive value with unique identifier.
   - Always return unique reference.
-  - Cannot be used as key in object.
+  - Can be used as key in object.
   - On looping key with Object.keys or for in loop, property will be not be visible.
   ```js
   let sym = Sybmol("id"); // to create symbol
@@ -263,7 +262,10 @@ For babel we need to install 3 packages:
   ![preloadas](https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-beb128c/upload/blog/value_as_types_d1ec9cf88b-1300x0.jpg)
 
   - prefetch - load content that may be needed to render the next page/or in future
-  - preconnect - establish a server connection without loading a specific resource yet. Handshake with domain is done before hand only.
+  - preconnect - establish a server connection without loading a specific resource yet. DNS lookup,TLS negotiations and TCP handshakes are done before by browser.
+  - dns-prefetch - DNS lookup.
+
+  **Note:** _Use preconnect if resources are needed frequently so that useless TCP and TLS are not done. dns-prefetch can be used if not frequent_
 
   More Ref: https://nitropack.io/blog/post/resource-hints-performance-optimization
 
@@ -1149,7 +1151,7 @@ Order of specifity is **inline> id> class> tag**
 
   But in this the object set as key are not garbage collected so we use weakmap;
 
-- Set can store any primitive value but weakset can only store objects these are also usedd to garbage collect object
+- Set can store any primitive value but weakset can only store objects these are also used to garbage collect object
 
 ---
 
