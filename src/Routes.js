@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Nested from "./components/Implementation/NestedComments";
+import { Nested } from "./components/Implementation/NestedComments";
 
 const Home = React.lazy(() => import("./components/home"));
 const Debouncing = React.lazy(() =>
