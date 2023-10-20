@@ -4,7 +4,7 @@ export const CommentInput = ({ onComment }) => {
   const [body, setBody] = useState("");
 
   return (
-    <>
+    <div style={{ marginTop: "10px" }}>
       <input
         value={body}
         placeholder="What are your thoughts"
@@ -18,6 +18,6 @@ export const CommentInput = ({ onComment }) => {
       >
         Comment
       </button>
-    </>
+    </div>
   );
 };

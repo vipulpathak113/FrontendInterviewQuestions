@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { CommentItem } from "./CommentItem";
+import React from "react";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 import { CommentInput } from "./CommentInput";
+import { CommentItem } from "./CommentItem";
 
 export const Nested = () => {
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useLocalStorage("comments", []);
 
   const onComment = (newComment) => {
     setComments([newComment, ...comments]);
@@ -15,7 +16,7 @@ export const Nested = () => {
         <CommentInput onComment={onComment} />
       </div>
       <div>
-        {comments.map((comment, id) => (
+        {comments?.map((comment, id) => (
           <CommentItem key={id} comment={comment} />
         ))}
       </div>
