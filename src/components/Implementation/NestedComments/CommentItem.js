@@ -11,12 +11,21 @@ export const CommentItem = ({ comment }) => {
   };
 
   return (
-    <div style={{ padding: "10px", border: "1px solid", marginTop: "10px" }}>
+    <div className="commentItem">
       <span>{comment.body}</span>
-      <button style={{ display: "block" }} onClick={() => setIsReply(true)}>
-        Reply
-      </button>
       {isReply && <CommentInput onComment={onComment} />}
+      <div className="btn">
+        {isReply ? (
+          <button className="reply cancel" onClick={() => setIsReply(false)}>
+            Cancel
+          </button>
+        ) : (
+          <button className="reply" onClick={() => setIsReply(true)}>
+            Reply
+          </button>
+        )}
+      </div>
+
       <div>
         {comments?.map((comment, id) => (
           <CommentItem key={id} comment={comment} />

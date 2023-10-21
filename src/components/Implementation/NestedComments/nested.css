@@ -1,1 +1,53 @@
+.commentItem {
+  padding: 10px;
+  border: 1px solid darkgray;
+  margin-top: 10px;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-left: 10px;
+  overflow-wrap: break-word;
+}
 
+.btn {
+  display: flex;
+  gap: 2px;
+  margin-top: 10px;
+}
+
+.textInputWrapper {
+  display: flex;
+  gap: 3px;
+  margin-top: 10px;
+}
+
+.textInput {
+  width: 15rem;
+  height: 1.5rem;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid dimgray;
+}
+
+.button {
+  background-color: black;
+  border-radius: 10px;
+  border: 1px solid white;
+  width: 6rem;
+  color: white;
+  cursor: pointer;
+}
+
+.reply {
+  background-color: green;
+  color: white;
+  width: 4rem;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: firebrick;
+}
