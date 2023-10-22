@@ -1002,7 +1002,7 @@ Pros and Cons of CSR
 
       ReactDOM.createPortal(child, container)
 
----
+------
 
 - **Generators:**
   Regular functions return only one, single value (or nothing).
