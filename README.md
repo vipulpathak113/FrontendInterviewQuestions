@@ -1737,7 +1737,7 @@ For detailed info visit [Memory Leak JS](https://blog.stackademic.com/your-js-ap
 
       **Note: We cannot override property using extends, typescript will throw error**
 
----
+------
 
 - **Type Guard:** A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block.
 
