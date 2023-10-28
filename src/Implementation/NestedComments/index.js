@@ -1,5 +1,5 @@
 import React from "react";
-import useLocalStorage from "../../../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import { CommentInput } from "./CommentInput";
 import { CommentItem } from "./CommentItem";
 import "./nested.css";

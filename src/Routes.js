@@ -1,68 +1,68 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { Nested } from "./components/Implementation/NestedComments";
+import { Nested } from "./Implementation/NestedComments";
 
 const Home = React.lazy(() => import("./components/home"));
 const Debouncing = React.lazy(() =>
-  import("./components/Implementation/debouncing")
+  import("./Implementation/debouncing")
 );
 const InfiniteScroll = React.lazy(() =>
-  import("./components/Implementation/infiniteScroll")
+  import("./Implementation/infiniteScroll")
 );
 const ProgressBar = React.lazy(() =>
-  import("./components/Implementation/progressBar")
+  import("./Implementation/progressBar")
 );
 const Tictactoe = React.lazy(() =>
-  import("./components/Implementation/tictactoe")
+  import("./Implementation/tictactoe")
 );
 const SodukuSolver = React.lazy(() =>
-  import("./components/Implementation/sodukuSolve")
+  import("./Implementation/sodukuSolve")
 );
 const HOCImp = React.lazy(() =>
-  import("./components/Implementation/HOC/HOCExample")
+  import("./Implementation/HOC/HOCExample")
 );
 const Playground = React.lazy(() => import("./components/playground"));
-const Section = React.lazy(() => import("./components/Implementation/Section"));
-const Timer = React.lazy(() => import("./components/Implementation/timer"));
+const Section = React.lazy(() => import("./Implementation/Section"));
+const Timer = React.lazy(() => import("./Implementation/timer"));
 const ErrorBoundry = React.lazy(() =>
-  import("./components/Implementation/ErrorBoundary/ErrorComponent")
+  import("./Implementation/ErrorBoundary/ErrorComponent")
 );
 const ContextApi = React.lazy(() => import("./Contexts/ContextApi"));
 const CustomHookUse = React.lazy(() =>
-  import("./components/Implementation/CustomHookUse")
+  import("./Implementation/CustomHookUse")
 );
 const Pagination = React.lazy(() =>
-  import("./components/Implementation/Pagination")
+  import("./Implementation/Pagination")
 );
 const FileStructure = React.lazy(() =>
-  import("./components/Implementation/fileStructure")
+  import("./Implementation/fileStructure")
 );
 const TabComponent = React.lazy(() =>
-  import("./components/Implementation/Tab/TabComponent")
+  import("./Implementation/Tab/TabComponent")
 );
 const Accordian = React.lazy(() =>
-  import("./components/Implementation/Accordian")
+  import("./Implementation/Accordian")
 );
 const Slider = React.lazy(() =>
-  import("./components/Implementation/Slider/Slider")
+  import("./Implementation/Slider/Slider")
 );
 const Modal = React.lazy(() =>
-  import("./components/Implementation/Modal/Modal")
+  import("./Implementation/Modal/Modal")
 );
 const SolidPrincipless = React.lazy(() => import("./SolidPrinciples"));
 const DetectOutside = React.lazy(() =>
-  import("./components/Implementation/DetectOutside")
+  import("./Implementation/DetectOutside")
 );
-const Star = React.lazy(() => import("./components/Implementation/Star/Star"));
+const Star = React.lazy(() => import("./Implementation/Star/Star"));
 const ToggleSwitch = React.lazy(() =>
-  import("./components/Implementation/ToggleSwitch/ToggleSwitch")
+  import("./Implementation/ToggleSwitch/ToggleSwitch")
 );
 const TransferList = React.lazy(() =>
-  import("./components/Implementation/TransferList")
+  import("./Implementation/TransferList")
 );
 
 const HighlightText = React.lazy(() =>
-  import("./components/Implementation/HighlightText")
+  import("./Implementation/HighlightText")
 );
 
 const Routes = withRouter(({ location }) => {
