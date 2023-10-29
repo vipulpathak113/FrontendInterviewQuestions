@@ -23,4 +23,5 @@ export const SidebarPaths = [
   { title: "Transfer List", path: "/transferList" },
   { title: "Nested Comments", path: "/nestedComments" },
   { title: "Highlight Text", path: "/highlightText" },
+  { title: "Retry Mechanism", path: "/retry" },
 ];

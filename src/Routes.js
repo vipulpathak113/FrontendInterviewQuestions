@@ -64,6 +64,9 @@ const TransferList = React.lazy(() =>
 const HighlightText = React.lazy(() =>
   import("./Implementation/HighlightText")
 );
+const Retry = React.lazy(() =>
+  import("./Implementation/RetryMechanism")
+);
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -171,6 +174,10 @@ const Routes = withRouter(({ location }) => {
       component: HighlightText,
       path: "/highlightText",
     },
+    {
+      component: Retry,
+      path: "/retry",
+    }
   ];
 
   return (

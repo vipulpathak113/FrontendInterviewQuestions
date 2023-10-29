@@ -9,7 +9,7 @@ function SidebarComponents() {
         <Link
           key={id}
           to={item.path}
-          style={{ border: "1px solid black", margin: "10px", padding: "2px" }}
+          className="border-yellow-600 border m-1 p-1 text-blue-600 underline"
         >
           {item.title}
         </Link>
