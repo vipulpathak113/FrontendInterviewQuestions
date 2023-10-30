@@ -1,34 +1,29 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-.rate {
-    display: inline-block;
-    border: 0;
+.star-container{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    font-size: xx-large;
+    direction: rtl;
 }
-/* Hide radio */
-.rate > input {
-    display: none;
+
+.star {
+  color: gray;
 }
-/* Order correctly by floating highest to the right */
-.rate > label {
-    float: right;
-}
-/* The star of the show */
-.rate > label:before {
-    display: inline-block;
-    font-size: 2rem;
-    padding: .3rem .2rem;
-    margin: 0;
+
+.star:hover ~ span{
+    color: gold;
     cursor: pointer;
-    font-family: FontAwesome;
-    content: "\f005 "; /* full star */
 }
 
-/* Half star trick */
-.rate .half:before {
-    content: "\f089 "; /* half star no outline */
-    position: absolute;
-    padding-right: 0;
+.star:hover{
+    color: gold;
+    cursor: pointer;
 }
 
-.rate .half:checked::before{
-content: "";
+.star:focus ~ span{
+    color: gold;
+}
+
+.star:focus{
+    color: gold;
 }
