@@ -548,7 +548,7 @@ import { add } from "./math";
   - In JavaScript, objects have a special hidden property [[Prototype]]
     that is either null or references another object. That object is called "a prototype".
   - When we read a property from object, and it's missing, JavaScript automatically takes it from the prototype.
-  - there can be only one \_proto
+  - there can be only one __proto
   - we can read proto but cannot update
 
 ---
@@ -1561,9 +1561,14 @@ After this function gets executed, there will be no reference of this function i
 
 ---
 
-- \***\*proto** :** The **proto\*\* property is a default property added to every object. This property points to the prototype of the object.
+-- **__proto vs Prototype:**
 
-The default prototype of every object is Object.prototype. Therefore, the **proto** property of the object points to the Object.prototype.
+__proto : Property of Class Constructor
+Prototype: Property of Class Instance
+
+- **__proto** :** The __proto property is a default property added to every object. This property points to the prototype of the object.
+
+The default prototype of every object is Object.prototype. Therefore, the **__proto** property of the object points to the Object.prototype.
 
 ---
 
@@ -1726,6 +1731,7 @@ For detailed info visit [Memory Leak JS](https://blog.stackademic.com/your-js-ap
   - Types:
 
     - Can be used to define both primitives and non-primitives
+    - Union can be done
     - Intersection can be done using **&** keyword
 
       **Note: We can override property using &.**
@@ -1733,6 +1739,7 @@ For detailed info visit [Memory Leak JS](https://blog.stackademic.com/your-js-ap
   - Interfaces:
 
     - Can only define non primitives
+    - Union cannot be done
     - Intersection can be done using **extends** keyword.
 
       **Note: We cannot override property using extends, typescript will throw error**
