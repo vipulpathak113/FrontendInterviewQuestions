@@ -1,10 +1,14 @@
-let arr = [1, 2, 3, 4];
-let sumarr = arr.reduce((acc = 1, current) => (acc = acc * current));
-let result = [];
+let nums = [-1, 1, 0, -3, 3];
 
-for (let i = 0; i < arr.length; i++) {
-  let current = sumarr / arr[i];
-  result.push(current);
+let res = [];
+for (let i = 0; i < nums.length; i++) {
+  const mul = nums.reduce((acc, cur) => {
+    if (cur !== nums[i]) {
+      acc = acc * cur;
+    }
+    return acc;
+  });
+  res.push(mul);
 }
 
-console.log(result);
+console.log("res", res);
