@@ -971,7 +971,9 @@ Pros and Cons of CSR
   - **Cross Site Scripting (XSS):**
     XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user<br/>
     **_Prevention:_**
-    To prevent this attack in pure JS, let’s write a custom function that looks out for special characters such as `'<' , '>' and '&' `
+    - To prevent this attack in pure JS, let’s write a custom function that looks out for special characters such as `'<' , '>' and '&' `
+    - Avoid eval() and document.write
+    - Content-Security-Policy
 
   ```js
   String.prototype.escape = function () {
@@ -992,8 +994,9 @@ Pros and Cons of CSR
 
     **_Prevention:_**
 
-  - Random Tokens
+  - Anti CSRF Tokens
   - Same site in cookies
+  - HTTP Only cookies
 
 ---
 
@@ -1563,20 +1566,18 @@ After this function gets executed, there will be no reference of this function i
 
 -- **__proto vs Prototype:**
 
-__proto : Property of Class Constructor
-Prototype: Property of Class Instance
+__proto__ is used to access an object's prototype directly, while prototype is used to define the prototype for objects created with a constructor function.
 
-- **__proto** :** The __proto property is a default property added to every object. This property points to the prototype of the object.
+It's important to note that prototype is a property of functions (specifically, constructor functions), while __proto__ is a property of objects themselves.
 
-The default prototype of every object is Object.prototype. Therefore, the **__proto** property of the object points to the Object.prototype.
+  - **__proto__**:
+    - __proto__ property that exists on all JavaScript objects.
+    - It is a reference to the object’s prototype, which is essentially the object from which it inherits properties and methods
 
----
+  - **prototype**:
+    - prototype is a property that exists on constructor functions (functions used to create objects) and is used to define the prototype of objects created with that constructor function.
+    - It’s a property of the constructor function itself.  
 
-- **Prototype:** Prototypes are the mechanism by which JavaScript objects inherit features from one another.
-
-Functions are special types of objects. Function’s **proto** property points to Function.prototype as opposed to Object.prototype.
-
-Whenever we instantiate an object with the constructor, the constructor makes the **proto** property of the new object point to the same object as its prototype property.
 
 ---
 
