@@ -1335,7 +1335,7 @@ useImperativeHandle(ref, () => ({
 }));
 ```
 
----
+------
 
 - React fires both useEffect and useLayoutEffect after performing the DOM updates, useLayoutEffect is called before the browser paints those updates for users to see, synchronously, while useEffect is called after the browser paints those updates, asynchronously.
   Therefore, the browser cannot paint any browser updates until useLayoutEffect runs.
