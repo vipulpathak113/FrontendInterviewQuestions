@@ -1103,7 +1103,7 @@ Order of specifity is **inline> id> class> tag**
   but if we use !important with any property then it will override all properties
   ````
 
------
+---
 
 - **CSS Combinators:** It defines relationship b/w two selectors.
   There are 4 types of combinators:
