@@ -192,7 +192,7 @@ Usage:
 
 - **async/await** : Syntactical Sugar of Promise which makes promise code cleaner.
 
----
+-----
 
 - **ECMA** : ECMAScript is the standard that JavaScript programming language uses. ECMAScript provides the specification on how JavaScript programming language should work.(TC-39 is the commitee handelling it)
 
