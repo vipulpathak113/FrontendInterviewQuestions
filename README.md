@@ -277,7 +277,12 @@ For babel we need to install 3 packages:
 
 - **Eslint:** JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. ESLint is a linter which helps to improve the code quality and fix bugs beforehand itself to avoid it from coming at runtime. It also helps to avoid hard to debug issues in future
 
-  ESLint displays warning or error message when: - We use a variable without declaring it - We re-declare the variable - We try to change constant value - We add un-necessary parenthesis - When we use wrong syntax
+  ESLint displays warning or error message when: 
+    - We use a variable without declaring it 
+    - We re-declare the variable 
+    - We try to change constant value 
+    - We add un-necessary parenthesis 
+    - When we use wrong syntax
 
 ---
 
@@ -1504,7 +1509,7 @@ useImperativeHandle(ref, () => ({
 
 - Some Important points:
 
-  - Imports are also hoisted
+  - Imports are also hoisted 
   - exporting a variable return a constant so you cannot change the output value, to change it export an object then access and change it.
   - In Promises **.finally()** does not recieve any arguments and neither it returns anything
   - a parameter with a default value is optional, such a parameter is not included in the length of the function.
