@@ -36,7 +36,7 @@
       - let and const are hoisted but in a different way >> The variable is said to be in a "temporal dead zone" (TDZ) from the start of the block until the declaration has completed.
       - Function expressions and class expressions are not hoisted.
 
----
+-----
 
 - **Event loop**: JS is a single threaded language and synchronous and using event loop it can heavy loaded in event loop.
   An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
