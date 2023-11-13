@@ -67,6 +67,9 @@ const HighlightText = React.lazy(() =>
 const Retry = React.lazy(() =>
   import("./Implementation/RetryMechanism")
 );
+const Stepper = React.lazy(() =>
+  import("./Implementation/Stepper/Stepper")
+);
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -177,6 +180,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Retry,
       path: "/retry",
+    },
+    {
+      component: Stepper,
+      path: "/stepper",
     }
   ];
 
