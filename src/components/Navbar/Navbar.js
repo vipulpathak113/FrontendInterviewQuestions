@@ -19,6 +19,7 @@ export default function Navbar() {
     borderRadius: "5px",
     alignItems: "center",
     position: "sticky",
+    zIndex: "1",
     top: "2px",
   };
 
