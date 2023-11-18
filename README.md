@@ -20,7 +20,7 @@
   }
   ```
 
----
+-----
 
 - **CDN:** A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
   Ex: cloudfare
