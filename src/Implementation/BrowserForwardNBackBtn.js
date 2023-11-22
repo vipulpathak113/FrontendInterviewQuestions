@@ -1,104 +1,36 @@
-var current_url = "";
+class BrowserHistory {
+  constructor() {
+    this.history = [];
+    this.index = -1;
 
-let backward_stack = [];
-let forward_stack = [];
+    this.visit = function (url) {
+      this.history[++this.index] = url;
+    };
 
-function visit_url(url) {
-  if (current_url !== "") {
-    backward_stack.push(current_url);
-  }
+    this.current = function () {
+      if (this.index < 0) {
+        return "Blank Page";
+      }
+      return this.history[this.index];
+    };
 
-  current_url = url;
-}
+    this.backward = function () {
+      this.index = Math.max(-1, --this.index);
+    };
 
-function forward() {
-  if (
-    forward_stack.length === 0 ||
-    current_url === forward_stack[forward_stack.length - 1]
-  ) {
-    console.log("Not  found");
-    return;
-  } else {
-    backward_stack.push(current_url);
-    current_url = forward_stack[forward_stack.length - 1];
-    forward_stack.pop();
-  }
-}
-
-function backward() {
-  if (
-    backward_stack.length === 0 ||
-    current_url === backward_stack[backward_stack.length - 1]
-  ) {
-    console.log("Not  found");
-    return;
-  } else {
-    forward_stack.push(current_url);
-    current_url = backward_stack[backward_stack.length - 1];
-    backward_stack.pop();
+    this.forward = function () {
+      this.index = Math.min(this.history.length - 1, ++this.index);
+    };
   }
 }
 
-function simulatorFunction() {
-  // Current URL
-  let url = "ajay.com";
+let bh= new BrowserHistory();
+console.log(bh.current());
+bh.visit("a");
+bh.visit("b");
+console.log(bh.current());
+bh.backward();
+console.log(bh.current());
+bh.forward()
+console.log(bh.current());
 
-  // Visit the current URL
-  visit_url(url);
-
-  // Print the current URL
-  console.log("Current URL is: " + current_url);
-
-  // New current URL
-  url = "abc.com";
-
-  // Visit the current URL
-  visit_url(url);
-
-  // Print the current URL
-  console.log("Current URL is: " + current_url);
-
-  // Pressed backward button
-  backward();
-
-  // Print the current URL
-  console.log(
-    "Current URL after pressing" + " Backward button is: " + current_url
-  );
-
-  // Pressed forward button
-  forward();
-
-  // Print the current URL
-  console.log(
-    "Current URL after pressing" + " Forward button is: " + current_url
-  );
-
-  // New current URL
-  url = "nikhil.com";
-
-  // Visit the current URL
-  visit_url(url);
-
-  // Print the current URL
-  console.log("Current URL is: " + current_url + " </br>");
-
-  // Pressed forward button
-  forward();
-
-  // Print the current URL
-  console.log(
-    "Current URL after pressing" + " Forward button is: " + current_url
-  );
-  // Pressed backward button
-  backward();
-
-  // Print the current URL
-  console.log(
-    "Current URL after pressing" + " Backward button is: " + current_url
-  );
-}
-
-// Function to simulate process of
-// pressing forward & backward button
-simulatorFunction();
