@@ -135,7 +135,7 @@ td input {
   text-align: center;
 }
 
-div[data-tooltip]::after {
+/* div[data-tooltip]::after {
   content: attr(data-tooltip);
   display: block;
   position: absolute;
@@ -152,7 +152,7 @@ div[data-tooltip]::after {
 div[data-tooltip]:hover::after {
   bottom: 100%;
   transform: scale(1);
-}
+} */
 
 #o-list {
   counter-reset: o-list;

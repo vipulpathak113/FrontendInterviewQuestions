@@ -70,6 +70,9 @@ const Retry = React.lazy(() =>
 const Stepper = React.lazy(() =>
   import("./Implementation/Stepper/Stepper")
 );
+const Tooltip = React.lazy(() =>
+  import("./Implementation/Tooltip/Tooltip")
+);
 
 const Routes = withRouter(({ location }) => {
   const routes = [
@@ -184,6 +187,10 @@ const Routes = withRouter(({ location }) => {
     {
       component: Stepper,
       path: "/stepper",
+    },
+    {
+      component: Tooltip,
+      path: "/tooltip",
     }
   ];
 

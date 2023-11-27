@@ -1,0 +1,49 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tooltip {
+  position: relative;
+  border: 1px solid;
+  width: 50px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-align: center;
+}
+
+.tooltip::before,
+.tooltip::after {
+  position: absolute;
+  left: 50%;
+  display: none;
+}
+
+.tooltip::before {
+  content: "";
+  border-width: 10px 8px 0px 8px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.3) transparent transparent transparent;
+  top: -12px;
+  transform: translateX(-50%);
+  transition: all 0.3ms;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transform: translate(-50%, -100%);
+  top: -12px;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  display: block;
+}
