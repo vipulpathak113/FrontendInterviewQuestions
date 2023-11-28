@@ -21,6 +21,7 @@ export default function RetryMechanism() {
 
   const onRetry = async () => {
     showLoading(true);
+    showMessage("")
     const res = await retry(mockApiCall, 5);
     if (res.status) {
       showLoading(false);

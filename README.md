@@ -129,7 +129,13 @@ Usage:
 
 ---
 
-- **map vs foreach** : foreach does not return any value whereas map return new array
+- **map vs foreach** : 
+  - ForEach:
+      - Only traverse the array but do not return anything
+      - Cannot use return, break or continue to stop the loop.
+  - Map:    
+      - Traverse the array and return the result in new Array
+      - Can use return, break or continue to stop the loop.
 
 ---
 
@@ -1646,7 +1652,7 @@ It's important to note that prototype is a property of functions (specifically, 
 ---
 
 - **Javascript memory leaks:**
-  - **Global variables:** Always decleare variables with let, var, const
+  - **Global variables:** Always declare variables with let, var, const
   - **setInterval, setTimeout:** Always clear them using clearTimeout and clearInterval
   - **Closures:** Variable inside closures are not GC
   - **Event Listners:** Always use removeEventListners after using them
