@@ -1663,6 +1663,27 @@ For detailed info visit [Memory Leak JS](https://blog.stackademic.com/your-js-ap
 
 ---
 
+Custom events:
+```js
+
+//create custom event
+const myEvent = new CustomEvent("myevent", {
+  detail: {},
+  bubbles: true, // enable event bubbling
+  cancelable: true, // enable to use e.preventDefault()
+  composed: false, // make sure event bubbles from shadow dom to real dom
+});
+
+//dispatch custom event
+document.querySelector("#someElement").dispatchEvent(myEvent);
+
+
+//listen to custom event
+document.querySelector("#someElement").addEventListener("myevent", (event) => {
+  console.log("I'm listening on a custom event");
+});
+```
+
 ## Typescript:
 
 - TypeScript is a superset of JavaScript that compiles to plain JavaScript. TypeScript is an object-oriented and statically typed language.
