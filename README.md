@@ -132,7 +132,7 @@ Usage:
 - **map vs foreach** : 
   - ForEach:
       - Only traverse the array but do not return anything
-      - Cannot use return, break or continue to stop the loop.
+      - return, break or continue doesn't work.
   - Map:    
       - Traverse the array and return the result in new array
       - Can use return, break or continue to stop the loop.
