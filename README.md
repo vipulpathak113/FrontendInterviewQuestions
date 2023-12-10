@@ -10,7 +10,7 @@
   }
   ```
 
------
+---
 
 - **Pseudo-Elements** : Pseudo-elements (::) are used to style specified parts of an element. They can be used to target the first letter or first line. Or they can be used to insert content before or after the element.
 
