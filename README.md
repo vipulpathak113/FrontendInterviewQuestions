@@ -1790,3 +1790,16 @@ document.querySelector("#someElement").addEventListener("myevent", (event) => {
   - The **in** keyword
   - Equality narrowing type guard
   - Custom type guard with predicate
+
+- **Utility Types:**
+    - **Pick**, it takes an *object type* and extracts the specified properties.
+      ```ts 
+      Pick<{ a: string, b:string }, 'a' > === { a: string } ``` 
+    - **Omit** type takes an *object type* and removes the specified properties from the type.  
+      ```ts
+      Omit<{ a: string, b:string }, 'a' > === { b: string }
+      ```
+    - **Exclude** takes a *union type* and removes a constituent of that union.  
+      ```ts
+      Exclude<string | number, string > === number
+      ```
