@@ -1755,7 +1755,7 @@ document.querySelector("#someElement").addEventListener("myevent", (event) => {
   //TypeScript uses information from the onmousedown function to infer the type of the mouseEvent parameter.
   ```
 
----
+-----
 
 - **Types vs Interfaces:**
 
