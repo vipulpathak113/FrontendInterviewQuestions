@@ -1559,7 +1559,7 @@ useImperativeHandle(ref, () => ({
   <meta property="og:url" content="https://www.colbyfayock.com" />
   ```
 
------
+---
 
 - **Self Invoking Function (IIFE):** A self-invoking function is a nameless (anonymous) function that is invoked immediately after its definition.
 
