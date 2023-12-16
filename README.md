@@ -1777,7 +1777,7 @@ document.querySelector("#someElement").addEventListener("myevent", (event) => {
 
       **Note: We cannot override property using extends, typescript will throw error**
 
----
+-----
 
 - **Type Guard:** A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block.
 
