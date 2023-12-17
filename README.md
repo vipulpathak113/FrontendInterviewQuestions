@@ -1541,6 +1541,12 @@ useImperativeHandle(ref, () => ({
 
 - A **stacking context** is a group of elements that have a common parent and move up and down the z axis together. The z-index of elements inside of a stacking context are always relative to the parent's current order in its own stacking context.
 
+Stacking Context can be created using:
+  - Defining <html> element
+  - Using position other than static
+  - children of element with display flex or grid
+  - opacity < 1 
+
 ---
 
 - **z-index** works if position is other than static. For flex no need to set positions.
@@ -1777,7 +1783,7 @@ document.querySelector("#someElement").addEventListener("myevent", (event) => {
 
       **Note: We cannot override property using extends, typescript will throw error**
 
------
+---
 
 - **Type Guard:** A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block.
 
