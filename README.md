@@ -1,3 +1,5 @@
+## [How to do things related to Frontend](HowTo.md)
+
 # **Frontend Interview Questions**
 
 - **Psuedo-classes** : Pseudo-classes(:) are used to define a special state of an element. For example, it can be used to: Style an element when a user mouses over it. Style visited and unvisited links differently.
